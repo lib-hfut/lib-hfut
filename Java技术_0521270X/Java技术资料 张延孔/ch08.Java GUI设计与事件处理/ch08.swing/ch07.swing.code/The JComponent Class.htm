@@ -1,0 +1,487 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>The JComponent Class</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff link=#000099>
+<BLOCKQUOTE> 
+  <UL>
+    <LI><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/components/jcomponent.html#complookapi">Customizing 
+    Component Appearance</A> 
+    <LI><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/components/jcomponent.html#stateapi">Setting 
+    Component State</A> 
+    <LI><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/components/jcomponent.html#eventapi">Handling 
+    Events</A> 
+    <LI><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/components/jcomponent.html#custompaintingapi">Painting 
+    Components</A> 
+    <LI><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/components/jcomponent.html#containmentapi">Dealing 
+    with the Containment Hierarchy</A> 
+    <LI><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/components/jcomponent.html#layoutapi">Laying 
+    Out Components</A> 
+    <LI><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/components/jcomponent.html#sizeapi">Getting 
+    Size and Position Information</A> 
+    <LI><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/components/jcomponent.html#absoluteapi">Specifying 
+    Absolute Size and Position</A> </LI></UL>
+  <P>
+  <TABLE border=1>
+    <CAPTION><A name=complookapi><B>Customizing Component Appearance</B> 
+    </A></CAPTION>
+    <TBODY>
+    <TR>
+      <TH>Method </TH>
+      <TH>Purpose</TH>
+    <TR>
+      <TD><CODE><FONT size=2>void setBorder(Border) <BR>Border getBorder() 
+        </FONT></CODE><BR><EM>(in <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Set or get the border of the component. See <A 
+        href="file:///E:/mdf/java/tutorial/uiswing/misc/border.html" 
+        target=_top>How to Use Borders</A><A 
+        href="file:///E:/mdf/java/tutorial/uiswing/misc/border.html" 
+        target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+        height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> for 
+        details. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setForeground(Color) <BR>Color 
+        getForeground() <BR>void setBackground(Color) <BR>Color 
+        getBackground()</FONT></CODE> <BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Set or get the foreground or background color for the component. The 
+        foreground is generally the color used to draw the text in a component. 
+        The background is (not surprisingly) the color of the background areas 
+        of the component, assuming that the component is opaque. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setOpaque(boolean) </FONT></CODE><BR><EM>(in 
+        <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Set whether the component is opaque. An opaque component fills its 
+        background with its background color.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>boolean isOpaque </FONT></CODE><BR><EM>(in 
+        <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Get whether the component is opaque. This method (but not 
+        <CODE>setOpaque</CODE>) was added to <CODE>Component</CODE> in 1.2. </TD>
+    <TR>
+      <TD><CODE><FONT size=2>void setFont(Font) <BR>Font getFont() 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Set or get the component's font. If a font has not been set for the 
+        component, the font of its parent is returned.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>FontMetrics getFontMetrics(Font) 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Get the font metrics for the specified 
+font.</TD></TR></TR></TBODY></TABLE>
+  <P>
+  <TABLE border=1>
+    <CAPTION><A name=stateapi><B>Setting Component State</B> </A></CAPTION>
+    <TBODY>
+    <TR>
+      <TH>Method </TH>
+      <TH>Purpose</TH>
+    <TR>
+      <TD><CODE><FONT size=2>void setToolTipText(String) 
+        </FONT></CODE><BR><EM>(in <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Set the text to display in a tool tip. See <A 
+        href="file:///E:/mdf/java/tutorial/uiswing/components/tooltip.html">How 
+        to Use Tool Tips</A> for more information.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setEnabled(boolean b) <BR>boolean 
+        isEnabled() </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Set or get whether the component is enabled. An enabled component 
+        can respond to user input and generate events.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setLocale(Locale l) <BR>Locale getLocale() 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Set or get the component's locale. If the component does not have a 
+        locale, the locale of its parent is returned. See <A 
+        href="file:///E:/mdf/java/tutorial/i18n/index.html" 
+        target=_top>Internalization</A><A 
+        href="file:///E:/mdf/java/tutorial/i18n/index.html"><IMG 
+        alt="(in the Internationalization trail)" border=0 height=20 
+        src="The JComponent Class.files/internatsm.GIF" width=20></A> for 
+        information about locales. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setCursor(Cursor) <BR>Cursor getCursor() 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Set or get the cursor image to display when the mouse is over the 
+        component.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setVisible(boolean) <BR>boolean isVisible() 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Set or get whether the component is visible. Components are 
+        initially visible, with the exception of top-level components. 
+    </TD></TR></TBODY></TABLE>
+  <P>
+  <TABLE border=1>
+    <CAPTION><A name=eventapi><B>Handling Events</B> <BR>(see <A 
+    href="file:///E:/mdf/java/tutorial/uiswing/overview/event.html" 
+    target=_top>Event Handling</A><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/overview/event.html" 
+    target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+    height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> for 
+    details) </A></CAPTION>
+    <TBODY>
+    <TR>
+      <TH>Method </TH>
+      <TH>Purpose</TH>
+    <TR>
+      <TD><CODE><FONT size=2>void addComponentListener(ComponentListener) 
+        <BR>void removeComponentListener(ComponentListener) 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Add or remove a <A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/componentlistener.html" 
+        target=_top>component listener</A><A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/componentlistener.html" 
+        target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+        height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> to 
+        or from the component. Component listeners are notified when the 
+        listened-to component is hidden, shown, moved, or resized.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void addKeyListener(KeyListener) <BR>void 
+        removeKeyListener(KeyListener l) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Add or remove a <A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/keylistener.html" 
+        target=_top>key listener</A><A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/keylistener.html" 
+        target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+        height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> to 
+        or from the component. Key listeners are notified when the user types at 
+        the keyboard and the listened-to component has the keyboard focus.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>addMouseListener(MouseListener l) <BR>void 
+        removeMouseListener(MouseListener) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Add or remove a <A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/mouselistener.html" 
+        target=_top>mouse listener </A><A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/mouselistener.html" 
+        target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+        height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> to 
+        or from the component. Mouse listeners are notified when the user uses 
+        the mouse to interact with the listened-to component.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void addMouseMotionListener(MouseMotionListener) 
+        <BR>void removeMouseMotionListener(MouseMotionListener) 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Add or remove a <A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/mousemotionlistener.html" 
+        target=_top>mouse motion listener </A><A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/mousemotionlistener.html" 
+        target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+        height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> to 
+        or from the component. Mouse motion listeners are notified when the user 
+        moves the mouse within the listened-to component's bounds.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void addContainerListener(ContainerListener) 
+        <BR>void removeContainerListener(ContainerListener) 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Container</CODE>)</EM></TD>
+      <TD>Add or remove a <A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/containerlistener.html" 
+        target=_top>container listener</A><A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/containerlistener.html" 
+        target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+        height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> to 
+        or from the container. Container listeners are notified when a component 
+        is added to or removed from the listened-to container.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void addFocusListener(FocusListener) <BR>void 
+        removeFocusListener(FocusListener) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Add or remove a <A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/focuslistener.html" 
+        target=_top>focus listener</A><A 
+        href="file:///E:/mdf/java/tutorial/uiswing/events/focuslistener.html" 
+        target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+        height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> to 
+        or from the component. Focus listeners are notified when the listened-to 
+        component gains or loses keyboard focus.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>Component getNextFocusableComponent() <BR>void 
+        setNextFocusableComponent(Component) </FONT></CODE><BR><EM>(in 
+        <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Set or get the next focusable component. <CODE>null</CODE> indicates 
+        that the focus manager should choose the next focusable component 
+        automatically.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void requestFocus() <BR>boolean hasFocus() 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Request that the component get the keyboard focus, or detect whether 
+        it has the focus. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>boolean contains(int, int) <BR>boolean 
+        contains(Point p) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Determine whether the specified point is within the component. The 
+        argument should be specified in terms of the component's coordinate 
+        system. The two <CODE>int</CODE> arguments specify x and y coordinates, 
+        respectively.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>Component getComponentAt(int, int) 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Container</CODE>)</EM></TD>
+      <TD>Return the component that contains the specified x, y position. The 
+        top-most child component is returned in the case where components 
+        overlap. This is determined by finding the component closest to the 
+        index 0 that claims to contain the given point via 
+        <CODE>Component.contains()</CODE>.</TD></TR></TBODY></TABLE>
+  <P>
+  <TABLE border=1>
+    <CAPTION><A name=custompaintingapi><B>Painting Components</B> <BR>(see <A 
+    href="file:///E:/mdf/java/tutorial/uiswing/overview/draw.html" 
+    target=_top>Painting</A><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/overview/draw.html" 
+    target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+    height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> for 
+    details) </A></CAPTION>
+    <TBODY>
+    <TR>
+      <TH>Method </TH>
+      <TH>Purpose</TH>
+    <TR>
+      <TD><CODE><FONT size=2>void repaint() <BR>void repaint(int, int, int, 
+        int) </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Request that all or part of the component be repainted. The four 
+        <CODE>int</CODE> arguments specify the bounds (x, y, width, height, in 
+        that order) of the rectangle to be painted. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void repaint(Rectangle) </FONT></CODE><BR><EM>(in 
+        <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Request that the specified area within the component be repainted. 
+      </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void revalidate() </FONT></CODE><BR><EM>(in 
+        <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Request that the component and its affected containers be laid out 
+        again. You shouldn't generally need to invoke this method unless you 
+        explicitly change a component's size/alignment hints after it's visible, 
+        change a containment hierarchy after it's visible, or perhaps change the 
+        data in a component's model directly (without going through the 
+        component's API). You might need to invoke <CODE>repaint</CODE> after 
+        <CODE>revalidate</CODE>. </TD>
+    <TR>
+      <TD><CODE><FONT size=2>void paintComponent(Graphics)</FONT></CODE> 
+        <BR><EM>(in <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Paint the component. Override this method to implement painting for 
+        custom components.</TD></TR></TBODY></TABLE>
+  <P>
+  <TABLE border=1>
+    <CAPTION><A name=containmentapi><B>Dealing with the Containment 
+    Hierarchy</B> <BR>(see <A 
+    href="file:///E:/mdf/java/tutorial/uiswing/overview/hierarchy.html" 
+    target=_top>Swing Components and the Containment Hierarchy</A><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/overview/hierarchy.html" 
+    target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+    height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> for more 
+    information) </A></CAPTION>
+    <TBODY>
+    <TR>
+      <TH>Method </TH>
+      <TH>Purpose</TH>
+    <TR>
+      <TD><CODE><FONT size=2>Component add(Component) <BR>Component 
+        add(Component, int) <BR>void add(Component, Object) 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Container</CODE>)</EM></TD>
+      <TD>Add the specified component to the container. The one-argument 
+        version of this method adds the component to the end of the container. 
+        When present, the <CODE>int</CODE> argument indicates the new 
+        component's position within the container. When present, the 
+        <CODE>Object</CODE> argument provides layout constraints to the current 
+        layout manager.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void remove(int) <BR>void remove(Component comp) 
+        <BR>void removeAll() </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Container</CODE>)</EM></TD>
+      <TD>Remove one of or all of the components from the container. When 
+        present, the <CODE>int</CODE> argument indicates the position within the 
+        container of the component to remove. </TD>
+    <TR>
+      <TD><CODE><FONT size=2>JRootPane getRootPane() </FONT></CODE><BR><EM>(in 
+        <CODE>JComponent</CODE>)</EM></TD>
+      <TD>Get the root pane ancestor for the component.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>Container getParent() </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Get the component's parent.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>int getComponentCount() </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Container</CODE>)</EM></TD>
+      <TD>Get the number of components in the container.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>Component getComponent(int) <BR>Component[] 
+        getComponents() </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Container</CODE>)</EM></TD>
+      <TD>Get the one of or all of the components in the container. The 
+        <CODE>int</CODE> argument indicates the position of the component to 
+        get. </TD></TR></TBODY></TABLE>
+  <P>
+  <TABLE border=1>
+    <CAPTION><A name=layoutapi><B>Laying Out Components</B> <BR>(see <A 
+    href="file:///E:/mdf/java/tutorial/uiswing/layout/index.html" 
+    target=_top>Laying Out Components Within a Container</A><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/layout/index.html" 
+    target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+    height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> for more 
+    information) </A></CAPTION>
+    <TBODY>
+    <TR>
+      <TH>Method </TH>
+      <TH>Purpose</TH>
+    <TR>
+      <TD><FONT size=2><CODE>void setPreferredSize(Dimension) <BR>void 
+        setMaximumSize(Dimension) <BR>void setMinimumSize(Dimension) 
+        </CODE></FONT><BR><EM>(in <CODE>JComponent</CODE>)</EM> </TD>
+      <TD>Set the component's preferred, maximum, or minimum size, measured in 
+        pixels. The preferred size indicates the best size for the component. 
+        The component should be no larger than its maximum size and no smaller 
+        than its minimum size. Be aware that these are hints only and might be 
+        ignored by certain layout managers. </TD></TR>
+    <TR>
+      <TD><FONT size=2><CODE>Dimension getPreferredSize() <BR>Dimension 
+        getMaximumSize() <BR>Dimension getMinimumSize() 
+        </CODE></FONT><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Get the preferred, maximum, or minimum size of the component, 
+        measured in pixels. For non-<CODE>JComponent</CODE> subclasses, which 
+        don't have the corresponding setter methods, you can set a component's 
+        preferred, maximum, or minimum size by creating a subclass and 
+        overriding these methods. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setAlignmentX(float) <BR>void 
+        setAlignmentY(float) </CODE></FONT><BR><EM>(in 
+        <CODE>JComponent</CODE>)</EM> </TD>
+      <TD>Set the alignment along the x or y axis. These values indicate how 
+        the component would like to be aligned relative to other components. The 
+        value should be a number between 0 and 1 where 0 represents alignment 
+        along the origin, 1 is aligned the furthest away from the origin, and 
+        0.5 is centered, and so on. Be aware that these are hints only and might 
+        be ignored by certain layout managers. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>float getAlignmentX() <BR>float getAlignmentY() 
+        </CODE></FONT><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Get the preferred, maximum, or minimum size of the component. For 
+        non-Swing components, which don't have the corresponding setter methods, 
+        you can set a component's preferred, maximum, or minimum size by 
+        creating a subclass and overriding these methods. </TD></TR>
+    <TR>
+      <TD><FONT size=2><CODE>void setLayout(LayoutManager) <BR>LayoutManager 
+        getLayout() </CODE></FONT><BR><EM>(in 
+        <CODE>java.awt.Container</CODE>)</EM> </TD>
+      <TD>Set or get the component's layout manager. The layout manager is 
+        responsible for sizing and positioning the components within a 
+        container. </TD></TR></TBODY></TABLE>
+  <P>
+  <TABLE border=1>
+    <CAPTION><A name=sizeapi><B>Getting Size and Position Information</B> 
+    <BR></A></CAPTION>
+    <TBODY>
+    <TR>
+      <TH>Method </TH>
+      <TH>Purpose</TH>
+    <TR>
+      <TD><CODE><FONT size=2>int getWidth() <BR>int getHeight() 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Get the current width or height of the component measured in 
+      pixels.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>Dimension getSize() <BR>Dimension 
+        getSize(Dimension) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Get the component's current size measured in pixels. When using the 
+        one-argument version of this method, the caller is responsible for 
+        creating the <CODE>Dimension</CODE> instance in which the result is 
+        returned. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>int getX() <BR>int getY() 
+        </FONT></CODE><BR><EM>(in <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Get the current x or y coordinate of the component's origin relative 
+        to the parent's upper left corner measured in pixels. </TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>Rectangle getBounds() <BR>Rectangle 
+        getBounds(Rectangle) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Get the bounds of the component measured in pixels. The bounds 
+        specify the component's width, height, and origin relative to its 
+        parent. When using the one-argument version of this method, the caller 
+        is responsible for creating the <CODE>Rectangle</CODE> instance in which 
+        the result is returned.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>Point getLocation() <BR>Point getLocation(Point) 
+        <BR>Point getLocationOnScreen() </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM></TD>
+      <TD>Gets the current location of the component relative to the parent's 
+        upper left corner measured in pixels. When using the one-argument 
+        version of <CODE>getLocation</CODE> method, the caller is responsible 
+        for creating the <CODE>Point</CODE> instance in which the result is 
+        returned. The <CODE>getLocationOnScreen</CODE> method returns the 
+        position relative to the upper left corner of the screen.</TD>
+    <TR>
+      <TD><CODE><FONT size=2>Insets getInsets() </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Container</CODE>)</EM></TD>
+      <TD>Get the insets of the component.</TD></TR></TBODY></TABLE>
+  <P>
+  <TABLE border=1>
+    <CAPTION><A name=absoluteapi><B>Specifying Absolute Size and Position</B> 
+    <BR>(see <A href="file:///E:/mdf/java/tutorial/uiswing/layout/none.html" 
+    target=_top>Doing Without a Layout Manager</A><A 
+    href="file:///E:/mdf/java/tutorial/uiswing/layout/none.html" 
+    target=_top><IMG alt="(in the Creating a User Interface trail)" border=0 
+    height=20 src="The JComponent Class.files/uiIcon.gif" width=20></A> for more 
+    information) </A></CAPTION>
+    <TBODY>
+    <TR>
+      <TH>Method </TH>
+      <TH>Purpose</TH>
+    <TR>
+      <TD><CODE><FONT size=2>void setLocation(int, int) <BR>void 
+        setLocation(Point) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Set the location of the component, in pixels, relative to the 
+        parent's upper left corner. The two <CODE>int</CODE> arguments specify x 
+        and y, in that order. Use these methods to position a component when you 
+        aren't using layout manager.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setSize(int, int) <BR>void 
+        setSize(Dimension) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Set the size of the component measured in pixels. The two 
+        <CODE>int</CODE> arguments specify width and height, in that order. Use 
+        these methods to size a component when you aren't using layout 
+      manager.</TD></TR>
+    <TR>
+      <TD><CODE><FONT size=2>void setBounds(int, int, int, int) <BR>void 
+        setBounds(Rectangle) </FONT></CODE><BR><EM>(in 
+        <CODE>java.awt.Component</CODE>)</EM> </TD>
+      <TD>Set the size and location relative to the parent's upper left 
+        corner, in pixels, of the component. The four <CODE>int</CODE> arguments 
+        specify x, y, width, and height, in that order. Use these methods to 
+        position and size a component when you aren't using layout 
+    manager.</TD></TR></TBODY></TABLE></BLOCKQUOTE><IMG align=bottom height=8 
+src="The JComponent Class.files/blueline.gif" width=550 NATURALSIZEFLAG="3"> 
+<BR>
+<TABLE width=550>
+  <TBODY>
+  <TR>
+    <TD align=left vAlign=center><A 
+      href="file:///E:/mdf/java/tutorial/uiswing/components/components.html"><IMG 
+      align=center alt="Previous Page" border=0 height=26 
+      src="The JComponent Class.files/PreviousArrow.gif" width=26></A> <A 
+      href="file:///E:/mdf/java/tutorial/uiswing/TOC.html#components"><IMG 
+      align=center alt="Lesson Contents" border=0 height=26 
+      src="The JComponent Class.files/TOCIcon.gif" width=26></A> <A 
+      href="file:///E:/mdf/java/tutorial/uiswing/components/toplevel.html"><IMG 
+      align=center alt="Next Page" border=0 height=26 
+      src="The JComponent Class.files/NextArrow.gif" width=26></A></TD>
+    <TD align=middle vAlign=center><FONT size=-1><A 
+      href="file:///E:/mdf/java/tutorial/index.html">Start of Tutorial</A> &gt; 
+      <A href="file:///E:/mdf/java/tutorial/uiswing/index.html">Start of 
+      Trail</A> &gt; <A 
+      href="file:///E:/mdf/java/tutorial/uiswing/components/index.html">Start of 
+      Lesson</A> </FONT></TD>
+    <TD align=right vAlign=center><FONT size=-1><A 
+      href="file:///E:/mdf/java/tutorial/search.html">Search</A> 
+  </FONT></TD></TR></TBODY></TABLE></BODY></HTML>

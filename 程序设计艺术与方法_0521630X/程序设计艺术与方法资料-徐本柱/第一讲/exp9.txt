@@ -1,0 +1,31 @@
+#include<iostream>
+#include<string>
+using namespace std;
+void rever(string s)
+{
+	string temp;
+	int i;
+	for(i=s.size()-1;i>=0;i--)
+		temp.append(1,s[i]);
+	for(i=0;i<temp.size();i++)
+		cout<<temp[i];
+	cout<<endl;
+}
+
+int main(int argc, char *argv[])
+{    
+    string instr;
+	int strno=0,i;
+	cin>>strno;
+	char enter=cin.get();
+	for(i=0;i<strno;i++)
+	  {	
+		getline(cin,instr);
+		rever(instr);
+	  }
+	 
+
+    system("PAUSE");
+    return 0;
+
+}

@@ -1,0 +1,8327 @@
+试卷编号：10173
+所属语言：Turbo C
+试卷方案：cxsj
+试卷总分：1160分
+共有题型：1种
+
+━━━━━━━━━━━━━━━━━━
+一、程序设计   共116题 （共计1160分）
+━━━━━━━━━━━━━━━━━━
+
+第1题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从键盘上输入任意实数,求出其所对应的函数值。
+        z=e的x次幂（x>10)
+        z=log(x+3) (x>-3)
+        z=sin(x)/((cos(x)+4)
+
+------------------------------------------------*/
+
+#include <math.h>
+#include<stdio.h>
+
+double y(float x)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  float x;
+  scanf("%f",&x);
+  printf("y=%f\n",y(x));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  float i;
+  double o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%f",&i);
+    o=y(i);
+    fprintf(OUT,"%ld\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+double z;
+  if(x>10) z=exp(x);
+  else if(x>-3) z=log(x+3);
+  else z=sin(x)/(cos(x)+4);
+  return(z);
+----------------------
+
+第2题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：在键盘上输入一个3行3列矩阵的各个元素的值（值
+      为整数），然后输出主对角线元素的积,并在fun()
+      函数中输出。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+void main()
+{ 
+  int i,j,s,a[3][3];;
+  for(i=0;i<3;i++)
+  {
+    for(j=0;j<3;j++)
+      scanf("%d",&a[i][j]);
+  }
+  s=fun(a);
+  printf("Sum=%d\n",s);
+  yzj();
+  getch();
+}
+
+
+int fun(int a[3][3])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m;
+  int n;
+  int i[3][3];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(m=0;m<3;m++)
+  {
+    for(n=0;n<3;n++)
+      fscanf(IN,"%d",&i[m][n]);
+  }
+  o=fun(i);
+  {   
+    fprintf(OUT,"%d\n",o);
+    getch();
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+
+答案：----------------------
+int sum;
+int i,j;
+sum=1;
+
+for(i=0;i<3;i++)
+ sum=sum*a[i][i];
+ return sum;
+----------------------
+
+第3题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求1到100之间的偶数之积。
+
+------------------------------------------------*/
+    
+#include "stdio.h"
+    
+double  fun(int m)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  printf("ji=%f\n",fun(100));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,i;
+  double dOUT;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<5;i++)
+  {
+    fscanf(IN,"%d",&iIN);
+    dOUT=fun(iIN);
+    fprintf(OUT,"%f\n",dOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+double   y=1;
+    int i;
+    for(i=1;i<=m;i++)
+     if(i%2==0)y*=i;
+     return y;
+----------------------
+
+第4题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求出N×M整型数组的最大元素及其所在的行坐标及
+      列坐标（如果最大元素不唯一，选择位置在最前面
+      的一个）。
+例如：输入的数组为:
+                   1   2   3
+                   4   15  6
+                   12  18  9
+                   10  11  2
+
+      求出的最大数为18,行坐标为2，列坐标为1。
+
+------------------------------------------------*/
+
+#define N 4
+#define M 3
+#include <stdio.h>
+    
+int Row,Col;
+
+void main()
+{
+  int a[N][M],i,j,max,row,col;
+  printf("input a array:");
+  for(i=0;i<N;i++)
+    for(j=0;j<M;j++)
+      scanf("%d",&a[i][j]);
+    for(i=0;i<N;i++)
+    {
+      for(j=0;j<M;j++)
+        printf("%d",a[i][j]);
+      printf("\n");
+    }
+    max=fun(a);
+    printf("max=%d,row=%d,col=%d",max,Row,Col);
+    getch();
+    yzj();
+}
+
+int fun(int array[N][M])
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN[N][M],iOUT,i,j;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<N;i++)
+    for(j=0;j<M;j++)
+      fscanf(IN,"%d",&iIN[i][j]);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%d %d %d\n",iOUT,Row,Col);
+    fclose(IN);
+    fclose(OUT);
+}
+答案：----------------------
+int max,i,j;
+max=array [0][0];
+Row=0;
+Col=0;
+for(i=0;i<N;i++)
+  {for(j=0;j<M;j++)
+   if(max<array [i][j])
+    {max=array [i][j];
+     Row=i;
+Col=j;}
+}
+return(max);
+----------------------
+
+第5题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数实现两个数据的交换，在主函数中输入任
+      意三个数据，调用函数对这三个数据从大到小排序。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+
+void swap(int *a,int *b)
+{
+  /**********Program**********/ 
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int x,y,z;
+  scanf("%d%d%d",&x,&y,&z);
+  if(x<y)swap(&x,&y);
+  if(x<z)swap(&x,&z);
+  if(y<z)swap(&y,&z);
+  printf("%3d%3d%3d",x,y,z);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[2];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<3;n++)
+  {    
+    for(m=0;m<2;m++)
+    {
+      fscanf(IN,"%d",&i[m]);
+    }
+    swap(&i[0],&i[1]);
+    fprintf(OUT,"%d\n",i[0]);
+    fprintf(OUT,"%d\n",i[1]);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+
+
+
+答案：----------------------
+
+int k;
+ k=*a;
+ *a=*b;
+ *b=k;
+----------------------
+
+第6题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一个给定字符串中的数字字母的个数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(char s[])
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main(void)
+{
+  char str[]="Beijing 2008";
+  int k;
+  k=fun(str);
+  printf("k=%d\n",k);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  char sIN[80];
+  int iOUT,i;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+ 
+    fscanf(IN,"%s",sIN);
+    iOUT=fun(sIN);
+  
+  fprintf(OUT,"%d\n",iOUT);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,k=0;
+   for(i=0;s[i]!='\0';i++)
+    if(s[i]>='0'&&s[i]<='9'')
+     k++;
+    return k;
+----------------------
+
+第7题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：对长度为7个字符的字符串，除首、尾字符外，将其
+      余5个字符按降序排列。
+例如：原来的字符串为CEAedca,排序后输出为CedcEAa。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+#include<ctype.h>
+#include<conio.h>
+  
+int fun(char *s,int num)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()
+{
+  char s[10];
+  clrscr();
+  printf("输入7个字符的字符串:");
+  gets(s);
+  fun(s,7);
+  printf("\n%s",s);
+  getch();
+  NONO();
+}
+
+NONO()     
+{     
+  
+  int i;
+  char a[100];
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  for(i=0;i<3;i++)
+  {
+    fscanf(rf, "%s", &a);
+    fun(a,7);
+    fprintf(wf, "%s", a);
+    fprintf(wf, "\n");
+  }
+  
+  fclose(rf);
+  fclose(wf);
+} 
+答案：----------------------
+ int i,j;
+ char t;
+ for(i=1;i<num-1;i++)
+    for(j=i+1;j<num-1;j++)
+       if(s[i]<s[j])
+         { t=s[i];s[i]=s[j];s[j]=t;}
+----------------------
+
+第8题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun求1+2+3+ ...+n的和,在main函
+      数中由键盘输入n值，并输出运算结果。请编写fun
+      函数。
+例如：若n值为2，则结果为3。
+
+------------------------------------------------*/
+    
+#include<stdio.h>
+
+long fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+int yzj();
+void main(void)
+{
+  int n;
+  long int result;
+  scanf("%d",&n);
+  result=fun(n);
+  printf("%ld\n",result);
+  yzj();
+}
+
+int yzj()
+{
+  FILE *IN,*OUT;
+  int i;
+  int iIN;
+  long int iOUT;
+  IN=fopen("in11.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out11.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<4;i++)
+  {        
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%ld\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+  return 0;
+}
+
+答案：----------------------
+int i;
+long s=0;
+for(i=1;i<=n;i++)
+  s=s+i;
+ return s;
+----------------------
+
+第9题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：判断一个整数w的各位数字平方之和能否被5整除，
+      可以被5整除则返回1，否则返回0。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+int fun(int w)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %d\n", fun(m));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int c ;
+  int t;
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } for(c=1;c<=5;c++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%d\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int k,s=0;
+ do
+ {s=s+(w%10)*(w%10);
+  w=w/10;
+  }while(w!=0);
+ if(s%5==0)k=1;
+ else k=0;
+ return(k);
+----------------------
+
+第10题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一个四位数的各位数字的立方和
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main(void)
+{
+  int k;
+  k=fun(1234);
+  printf("k=%d\n",k);
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,iOUT,i;
+  IN=fopen("22.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("22.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)
+  {
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int d,k,s=0;
+   while (n>0)
+    {d=n%10;
+    s+=d*d*d;
+     n/=10;
+     }
+     return s;
+----------------------
+
+第11题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从低位开始取出长整型变量s奇数位上的数，依次
+      构成一个新数放在t中。     
+例如：当s中的数为：7654321时，t中的数为：7531。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+long fun (long s,long t)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+return t;
+}  
+
+void main()     
+{
+  long s, t,m;
+  clrscr();     
+  printf("\nPlease enter s:"); scanf("%ld", &s);     
+  m=fun(s,t);
+  printf("The result is: %ld\n", m);
+  getch();
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  long i,t,m;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+  {   
+    fscanf(IN,"%ld",&i);
+    m=fun(i,t);
+    fprintf(OUT,"%ld\n",m);
+    
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long sl=10;          
+t = s % 10;
+while(s > 0)     
+{ s = s/100;     
+t = s%10*sl + t;
+sl = sl * 10;
+----------------------
+
+第12题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：计算并输出给定整数n的所有因子之和（不包括1与
+      自身）。
+注意：n的值不大于1000。
+例如：n的值为855时，应输出704。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+int fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+void main()
+{
+  printf("s=%d\n",fun(855));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,iOUT,i;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<5;i++)
+  {
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+} 
+
+答案：----------------------
+int s=0,i;
+   for(i=2;i<n;i++)
+    if(n%i==0)s=s+i;
+     return s;
+----------------------
+
+第13题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一个给定字符串中的英文字母的个数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(char s[])
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main(void)
+{
+  char str[]="Best wishes for you!";
+  int k;
+  k=fun(str);
+  printf("k=%d\n",k);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  char sIN[80];
+  int iOUT,i;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<3;i++)
+  {    
+    fscanf(IN,"%s",sIN);
+    iOUT=fun(sIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,k=0;
+   for(i=0;s[i]!='\0';i++)
+    if(s[i]>='a'&&s[i]<='z'||s[i]>='A'&&s[i]<='Z')
+     k++;
+    return k;
+----------------------
+
+第14题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：能计算从1开始到n的自然数的和，n由键盘输入，
+      并在main()函数中输出。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+int fun(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %d\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int t;
+  int o;
+  int c;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(c=1;c<=5;c++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%d\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int sum,i;
+sum =0;
+for(i=1;i<=n;i++)
+{sum=sum+i;}
+return(sum);
+----------------------
+
+第15题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：请编一个函数void fun(int tt[M][N],int pp[N])，
+      tt指向一个M行N列的二维数组，求出二维数组每列
+      中最大元素，并依次放入pp所指一维数组中。二维
+      数组中的数已在主函数中赋予。
+
+------------------------------------------------*/
+
+#include<conio.h>
+#include<stdio.h>
+#define M 3
+#define N 4
+  
+void fun(int tt[M][N],int pp[N])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()
+{
+  int t[M][N]={{22,45,56,30},
+  {19,33,45,38},
+  {20,22,66,40}};
+  int p[N],i,j,k;
+  clrscr();
+  printf("The original data is:\n");
+  for(i=0;i<M;i++)
+  {
+    for(j=0;j<N;j++)
+      printf("%6d",t[i][j]);
+    printf("\n");
+  }
+  fun(t,p);
+  printf("\nThe result is:\n");
+  for(k=0;k<N;k++) printf("%4d",p[k]);
+  printf("\n");
+  getch();
+  NONO();
+}
+NONO()     
+{     
+  int i,j, array[3][4],p[4];
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  for (i=0; i < 3; i++)     
+    for (j=0; j < 4; j++)
+      fscanf(rf, "%d", &array[i][j]);     
+    fun(array,p);
+    for (j=0; j < 4; j++)
+    {
+      fprintf(wf, "%7d", p[j]);
+      fprintf(wf, "\n");     
+    }     
+    fclose(rf) ;     
+    fclose(wf) ;     
+}
+答案：----------------------
+ int i,j;
+ for(j=0;j<N;j++)
+    {
+     pp[j]=tt[0][j];
+     for(i=1;i<M;i++)
+     if(tt[i][j]>pp[j])
+       pp[j]=tt[i][j];
+
+       }
+----------------------
+
+第16题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一组数中大于平均值的数的个数。
+例如：给定的一组数为1,3,6,9,4,23,35,67,12,88时，函
+      数值为3。
+
+------------------------------------------------*/
+    
+#include "stdio.h"
+
+int fun(int a[],int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+void main(void)
+{
+  int a[10]={1,3,6,9,4,23,35,67,12,88};
+  int y;
+  y=fun(a,10);
+  printf("y=%d\n",y);
+  yzj();
+  getch();
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN[10],iOUT,i,j;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+   
+    for(i=0;i<10;i++)
+      fscanf(IN,"%d",&iIN[i]);
+    iOUT=fun(iIN,10);
+    fprintf(OUT,"%d\n",iOUT);
+  
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,k=0;
+   float s=0,ave;
+   for(i=0;i<n;i++)
+    s+=a[i];
+    ave=s/n;
+    printf("%f  ",ave);
+   for(i=0;i<n;i++)
+    if(a[i]>ave)k++;
+    return k;
+----------------------
+
+第17题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求大于lim（lim小于100的整数）并且小于100的所
+      有素数并放在aa数组中，该函数返回所求出素数的
+      个数。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+#include<conio.h>
+#define MAX 100
+
+int fun(int lim,int aa[MAX])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+void main()
+{
+  int limit,i,sum;
+  int aa[MAX];
+  clrscr();
+  printf("Please Input aInteger:");
+  scanf("%d",&limit);
+  sum=fun(limit,aa);
+  for(i=0;i<sum;i++){
+    if(i%10==0&&i!=0) printf("\n");
+    printf("%5d",aa[i]);
+  }
+  NONO();
+  getch();
+}
+NONO()     
+{     
+  int i,j,array[100],sum,lim;
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  for (j=0; j <= 5; j++)
+  {
+    fscanf(rf, "%d", &lim);
+    sum=fun(lim,array);
+    for(i=0;i<sum;i++)
+      fprintf(wf, "%7d", array[i]);
+    fprintf(wf, "\n");     
+  }     
+  fclose(rf);
+  fclose(wf);
+} 
+答案：----------------------
+ int n=0;
+ int i,j;
+ for(i=lim;i<=100;i++)
+    {for(j=2;j<i;j++)
+      if(i%j==0) break;
+      if(j==i) aa[n++]=i;
+     }
+     return n;
+----------------------
+
+第18题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：将字符串中的大写字母转换为对应的小写字母，
+      其它字符不变。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+void change(char str[])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+#include "string.h"
+main()
+{
+  void change();
+  char str[40];
+  gets(str);
+  change(str);
+  puts(str);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[200];
+  int o[200];
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {printf("Write File Error");
+  }
+  fscanf(IN,"%s",i);
+  change(i);
+  fprintf(OUT,"%s",i);
+  fclose(IN);
+  fclose(OUT);
+}
+
+答案：----------------------
+    int i;
+    for(i=0;str[i]!='\0';i++)
+      if(str[i]>='A' && str[i]<='Z') str[i]=str[i]+32;
+----------------------
+
+第19题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从键盘输入一个大于3的整数，调用函数fun判断
+      其是否素数，然后在main函数中输出相应的结论
+      信息。
+例如：7是素数，8不是素数。请编写fun函数。素数是
+      仅能被1和自身整除的数
+
+-------------------------------------------------*/
+
+#include "stdio.h"
+    
+void main()
+{
+  int m,flag;
+  printf("input an integer:");
+  scanf("%d",&m);
+  flag=fun(m);
+  if(flag)
+    printf("%d is a prime.\n",m);
+  else
+    printf("%d is not a prime.\n",m);
+  yzj();
+}
+
+int fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,iOUT,i;
+  IN=fopen("5.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("5.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)        
+  {        
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i;
+int j;
+j= 1;
+for(i=2;i<n;i++)
+{if(n%i==0) j= 0;
+}
+return j;
+----------------------
+
+第20题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从字符串中删除指定的字符。同一字母的大、小写
+      按不同字符处理。
+例如：若程序执行时输入字符串为：turbocandborlandc++
+      从键盘上输入字符：n，则输出后变为：turbocadbo
+      rladc++，如果输入的字符在字符串中不存在，则字
+      符串照原样输出。 
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+int fun(char s[],int c)
+{
+  /**********Program**********/  
+  
+  
+  
+  
+  
+  /**********  End  **********/    
+  
+}     
+void main()     
+{     
+  static char str[]="turbocandborlandc++";
+  char ch;     
+  clrscr() ;     
+  printf("原始字符串:%s\n", str);     
+  printf("输入一个字符:");     
+  scanf("%c",&ch);     
+  fun(str,ch);     
+  printf("str[]=%s\n",str);
+  getch();
+  yzj();     
+} 
+
+yzj()
+{
+  FILE *IN,*OUT;
+  char i[200];
+  char o[200];
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  fscanf(IN,"%s",i);
+  fun(i,'n');
+  fprintf(OUT,"%s",i);
+  fclose(IN);
+  fclose(OUT);
+}
+
+答案：---------------------- 
+char *q=s;     
+for(; *q; q++)     
+if(*q != c) *(s++)=*q;     
+*s=0;
+----------------------
+
+第21题 （10.0分）
+ /*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：对长度为8个字符的字符串，将8个字符按降序排列。
+例如：原来的字符串为CEAedcab,排序后输出为edcbaECA。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+#include<ctype.h>
+#include<conio.h>
+
+int fun(char *s,int num)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+void main()
+{
+  char s[10];
+  clrscr();
+  printf("输入8个字符的字符串:");
+  gets(s);
+  fun(s,8);
+  printf("\n%s",s);
+  getch();
+  NONO();
+}
+NONO()     
+{     
+  
+  int i;
+  char a[100];
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  for(i=0;i<3;i++)
+  {
+    fscanf(rf, "%s", &a);
+    fun(a,8);
+    fprintf(wf, "%s", a);
+    fprintf(wf, "\n");
+  }
+  
+  fclose(rf);
+  fclose(wf);
+} 
+答案：----------------------
+ int i,j;
+ char t;
+ for(i=0;i<num;i++)
+    for(j=i+1;j<num;j++)
+       if(s[i]<s[j])
+         { t=s[i];s[i]=s[j];s[j]=t;}
+----------------------
+
+第22题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：实现两个整数的交换。
+例如：给a和b分别输入：60和65，输入为：a=65 b=60
+
+------------------------------------------------*/
+
+#include<stdio.h>
+#include<conio.h>
+
+void fun(int *a,int *b)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+} 
+void main()
+{
+  int a,b;
+  clrscr();
+  printf("Enter a,b:");
+  scanf("%d%d",&a,&b);
+  fun(&a,&b);
+  printf("a=%d b=%d\n",a,b);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int a,b,n;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+  {   
+    fscanf(IN,"%d%d",&a,&b);
+    fun(&a,&b);
+    fprintf(OUT,"a=%d b=%d\n",a,b);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int t;
+ t=*a;*a=*b;*b=t;
+----------------------
+
+第23题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：给定n个数据, 求最小值出现的位置（如果最小值
+      出现多次,求出第一次出现的位置即可）。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+int station(int s[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[100],n,i,t;
+  clrscr();
+  scanf("%d",&n);
+  for(i=0;i<n;i++)
+    scanf("%d",&a[i]);
+  t=station(a,n);
+  printf("the min_value position is:%d\n",t);
+  yzj();
+  getch();
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+    
+  }
+  o=station(i,10);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,k;
+ k=0;
+ for(i=1;i<n;i++)
+   if(s[i]<s[k]) k=i;
+ return(k);
+----------------------
+
+第24题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：调用函数fun判断一个三位数是否"水仙花数"。
+      在main函数中从键盘输入一个三位数，并输
+      出判断结果。请编写fun函数。
+说明：所谓"水仙花数"是指一3位数，其各位数字立方和
+      等于该数本身。
+例如：153是一个水仙花数，因为153=1+125+27。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+int fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+  
+}
+
+void main()
+{
+  int n,flag;
+  scanf("%d",&n);
+  flag=fun(n);
+  if(flag)
+    printf("%d 是水仙花数\n",n);
+  else
+    printf("%d 不是水仙花数\n",n);
+  getch();
+  yzj();
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,i;
+  int iOUT;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)
+  {    
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int bw,sw,gw;
+bw=n/100;sw=(n-bw*100)/10;gw=n%10;
+ if(n==bw*bw*bw+sw*sw*sw+gw*gw*gw) return 1;
+ else return 0;
+----------------------
+
+第25题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从键盘为一维整型数组输入10个整数，调用fun
+      函数找出其中最小的数，并在main函数中输出。
+      请编写fun函数。
+
+-------------------------------------------------*/
+
+#include "stdio.h"
+
+int fun(int x[],int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+  
+}
+
+void main()
+{
+  int a[10],i,min;
+  for(i=0;i<10;i++)
+    scanf("%d",&a[i]);
+  for(i=0;i<10;i++)
+    printf("%3d",a[i]);
+  printf("\n");
+  min=fun(a,10);
+  printf("%d\n",min);
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN[10],i;
+  int iOUT,iCOUNT;
+  IN=fopen("4.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("4.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)
+  {   
+    for(iCOUNT=0;iCOUNT<10;iCOUNT++)
+      fscanf(IN,"%d",&iIN[iCOUNT]);
+    iOUT=fun(iIN,10);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int min,i;
+min=x[0];
+for(i=1;i<n;i++)
+{if(x[i]<min) min=x[i];}
+return min;
+----------------------
+
+第26题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：用函数求fibonacci数列前n项的和。
+说明：fibonacci数列为数列的第一项值为1，第二项值也
+      为1，从第三项开始，每一项均为其前面相邻两项
+      的和。
+例如：当n=28时，运行结果：832039
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+long sum(long f1,long f2)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+int yzj();
+void main()
+{
+  long int f1=1,f2=1;
+  printf("sum=%ld\n",sum(f1,f2));
+  yzj();
+}
+
+int yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[2];
+  long int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  
+  for(n=0;n<2;n++)
+    fscanf(IN,"%d",&i[n]);
+  o = sum(i[0],i[1]);
+  fprintf(OUT,"%ld\n",o);
+  
+  fclose(IN);
+  fclose(OUT);
+  return 0;
+}
+答案：----------------------
+ long f,k=f1+f2;
+ int i;
+ for(i=3;i<=28;i++)
+  {f=f1+f2;
+   k=k+f;
+   f1=f2;
+   f2=f;
+   }
+ return(k);
+----------------------
+
+第27题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：给定n个数据, 求最大值出现的位置（如果最大值出
+      现多次，求出第一次出现的位置即可)。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+
+int station(int s[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[100],n,i,t;
+  clrscr();
+  scanf("%d",&n);
+  for(i=0;i<n;i++)
+    scanf("%d",&a[i]);
+  t=station(a,n);
+  printf("the max_value position is:%d\n",t);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o=station(i,10);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,k;
+ k=0;
+ for(i=1;i<=n;i++)
+   if(s[i]>s[k]) k=i;
+ return(k+1);
+----------------------
+
+第28题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：计算出k以内最大的10个能被13或17整除的自然数之
+      和。（k〈3000）。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+int fun(int k)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int  m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %d\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s ;
+  int t;
+  int o;
+  
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(s=1;s<=5;s++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%d\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+
+答案：----------------------
+int a=0,b=0,j;
+while((k>=2)&&(b<10))
+{if((k%13==0)||(k%17==0))
+  {a=a+k;b++;}
+  k--;
+     }
+     return a;
+----------------------
+
+第29题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：将两个两位数的正整数a、b合并形成一个整数放在c
+      中。合并的方式是： 将a数的十位和个位数依次放
+      在c数的个位和百位上, b数的十位和个位数依次放
+      在c数的十位和千位上。     
+例如： 当a=45，b=12， 调用该函数后， c=2514。
+     
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+void fun(int a, int b, long *c)     
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()     
+{ 
+  int a,b; long c;     
+  clrscr();     
+  printf("Input a, b:");     
+  scanf("%d%d", &a, &b);     
+  fun(a, b, &c);     
+  printf("The result is: %ld\n", c);
+  getch();
+  NONO();     
+}  
+
+NONO ( )     
+{  
+  FILE *rf, *wf ;     
+  int i, a,b ; long c ;     
+  rf = fopen("in.dat", "r") ;     
+  wf = fopen("out.dat","w") ;     
+  for(i = 0 ; i < 10 ; i++) 
+  {     
+    fscanf(rf, "%d,%d", &a, &b) ;     
+    fun(a, b, &c) ;     
+    fprintf(wf, "a=%d,b=%d,c=%ld\n", a, b, c) ;     
+  }     
+  fclose(rf) ;     
+  fclose(wf) ;     
+}  
+答案：----------------------
+*c=a/10+a%10*100+b/10*10+b%10*1000;  
+----------------------
+
+第30题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一批数中最大值和最小值的积。
+
+------------------------------------------------*/
+
+#define N 30
+#include "stdlib.h"
+#include "stdio.h"
+
+int max_min(int a[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[N],i,k;
+  clrscr();
+  for(i=0;i<N;i++)
+    a[i]=random(51)+10;
+  for(i=0;i<N;i++)
+  {
+    printf("%5d",a[i]);
+    if((i+1)%5==0) printf("\n");
+  }
+  k=max_min(a,N);
+  printf("the result is:%d\n",k);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o=max_min(i,10);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int i,max,min;
+   max=min=a[0];
+   for(i=1;i<n;i++)
+     if(a[i]>max) max=a[i];
+     else if(a[i]<min) min=a[i];
+   return(max*min);
+----------------------
+
+第31题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun求1000以内所有7的倍数之和。
+
+------------------------------------------------*/
+
+#define N 1000
+#include "stdio.h"
+
+main()
+{
+  int sum;
+  sum=fun(7);
+  printf("%d以内所有%d的倍数之和为：%d\n",N,7,sum);
+  getch();
+  yzj();
+}
+
+int fun(int m)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  o = fun(6);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int s=0,i;
+  for(i=1;i<N;i++)
+  if(i%m==0)
+     s+=i;
+  return s;
+----------------------
+
+第32题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一批数中最大值和最小值的差。
+
+------------------------------------------------*/
+
+int max_min(int a[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+#define N 30
+#include "stdlib.h"
+#include "stdio.h"
+main()
+{
+  int a[N],i,k;
+  clrscr();
+  for(i=0;i<N;i++)
+    a[i]=random(51)+10;
+  for(i=0;i<N;i++)
+  {
+    printf("%5d",a[i]);
+    if((i+1)%5==0) printf("\n");
+  }
+  k=max_min(a,N);
+  printf("the result is:%d\n",k);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[30];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o=max_min(i,5);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,max,min;
+    max=min=a[0];
+    for(i=1;i<n;i++)
+      if(a[i]>max) max=a[i];
+      else if(a[i]<min) min=a[i];
+   return(max-min);
+----------------------
+
+第33题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求给定正整数n以内的素数之积。（n<28）
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+long fun(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int  m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %ld\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int c ;
+  int t;
+  long o;
+  
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(c=1;c<=5;c++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%ld\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long i,k;
+long s=1;
+   for(i=2;i<=n;i++)
+     {for(k=2;k<i;k++)
+      if(i%k==0)break;
+      if(k==i)s=s*i;
+     }
+return s;
+----------------------
+
+第34题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：在键盘上输入一个3行3列矩阵的各个元素的值（值
+      为整数），然后输出主对角线元素的平方和,并在
+      fun()函数中输出。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+void main()
+{ 
+  int i,j,s,a[3][3];;
+  for(i=0;i<3;i++)
+  {
+    for(j=0;j<3;j++)
+      scanf("%d",&a[i][j]);
+  }
+  s=fun(a);
+  printf("Sum=%d\n",s);
+  yzj();
+  getch();
+}
+
+int fun(int a[3][3])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m;
+  int n;
+  int i[3][3];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(m=0;m<3;m++)
+  {
+    for(n=0;n<3;n++)
+      fscanf(IN,"%d",&i[m][n]);
+  }
+  o=fun(i);
+  {   
+    fprintf(OUT,"%d\n",o);
+    getch();
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int sum;
+int i,j;
+sum=0;
+
+for(i=0;i<3;i++)
+ sum=sum+a[i][i]*a[i][i];
+ return sum;
+----------------------
+
+第35题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一个大于10的n位整数的后n-1位的数，并作为函
+      数值返回。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+int fun(int w)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %d\n", fun(m));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int c ;
+  int t;
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(c=1;c<=5;c++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%d\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+答案：----------------------
+int n=0;int i=1;
+while(w>10)
+{n=n+i*(w%10);
+w/=10;
+i*=10;}
+return n;
+----------------------
+
+第36题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun其功能是：根据整型形参m，计算如下
+      公式的值：y=1/2!+1/4!+...+1/m!（m是偶数）
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+double fun(int m)   
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()   
+{
+  int n;   
+  clrscr();   
+  printf("Enter n: ");   
+  scanf("%d", &n);   
+  printf("\nThe result is %1f\n", fun(n));
+  yzj();  
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int t;
+  float o;
+  int c;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(c=1;c<=5;c++)
+  {  
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%f\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：double y=0.0;
+int i,j;
+double s=1;
+for (i=2;i<=m;i+=2)
+{
+for(j=i-1;j<=i;j++)
+s=s*j;
+y=y+1.0/s;
+}
+return y;
+
+第37题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：将两个两位数的正整数a、b合并形成一个整数放在
+      c中。合并的方式是：将a数的十位和个位数依次放
+      在c数的百位和个位上， b数的十位和个位数依次放
+      在c数的十位和千位上。     
+例如：当a＝45，b=12。调用该函数后，c=2415。  
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+void fun(int a, int b, long *c)     
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()     
+{
+  int a,b; long c;     
+  clrscr();     
+  printf("Input a, b:");     
+  scanf("%d%d", &a, &b);     
+  fun(a, b, &c);     
+  printf("The result is: %ld\n", c);
+  getch();
+  NONO();     
+}    
+ 
+NONO ( )     
+{  
+  FILE *rf, *wf ;     
+  int i, a,b ; long c ;     
+  rf = fopen("in.dat", "r") ;     
+  wf = fopen("out.dat","w") ;     
+  for(i = 0 ; i < 10 ; i++) 
+  {     
+    fscanf(rf, "%d,%d", &a, &b) ;     
+    fun(a, b, &c) ;     
+    fprintf(wf, "a=%d,b=%d,c=%ld\n", a, b, c) ;     
+  }     
+  fclose(rf) ;     
+  fclose(wf) ;     
+}    
+答案：----------------------
+*c=a/10*100+a%10+b/10*10+b%10*1000;
+----------------------
+
+第38题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编程求 e^x = 1 + x + x^2/2! +x^3/3! +...+x^n/n! 
+   符号^表示幂，要求精度为fabs(x^n/n!)<=1e-4。
+如x=2时，结果为7.388995
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include "math.h"
+float fun(float);
+
+void main(void)
+{
+  float x;  
+  scanf("%f",&x);
+  printf("result:%f\n",fun(x));
+  getch();
+  yzj();
+}
+
+float fun(float x)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int i;
+ 
+  float x;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+
+for(i=0;i<3;i++)  
+{
+  fscanf(IN,"%f",&x);
+  fprintf(OUT,"%f\n",fun(x));
+}  
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+float exp,t;
+int i;
+exp=0;
+t=1.0;
+i=1;
+do
+{
+exp+=t;
+t=t*x/i;
+i++;
+}while(fabs(t)>1e-4);
+return exp;
+----------------------
+
+第39题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从键盘为一维整型数组输入10个整数，调用fun函数
+      找出其中最小的数，并在main函数中输出。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+int fun(int x[],int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+  
+}
+
+void main()
+{
+  int a[10],i,min;
+  for(i=0;i<10;i++)
+    scanf("%d",&a[i]);
+  for(i=0;i<10;i++)
+    printf("%3d",a[i]);
+  printf("\n");
+  min=fun(a,10);
+  printf("%d\n",min);
+  getch();
+  yzj();
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN[10],i;
+  int iOUT,iCOUNT;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<5;i++)
+  {  
+    for(iCOUNT=0;iCOUNT<10;iCOUNT++)
+      fscanf(IN,"%d",&iIN[iCOUNT]);
+    iOUT=fun(iIN,10);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int min,i;
+min=x[0];
+for(i=1;i<n;i++)
+{if(x[i]<min) min=x[i];}
+return min;
+----------------------
+
+第40题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一个n位自然数的各位数字的积。（n 是小于10的
+      自然数）
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+long fun(long n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  long  m;
+  printf("Enter m: ");
+  scanf("%ld", &m);
+  printf("\nThe result is %ld\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  
+  FILE *IN,*OUT;
+  int c ;
+  long t;
+  long o;
+  
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(c=1;c<=5;c++)
+  {
+    fscanf(IN,"%ld",&t);
+    o=fun(t);
+    fprintf(OUT,"%ld\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long d,s=1;
+   while (n>0)
+    {d=n%10;
+    s*=d;
+     n/=10;
+     }
+     return s;
+----------------------
+
+第41题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从键盘上输入任意实数x,求出其所对应的函数值。
+     z=(x-4)的二次幂（x>4)
+     z=x的八次幂(x>-4)
+     z=z=4/(x*(x+1))(x>-10)
+     z=|x|+20(其他）
+
+------------------------------------------------*/
+
+#include <math.h>
+#include "stdio.h"
+
+float y(float x)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  float x;
+  scanf("%f",&x);
+  printf("y=%f\n",y(x));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  float i;
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%f",&i);
+    o=y(i);
+    fprintf(OUT,"%f\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+答案：----------------------
+float z;
+  if(x>4) z=sqrt(x-4);
+  else if(x>-4) z=pow(x,8);
+  else if(x>-10) z=4/(x*(x+1));
+  else z=fabs(x)+20;
+  return(z);
+----------------------
+
+第42题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求5行5列矩阵的主、副对角线上元素之和。注意，
+      两条对角线相交的元素只加一次。
+例如：主函数中给出的矩阵的两条对角线的和为45。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#define M 5
+  
+int fun(int a[M][M])
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  int a[M][M]={{1,3,5,7,9},{2,4,6,8,10},{2,3,4,5,6},{4,5,6,7,8},{1,3,4,5,6}};
+  int y;
+  y=fun(a);
+  printf("s=%d\n",y);
+  getch();
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN[M][M],iOUT;
+  int i,j,k;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  ***************************
+  {  for(i=0;i<M;i++)
+  for(j=0;j<M;j++)
+    fscanf(IN,"%d",&iIN[i][j]);
+  iOUT=fun(iIN);
+  fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int s=0;
+   int i,j;
+   for(i=0;i<M;i++)
+   s=s+a[i][i]+a[i][M-1-i];
+   s=s-a[(M-1)/2][(M-1)/2];
+   return s;
+----------------------
+
+第43题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：找出一批正整数中的最大的偶数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(int a[],int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  int a[]={1,2,9,24,35,18},k;
+  k=fun(a,6);
+  printf("max=%d\n",k);
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN[10],iOUT,i,j;
+  IN=fopen("28.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("28.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(j=0;j<10;j++)
+  {     
+    for(i=0;i<10;i++)
+      fscanf(IN,"%d",&iIN[i]);
+    iOUT=fun(iIN,10);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,amax=-1;
+    for(i=0;i<n;i++)
+     if(a[i]%2==0)
+      if (a[i]>amax) amax=a[i];
+     return amax;
+----------------------
+
+第44题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：根据整型形参m，计算如下公式的值：y=1/2＋1/4＋
+      1/6＋...＋1/2m 。
+例如：若m=9，则应输出：1.414484
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+double fun(int m)   
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()   
+{
+  int n;   
+  clrscr();   
+  printf("Enter n: ");   
+  scanf("%d", &n);   
+  printf("\nThe result is %1f\n", fun(n));
+  yzj();  
+  getch();
+  
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s,i ;
+  int t;
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(i=0;i<5;i++)
+  {   
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%f\n",o);
+    
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+
+
+答案：----------------------
+     double y=0;
+     int i;
+     for(i=1; i<=m; i++)
+     {y+=1.0/(2*i);  }
+     return(y);
+----------------------
+
+第45题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：对某一正数的值保留2位小数，并对第三位进行四舍
+      五入。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+float fun(float h)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  float  m;
+  printf("Enter m: ");
+  scanf("%f", &m);
+  printf("\nThe result is %8.2f\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s ;
+  float t;
+  float o;
+  
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(s=1;s<=5;s++)
+  { 
+    fscanf(IN,"%f",&t);
+    o=fun(t);
+    fprintf(OUT,"%8.2f\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i;
+i=(int)(h*1000)%10;
+if(i>=5)
+return(int)(h*100+1)/100.0;
+else
+return(int)(h*100)/100.0;
+----------------------
+
+第46题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写程序，实现矩阵（3行3列）的转置（即行列互换）   
+例如：输入下面的矩阵： 
+       100 200 300     
+       400 500 600     
+       700 800 900 
+      程序输出：   
+      100 400 700     
+      200 500 800
+      300 600 900     
+
+------------------------------------------------*/
+
+#include "stdio.h"
+          
+int fun(int array[3][3])     
+{
+  /**********Program**********/   
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}     
+void main()     
+{     
+  int i,j;     
+  int array[3][3]={{100,200,300},     
+  {400,500,600},     
+  {700,800,900}};     
+  clrscr() ;     
+  for (i=0; i < 3; i++)     
+  {
+    for (j=0; j < 3; j++)     
+      printf("%7d",array[i][j]);     
+    printf("\n");     
+  }     
+  fun(array);     
+  printf("Converted array:\n");     
+  for (i=0; i < 3; i++)     
+  { 
+    for (j=0; j < 3; j++)     
+      printf("%7d",array[i][j]);     
+    printf("\n");
+  }
+  getch();      
+  NONO();     
+} 
+    
+NONO()     
+{     
+  int i,j, array[3][3];     
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  for (i=0; i < 3; i++)     
+    for (j=0; j < 3; j++)     
+      fscanf(rf, "%d", &array[i][j]);     
+    fun(array);     
+    for (i=0; i < 3; i++)     
+    { 
+      for (j=0; j < 3; j++)     
+        fprintf(wf, "%7d", array[i][j]);     
+      fprintf(wf, "\n");     
+    }     
+    fclose(rf) ;     
+    fclose(wf) ;     
+}  
+答案：----------------------
+int i,j,t;     
+for(i=0; i < 3; i++)     
+for(j=0; j < i; j++)     
+{ t=array[i][j];     
+array[i][j]=array[j][i];     
+array[j][i]=t; }     
+----------------------
+
+第47题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：计算n门课程的平均值，计算结果作为函数值返回。
+例如：若有5门课程的成绩是：92，76，69，58，88，
+      则函数的值为72.599998。
+
+------------------------------------------------*/
+  
+#include "stdio.h"
+  
+float fun(int a[],int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  int a[]={92,76,69,58,88};
+  printf("y=%f\n",fun(a,5));
+  getch();
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN[10],i,j;
+  float fOUT;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(j=0;j<5;j++)
+  {    
+    for(i=0;i<5;i++)
+      fscanf(IN,"%d",&iIN[i]);
+    fOUT=fun(iIN,5);
+    fprintf(OUT,"%f\n",fOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i;
+    float y=0;
+    for(i=0;i<n;i++)
+     y+=a[i];
+     y=y/n;
+     return y;
+----------------------
+
+第48题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数用冒泡排序法对数组中的数据进行从小到
+      大的排序。
+
+------------------------------------------------*/
+
+#include <stdlib.h>
+#include<stdio.h>
+
+void sort(int a[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[16],i;
+  clrscr();
+  for(i=0;i<16;i++)
+    a[i]=random(30)+15;
+  for(i=0;i<16;i++)
+    printf("%3d",a[i]);
+  printf("\n-------------------\n");
+  sort(a,16);
+  for(i=0;i<16;i++)
+    printf("%3d",a[i]);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  sort(i,10);
+  for(n=0;n<10;n++)
+    fprintf(OUT,"%d\n",i[n]);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,j,t;
+ for(i=0;i<n-1;i++)
+   for(j=0;j<n-1-i;j++)
+     if(a[j]>a[j+1])
+       {t=a[j];
+    a[j]=a[j+1];
+    a[j+1]=t;
+    }
+----------------------
+
+第49题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：输入一个字符串，过滤此串，只保留串中的字母字
+      符，并统计新生成串中包含的字母个数。
+例如：输入的字符串为ab234$df4，新生成的串为abdf 。
+
+------------------------------------------------*/
+
+#include <stdio.h>
+#include <conio.h>
+#define N 80
+  
+void main()
+{
+  char str[N];
+  int s;
+  clrscr();
+  printf("input a string:");gets(str);
+  printf("The original string is :"); puts(str);
+  s=fun(str);
+  printf("The new string is :");puts(str);
+  printf("There are %d char in the new string.",s);
+  getch();
+  yzj();
+}
+
+fun(char *ptr)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  char sIN[N];
+  int iOUT;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  fscanf(IN,"%s",sIN);
+  iOUT=fun(sIN);
+  fprintf(OUT,"%d %s\n",iOUT,sIN);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int i,j;
+for(i=0,j=0;*(ptr+i)!='\0';i++)
+if(*(ptr+i)<='z'&& *(ptr+i)>='a'||*(ptr+i)<='Z' && *(ptr+i)>='A')
+{*(ptr+j)=*(ptr+i);
+j++;}
+*(ptr+j)='\0';
+return(j);
+----------------------
+
+第50题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：产生20个[30,120]上的随机整数放入二维数组
+      a[5][4]中, 求其中的最小值。
+
+------------------------------------------------*/
+
+#include "stdlib.h"
+#include "stdio.h"
+
+int amin(int a[5][4])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[5][4],i,j;
+  clrscr();
+  for(i=0;i<5;i++)
+    for(j=0;j<4;j++)
+      a[i][j]=random(120-30+1)+30;
+    for(i=0;i<5;i++)
+    {
+      for(j=0;j<4;j++)
+        printf("%5d",a[i][j]);
+      printf("\n");
+    }
+    printf("min=%d\n",amin(a));
+    yzj();
+    getch();\
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[5][4];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)  
+  {
+    printf("Write File Error");
+  }
+  for(m=0;m<5;m++)
+    for(n=0;n<4;n++)
+    {    
+      fscanf(IN,"%d",&i[m][n]);
+    }
+    o=amin(i);
+    fprintf(OUT,"%d\n",o);
+    fclose(IN);
+    fclose(OUT);
+}
+答案：----------------------
+int i,j,s;
+ s=a[0][0];
+ for(i=0;i<5;i++)
+   for(j=0;j<4;j++)
+     if(s>a[i][j])s=a[i][j];
+  return(s);
+----------------------
+
+第51题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数求1~100中奇数的平方和。结果为166650。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+float sum(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  printf("sum=%f\n",sum(100));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i;
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  fscanf(IN,"%d",&i);
+  o=sum(i);
+  fprintf(OUT,"%f\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+float s=0;
+ int i,j;
+ for(i=1;i<=n;i=i+2)
+   s=s+i*i;
+ return(s);
+----------------------
+
+第52题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：把20个随机数存入一个数组，然后输出该数组中的
+      最小值。其中确定最小值的下标的操作在fun函数中
+      实现，请给出该函数的定义。
+     
+------------------------------------------------*/
+
+#include "stdio.h"
+#define VSIZE 20     
+  
+int vector[VSIZE] ;     
+
+int fun(int list[],int size)     
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/     
+  
+} 
+
+void main()     
+{     
+  int i;     
+  clrscr() ;     
+  for (i=0;i<VSIZE;i++)
+  {
+    vector[i]=rand();     
+    printf("Vector[%d]=%6d\n",i,vector[i]);     
+  }     
+  i=fun(vector,VSIZE);     
+  printf("\nMininum: Vector[%d]=%6d\n",i,vector[i]);
+  
+  NONO();
+  getch();     
+}     
+
+NONO()     
+{     
+  int i,t;
+  FILE *fp ;     
+  fp = fopen("out.dat", "w") ;
+  for (i=0;i<VSIZE;i++)
+  {
+    fprintf(fp,"Vector[%d]=%6d\n",i,vector[i]);
+  }     
+  t=fun(vector,VSIZE);
+  fprintf(fp,"\nMininum: Vector[%d]=%6d\n",t,vector[t]);
+  fclose(fp) ;     
+}  
+答案：----------------------
+int i,min=0;     
+for(i=1; i <size; i++)
+if(list[min]>list[i])     
+min=i;     
+return min;
+----------------------
+
+第53题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：统计出若干个学生的平均成绩，最高分以及得最高
+      分的人数。
+例如：输入10名学生的成绩分别为92，87，68，56，92，
+      84，67，75，92，66，则输出平均成绩为77.9，
+      最高分为92，得最高分的人数为3人。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+float Max=0;
+int J=0;
+
+float fun(float array[],int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main(  )
+{
+  float  a[10],ave;
+  int i=0;
+  for(i=0;i<10;i++)
+    scanf("%f",&a[i]);
+  ave=fun(a,10);
+  printf("ave=%f\n",ave);
+  printf("max=%f\n",Max);
+  printf("Total:%d\n",J);
+  getch();
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  float iIN[10],iOUT;
+  int iCOUNT;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(iCOUNT=0;iCOUNT<10;iCOUNT++)
+    fscanf(IN,"%f",&iIN[iCOUNT]);
+  iOUT=fun(iIN,10);
+  fprintf(OUT,"%f %f\n",iOUT,Max);
+  fclose(IN);
+  fclose(OUT);
+}
+
+
+答案：----------------------
+int i;float sum=0,ave;
+ Max=array[0];
+for(i=0;i<n;i++)
+{  if(Max<array [i]) Max=array [i];
+        sum=sum+array [i];  }
+      ave=sum/n;
+     for(i=0;i<n;i++)
+ if(array [i]==Max) J++;
+return(ave);
+----------------------
+
+第54题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数判断一个整数m的各位数字之和能否被7整除，
+      可以被7整除则返回1，否则返回0。调用该函数找出
+      100~200之间满足条件的所有数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+int sub(int m)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+void main(void)
+{
+  int i;
+  for(i=100;i<=200;i++)
+    if(sub(i)==1)
+      printf("%4d",i);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  for(n=0;n<10;n++)
+  {
+    o=sub(i[n]);
+    fprintf(OUT,"%d\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int k,s=0;
+ do
+ {s=s+m%10;
+  m=m/10;
+  }while(m!=0);
+ if(s%7==0)k=1;
+ else k=0;
+ return(k);
+----------------------
+
+第55题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：将从键盘上输入的每个单词的第一个字母转换为
+      大写字母，输入时各单词必须用空格隔开，用’.’
+      结束输入。 
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+int fun(char *c,int status)     
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/     
+}     
+void main()     
+{     
+  int flag=1;     
+  char ch;     
+  printf("请输入一字符串，用点号结束输入!\n") ;     
+  do     
+  {     
+    ch=getchar();     
+    flag=fun(&ch, flag);     
+    putchar(ch);     
+  }while(ch!='.');
+  printf("\n");
+  getch();
+  NONO();     
+}     
+NONO( )     
+{     
+  char s1[81], ch;     
+  int i, flag = 1;     
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  fgets(s1, 80, rf) ;     
+  for(i = 0 ; i < strlen(s1); i++) 
+  {     
+    ch = s1[i] ;     
+    flag = fun(&ch, flag) ;     
+    s1[i] = ch ;     
+  }     
+  fprintf( wf,"%s", s1 );     
+  fclose(rf) ;     
+  fclose(wf) ;     
+}   
+答案：----------------------
+if (*c== ' ') return 1;
+else
+{     
+if(status && *c <= 'z' && *c >= 'a')
+*c += 'A' - 'a';
+return 0;
+}
+----------------------
+
+第56题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求1到w之间的奇数之和。（w是大于等于100小于等
+      于1000的整数）
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+long fun(int w)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %ld\n", fun(m));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int c ;
+  int t;
+  long o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(c=1;c<=5;c++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%ld\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long   y=0;
+    int i;
+    for(i=1;i<=w;i++)
+     if(i%2==1)y+=i;
+     return y;
+----------------------
+
+第57题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写程序, 求矩阵（3行3列）与2的乘积  
+例如：输入下面的矩阵: 
+      100 200 300     
+      400 500 600     
+      700 800 900 
+      程序输出:   
+      200  400  600     
+      800 1000 1200     
+      1400 1600 1800 
+
+------------------------------------------------*/
+
+#include "stdio.h"
+          
+int fun(int array[3][3])     
+{
+  /**********Program**********/   
+  
+  
+  
+  
+  /**********  End  **********/
+} 
+
+void main()     
+{     
+  int i,j;     
+  int array[3][3]={{100,200,300},     
+  {400,500,600},     
+  {700,800,900}};     
+  clrscr() ;     
+  for (i=0; i < 3; i++)     
+  { 
+    for (j=0; j < 3; j++)     
+      printf("%7d",array[i][j]);     
+    printf("\n");     
+  }     
+  fun(array);     
+  printf("Converted array:\n");     
+  for (i=0; i < 3; i++)     
+  { 
+    for (j=0; j < 3; j++)     
+      printf("%7d",array[i][j]);     
+    printf("\n");
+  }
+  getch();      
+  NONO();     
+}     
+NONO()     
+{     
+  
+  int i,j, array[3][3];     
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  for (i=0; i < 3; i++)     
+    for (j=0; j < 3; j++)     
+      fscanf(rf, "%d", &array[i][j]);     
+    fun(array);     
+    for (i=0; i < 3; i++)     
+    { 
+      for (j=0; j < 3; j++)     
+        fprintf(wf, "%7d", array[i][j]);     
+      fprintf(wf, "\n");     
+    }     
+    fclose(rf) ;     
+    fclose(wf) ;     
+} 
+答案：----------------------
+int i,j;     
+for(i=0; i < 3; i++)     
+for(j=0; j < 3; j++)     
+array[i][j]=array[i][j]*2;  
+----------------------
+
+第58题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：用函数求N个[10,60]上的整数中能被5整除的最大
+      的数，如存在则返回这个最大值，如果不存在则
+      返回0。
+
+------------------------------------------------*/
+
+
+int find(int arr[],int n)
+{ 
+  int m=0;
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  return(m);
+}
+#define N 30
+#include "stdlib.h"
+#include "stdio.h"
+main()
+{
+  int a[N],i,k;
+  for(i=0;i<N;i++)
+    a[i]=random(51)+10;
+  for(i=0;i<N;i++)
+  {
+    printf("%5d",a[i]);
+    if((i+1)%5==0) printf("\n");
+  }
+  k=find(a,N);
+  if(k==0) 
+    printf("NO FOUND\n");
+  else
+    printf("the max is:%d\n",k);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[5];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o=find(i,5);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i;
+  for(i=0;i<n;i++)
+    if(arr[i]%5==0 && arr[i]>m)
+      m=arr[i];
+----------------------
+
+第59题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：在键盘上输入一个3行3列矩阵的各个元素的值（值
+      为整数），然后输出矩阵第一行与第三行元素之和，
+      并在fun()函数中输出。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include <conio.h>
+
+int yzj();
+void main()
+{
+  int i,j,s,a[3][3];
+  for(i=0;i<3;i++)
+  {
+    for(j=0;j<3;j++)
+      scanf("%d",&a[i][j]);
+  }
+  s=fun(a);
+  printf("Sum=%d\n",s);
+  yzj();  
+}
+
+
+int fun(int a[3][3])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+int yzj()
+{
+  FILE *IN,*OUT;
+  int m;
+  int n;
+  int i[3][3];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(m=0;m<3;m++)
+  {
+    for(n=0;n<3;n++)
+      fscanf(IN,"%d",&i[m][n]);
+  }
+  o=fun(i);
+  {   
+    fprintf(OUT,"%d\n",o);
+    getch();
+  }
+  fclose(IN);
+  fclose(OUT);
+  return 0;
+}
+答案：----------------------
+int sum;
+int i,j;
+sum=0;
+
+for(i=0;i<3;i+=2)
+for(j=0;j<3;j++)
+ sum=sum+a[i][j];
+ return sum;
+----------------------
+
+第60题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：删除所有值为y的元素。数组元素中的值和y的值由
+      主函数通过键盘输入。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include<conio.h>
+#include<stdio.h>
+#define M 20
+  
+void fun(int bb[],int *n,int y)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+void main()
+{
+  int aa[M],n,y,k;
+  clrscr();
+  printf("\nPlease enter n:");scanf("%d",&n);
+  printf("\nEnter %d positive number:\n",n);
+  for(k=0;k<n;k++) scanf("%d",&aa[k]);
+  printf("The original data is:\n");
+  for(k=0;k<n;k++) printf("%5d",aa[k]);
+  printf("\nEnter a number to deletede:");scanf("%d",&y);
+  fun(aa,&n,y);
+  printf("The data after deleted %d:\n",y);
+  for(k=0;k<n;k++) printf("%4d",aa[k]);
+  printf("\n");
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {   
+    fscanf(IN,"%d",&i[n]);
+  }
+  fun(i,&n,3);
+  for(o=0;o<n;o++)
+  {   
+    fprintf(OUT,"%d\n",i[o]);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int i,j;
+ for(i=0;i<*n;)
+   {
+    if(bb[i]==y)
+       {for(j=i;j<*n;j++)
+           bb[j]=bb[j+1];
+         *n=*n-1;
+          }
+          else
+           i++;
+          }
+----------------------
+
+第61题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从字符串s中删除指定的字符c。
+
+-------------------------------------------------*/
+
+#include "stdio.h"
+
+fun(char s[],char c)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  static char str[]="turbo c and borland c++";
+  char c='a';
+  fun(str,c);
+  printf("str=%s\n",str);
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  char sIN[80],cIN;
+  int i;
+  IN=fopen("13.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("13.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)
+  {
+    fscanf(IN,"%s",sIN);
+    cIN=getc(IN);cIN=getc(IN);
+    fun(sIN,cIN);
+    fprintf(OUT,"%s\n",sIN);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,k=0;
+   for(i=0;s[i]!='\0';i++)
+    if(s[i]!=c) s[k++]=s[i];
+    s[k]='\0';
+----------------------
+
+第62题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求出二维数组周边元素之和，作为函数值返回。二
+      维数组的值在主函数中赋予。
+
+-------------------------------------------------*/
+
+#define M 4
+#define N 5
+#include "stdio.h"
+
+int fun(int a[M][N])
+{
+
+/**********Program**********/
+
+
+
+
+
+
+/**********  End  **********/
+
+}
+
+void main()
+{
+int a[M][N]={{1,3,5,7,9},{2,4,6,8,10},{2,3,4,5,6},{4,5,6,7,8}};
+int y;
+y=fun(a);
+printf("s=%d\n",y);
+yzj();
+}
+yzj()
+{
+FILE *IN,*OUT;
+int iIN[M][N],iOUT;
+int i,j,k;
+IN=fopen("14.in","r");
+if(IN==NULL)
+{printf("Please Verify The Currernt Dir..It May Be Changed");
+}
+OUT=fopen("14.out","w");
+if(OUT==NULL)
+{printf("Please Verify The Current Dir.. It May Be Changed");
+}
+for(k=0;k<10;k++)
+{  for(i=0;i<M;i++)
+    for(j=0;j<N;j++)
+        fscanf(IN,"%d",&iIN[i][j]);
+
+iOUT=fun(iIN);
+fprintf(OUT,"%d\n",iOUT);
+}
+fclose(IN);
+fclose(OUT);
+}
+
+答案：----------------------
+int s=0;
+   int i,j;
+   for(i=0;i<M;i++)
+   s=s+a[i][0]+a[i][N-1];
+   for(j=1;j<N-1;j++)
+    s=s+a[0][j]+a[M-1][j];
+    return s;
+----------------------
+
+第63题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：用函数实现字符串的复制, 不允许用strcpy()函数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+void copy(char str1[],char str2[])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main(void)
+{
+  void copy();
+  char c1[40],c2[40];
+  gets(c1);
+  copy(c1,c2);
+  puts(c2);
+  yzj();
+  getch();
+}
+
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  char i[100];
+  char o[100];
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  fscanf(IN,"%s",i);
+  copy(i,o);
+  fprintf(OUT,"%s\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i;
+    for(i=0;str1[i]!='\0';i++)
+       str2[i]=str1[i];
+    str2[i]='\0';
+----------------------
+
+第64题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun求s=1^k+2^k +3^k + ......+N^k的值，
+     （1的K次方到N的K次方的累加和）。
+
+------------------------------------------------*/
+
+#define K 4
+#define N 5
+#include "stdio.h"
+
+long  fun(int n,int k)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+main()
+{
+  long int sum;
+  printf("Sum of %d powers of integers from 1 to %d = ",K,N);
+  sum=fun(N,K);
+  printf("%ld\n",sum);
+  getch();
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[2];
+  long o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<2;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o=fun(i[0],i[1]);
+  fprintf(OUT,"%ld\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long power,sum=0;
+ int i,j;
+ for(i=1;i<=n;i++)
+   { power=i;
+     for(j=1;j<k;j++)
+    power *= i;
+     sum += power;
+   }
+ return sum;
+----------------------
+
+第65题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：通过函数求一维数组的最大值。
+
+------------------------------------------------*/
+#include <conio.h>
+int maxt(int a[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+
+#include "stdlib.h"
+#include "stdio.h"
+int yzj();
+void main(void)
+{
+  int a[6]={2,5,3,4,2,9},k; 
+  k=maxt(a,6);
+  printf("the result is:%d\n",k);
+  yzj();
+  getch();
+}
+
+int yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[6];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<6;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o=maxt(i,6);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+  return 0;
+}
+答案：----------------------
+int i,max;
+    max=a[0];
+    for(i=1;i<n;i++)
+      if(a[i]>max) max=a[i];
+      
+   return max;
+----------------------
+
+第66题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+题目：用函数求一个N阶方阵右下三角元素的和（包括副
+      对角线上的元素）。    
+
+------------------------------------------------*/
+
+#include <stdlib.h>
+#include "stdio.h"
+#define N 3
+
+int sum(int a[][N])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[N][N],i,j;
+  clrscr();
+  for(i=0;i<N;i++)
+  {
+    for(j=0;j<N;j++)
+    {
+      a[i][j]=random(10)+10;
+      printf("%3d",a[i][j]);
+    }
+    printf("\n");
+  }
+  printf("===================\n");
+  printf("sum=%5d\n",sum(a));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[3][3];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(m=0;m<3;m++)
+    for(n=0;n<3;n++)
+      fscanf(IN,"%d",&i[m][n]);
+    o=sum(i);
+    fprintf(OUT,"%d\n",o);
+    fclose(IN);
+    fclose(OUT);
+}
+答案：----------------------
+int i,j,k=0;
+ for(i=0;i<N;i++)
+  for(j=N-1-i;j<N;j++)
+    k=k+a[i][j];
+ return(k);
+----------------------
+
+第67题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun求sum=d+dd+ddd+……+dd...d(n个d)，
+      其中d为1-9的数字。
+例如：3+33+333+3333+33333(此时d=3,n=5)，d和n在主函
+      数中输入。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+main()
+{ 
+  int d,n;
+  long sum,fun();
+  printf("d=");
+  scanf("%d",&d);
+  printf("n=");
+  scanf("%d",&n);
+  sum=fun(d,n);
+  printf("sum=%ld\n",sum);
+  getch();
+  yzj();
+}
+
+long int fun(int d,int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[2];
+  long o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<2;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o = fun(i[0],i[1]);
+  fprintf(OUT,"%ld\n",o);
+  
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long int s=0,t=0;
+  int i;
+  for(i=1;i<=n;i++)
+    { t=t+d;
+      s=s+t;
+      d=d*10;
+    }
+  return s;
+----------------------
+
+第68题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一分数序列2/1，3/2，5/3，8/5，13/8，21/13…
+      的前n项之和。
+说明：每一分数的分母是前两项的分母之和，每一分数的
+      分子是前两项的分子之和
+例如：求前20项之和的值为32.660259。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+        
+float fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+main()
+{
+  float y;
+  y=fun(20);
+  printf("y=%f\n",y);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,i;
+  float fOUT;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<5;i++)
+  {   
+    fscanf(IN,"%d",&iIN);
+    fOUT=fun(iIN);
+    fprintf(OUT,"%f\n",fOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+
+
+答案：----------------------
+ int i;
+   float f1=1,f2=1,f3,s=0;
+   for(i=1;i<=n;i++)
+    {f3=f1+f2;
+     f1=f2;
+     f2=f3;
+     s=s+f2/f1;
+     }
+    return s;
+----------------------
+
+第69题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun求一个字符串的长度,在main函数中
+      输入字符串,并输出其长度。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+int fun(char *p1)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+  
+}
+
+main()
+{
+  char *p,a[20];
+  int len;
+  p=a;
+  printf("please input a string:\n");
+  gets(p);
+  len=fun(p);
+  printf("The string's length is:%d\n",len);
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  char *pIN,sIN[20];
+  int iOUT,i;
+  pIN=sIN;
+  IN=fopen("3.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("3.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)
+  {        
+    fscanf(IN,"%s",pIN);
+    iOUT=fun(pIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+char *p;
+int n=0;
+p=p1;
+while(*p++)
+ n++;
+  return n;
+----------------------
+
+第70题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：将两个两位数的正整数a、b合并形成一个整数放在c
+      中。合并的方式是：将a数的十位和个位数依次放在
+      c数的千位和十位上， b数的十位和个位数依次放在
+      c数的个位和百位上。     
+例如：当a＝45，b=12。调用该函数后，c=4251。  
+ 
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+void fun(int a, int b, long *c)     
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+     
+void main()     
+{ 
+  int a,b;
+  long c;     
+  clrscr();     
+  printf("Input a, b:");     
+  scanf("%d%d", &a, &b);     
+  fun(a, b, &c);     
+  printf("The result is: %ld\n", c);
+  getch();
+  NONO();     
+}    
+
+NONO ( )     
+{  
+  FILE *rf, *wf ;     
+  int i, a,b ; 
+  long c ;     
+  rf = fopen("in.dat", "r") ;     
+  wf = fopen("out.dat","w") ;     
+  for(i = 0 ; i < 10 ; i++) 
+  {     
+    fscanf(rf, "%d,%d", &a, &b) ;     
+    fun(a, b, &c) ;     
+    fprintf(wf, "a=%d,b=%d,c=%ld\n", a, b, c) ;     
+  }     
+  fclose(rf) ;     
+  fclose(wf) ;     
+}   
+答案：----------------------
+*c=a/10*1000+a%10*10+b/10+b%10*100;
+----------------------  
+
+第71题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数用选择排序法对数组中的数据进行从小到
+      大的排序。
+
+------------------------------------------------*/
+
+#include <stdlib.h>
+#include<stdio.h>
+
+void sort(int a[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[13],i;
+  clrscr();
+  for(i=0;i<13;i++)
+    a[i]=random(20)-5;
+  for(i=0;i<13;i++)
+    printf("%3d",a[i]);
+  printf("\n-------------------\n");
+  sort(a,13);
+  for(i=0;i<13;i++)
+    printf("%3d",a[i]);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  sort(i,10);
+  for(n=0;n<10;n++)
+    fprintf(OUT,"%d\n",i[n]);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int i,j,k,t;
+ for(i=0;i<n-1;i++)
+  {k=i;
+   for(j=i+1;j<n;j++)
+     if(a[k]>a[j]) k=j;
+   if(k!=i)
+    {t=a[i];
+     a[i]=a[k];
+     a[k]=t;
+     }
+   }
+----------------------
+
+第72题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写一个函数，该函数可以统计一个长度为2的字符
+      串在另一个字符串中出现的次数。
+例如：假定输入的字符串为：asdasasdfgasdaszx67asdmklo，
+      字符串为：as,则应输出6。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+  
+int fun(char *str,char *substr)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()
+{
+  char str[81],substr[3];
+  int n;
+  clrscr();
+  printf("输入主字符串： ");
+  gets(str);
+  printf("输入子字符串： ");
+  gets(substr);
+  puts(str);
+  puts(substr);
+  n=fun(str,substr);
+  printf("n=%d\n",n);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  char i[200];
+  char o[200];
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  fscanf(IN,"%s",i);
+  n=fun(i,"as");
+  fprintf(OUT,"%d",n);
+  fclose(IN);
+  fclose(OUT);
+}
+
+答案：----------------------
+ int i,n=0;
+ for(i=0;i<=strlen(str)-2;i++)
+    if((str[i]==substr[0])&&(str[i+1]==substr[1]))
+     n++;
+ return n;
+----------------------
+
+第73题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：计算并输出给定整数的所有因子之积（包括自身）。
+      规定这个整数的值不大于50。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+long int fun(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int  m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %ld\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s ;
+  int t;
+  long int o;
+  
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(s=1;s<=5;s++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%ld\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ long  s=1,i;
+
+   for(i=2;i<=n;i++)
+    if(n%i==0)s=s*i;
+
+     return s;
+----------------------
+
+第74题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun(m)判断m是否为素数，是素数返回1，否则返回0。主函数调用fun(m)打印出100至200间的素数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+void main(void)
+{
+  int m,k=0;
+  for(m=100;m<200;m++)
+    if(fun(m))
+    {
+      printf("%4d",m);
+      k++;
+      if(k%5==0)
+        printf("\n");
+    }
+    printf("k=%d\n",k);
+    getch();
+    yzj();
+}
+
+int fun(int m)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,iOUT,i;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)    
+  {    
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+} 
+
+答案：---------------------- 
+int i,k=1;
+    if(m<=1) k=0;
+    for(i=2;i<m;i++)
+     if(m%i==0) k=0;
+    return k;
+----------------------
+
+第75题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：用函数将第2个串连接到第1个串之后，不允许使用
+      strcat函数。    
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+void len_cat(char c1[],char c2[])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()
+{
+  char s1[80],s2[40];
+  gets(s1);gets(s2);
+  len_cat(s1,s2);
+  printf("string is: %s\n",s1);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[2][200];
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<2;n++)
+    fscanf(IN,"%s",i[n]);
+  len_cat(i[0],i[1]);
+  fprintf(OUT,"%s\n",i[0]);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,j;
+ for(i=0;c1[i]!='\0';i++);
+ for(j=0;c2[j]!='\0';j++)
+   c1[i+j]=c2[j];
+ c1[i+j]='\0';
+----------------------
+
+第76题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求给定正整数m以内的素数之和。
+例如：当m=20时，函数值为77。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(int m)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  int y;
+  y=fun(20);
+  printf("y=%d\n",y);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,iOUT,i;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<5;i++)
+  {  
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int i,k,s=0;
+   for(i=2;i<=m;i++)
+     {for(k=2;k<i;k++)
+      if(i%k==0)break;
+      if(k==i)s=s+i;
+     }
+return s;
+----------------------
+
+第77题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：输入三个字符串，按由小到大顺序输出。编写交换
+      函数fun，用交换指针的方式实现交换。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+
+main()
+{ 
+  static char s1[20],s2[20],s3[20];
+  char fun();
+  printf("输入三个字符串：\n");
+  scanf("%s",s1);
+  scanf("%s",s2);
+  scanf("%s",s3);
+  if(strcmp(s1,s2)>0) fun(s1,s2);
+  if(strcmp(s1,s3)>0) fun(s1,s3);
+  if(strcmp(s2,s3)>0) fun(s2,s3);
+  printf("排序结果是：\n%s\n%s\n%s\n",s1,s2,s3);
+  getch();
+  yzj();
+}
+
+char fun(char *p1,char *p2)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[2][200];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(m=0;m<5;m++)
+  {
+    for(n=0;n<2;n++)
+    {    
+      fscanf(IN,"%s",i[n]);
+    }
+    fun(i[0],i[1]);
+    for(n=0;n<2;n++)
+    {    
+      fprintf(OUT,"%s\n",i[n]);
+    }
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+char *p=NULL;
+ strcpy(p,p1);
+ strcpy(p1,p2);
+ strcpy(p2,p);
+----------------------
+
+第78题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：产生20个[30,120]上的随机整数放入二维数组a[5][4]
+      中，求每行元素的和。
+
+------------------------------------------------*/
+
+#include "stdlib.h"
+#include "stdio.h"
+
+void row_sum(int a[5][4],int b[5])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  void row_sum();
+  int a[5][4],b[5],i,j;
+  clrscr();
+  for(i=0;i<5;i++)
+    for(j=0;j<4;j++)
+      a[i][j]=random(120-30+1)+30;
+    for(i=0;i<5;i++)
+    {
+      for(j=0;j<4;j++)
+        printf("%5d",a[i][j]);
+      printf("\n");
+    }
+    row_sum(a,b);
+    for(i=0;i<5;i++)
+      printf("%6d",b[i]);
+    printf("\n");
+    yzj();
+    getch();
+}
+
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[5][4];
+  int o[5];
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(m=0;m<5;m++)
+    for(n=0;n<4;n++)
+      fscanf(IN,"%d",&i[m][n]);
+    row_sum(i,o);
+    for(n=0;n<5;n++)
+      fprintf(OUT,"%d\n",o[n]);
+    fclose(IN);
+    fclose(OUT);
+}
+
+答案：----------------------
+ int i,j;
+    for(i=0;i<5;i++)
+    { b[i]=0;
+      for(j=0;j<4;j++)
+        b[i]=b[i]+a[i][j];
+      }
+----------------------
+
+第79题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写程序求无理数e的值并输出。计算公式为：
+      e=1+1/1!+1/2!+1/3!+......+1/n!
+      当1/n!<0.000001时e=2.718282。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+void main(void)
+{
+  float fun();
+  printf("无理数e的值是:%f\n",fun());
+  getch();
+  yzj();
+}
+
+float fun()
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[5];
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  o = fun();
+  fprintf(OUT,"%f\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long int j;
+ int i,k;
+ float e,jc;
+ i=1;
+ e=0.0;
+ jc=1.0;
+ while(jc>=0.000001)
+   {
+     e=e+jc;
+     j=1;
+     for(k=1;k<=i;k++)
+    j=j*k;
+     jc=1.0/j;
+     i++;
+   }
+ return e;
+----------------------
+
+第80题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun计算下列分段函数的值：
+             x^2+x+6      x<0且x≠-3
+       f(x)= x^2-5x+6     0≤x<10且x≠2及x≠3
+             x^2-x-1      其它
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+float fun(float x)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main(void)
+{ 
+  float x,f;
+  printf("Input x=");
+  scanf("%f",&x);
+  f=fun(x);
+  printf("x=%f,f(x)=%f\n",x,f);
+  getch();
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  float i;
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%f",&i);
+    o=fun(i);
+    fprintf(OUT,"%f\n",o);
+  }
+  
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ float y;
+  if (x<0 && x!=-3.0)
+     y=x*x+x+6;
+  else if(x>=0 && x<10.0 && x!=2.0 && x!=3.0)
+     y=x*x-5*x+6;
+  else y=x*x-x-1;
+return y;
+----------------------
+
+第81题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写main程序调用函数fact求解从m个元素选n个元
+      素的组合数的个数。计算公式是：
+      组合数＝m!/(n!.(m-n)!)。要求:m不能小于n，否则
+      应有容错处理。
+说明：函数fact(x)的功能是求x!。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+long fact(int x)
+{
+  long y;
+  int i;
+  y=1;
+  for(i=1;i<=x;i++)
+    y=y*i;
+  return y;
+}
+
+int yzj();
+void main()
+{
+  int m,n;
+  long zhsgs;
+  printf("请输入m和n:\n");  scanf("%d%d",&m,&n);
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  printf("从%d个元素选%d个元素的组合数的个数是:%d\n",m,n,zhsgs);
+  yzj();
+}
+
+int yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i;
+  long o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+  {    
+    fscanf(IN,"%d",&i);
+    o = fact(i);
+    fprintf(OUT,"%ld\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+  return 0;
+}
+答案：----------------------
+while(m<n)
+  {
+   printf("m和n输入错！请重新输入:\n");
+   scanf("%d%d",&m,&n);
+  }
+ zhsgs=fact(m)/(fact(n)*fact(m-n));
+----------------------
+
+第82题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun求1!+2!+3!+ …… +n!的和,在main函
+      数中由键盘输入n值，并输出运算结果。请编写fun
+      函数。
+例如：若n值为5，则结果为153。
+
+------------------------------------------------*/
+    
+#include<stdio.h>
+
+long fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+int yzj();
+void main()
+{
+  int n;
+  long int result;
+  scanf("%d",&n);
+  result=fun(n);
+  printf("%ld\n",result);
+  yzj();
+}
+
+int yzj()
+{
+  FILE *IN,*OUT;
+  int i;
+  int iIN;
+  long int iOUT;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)
+  {        
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%ld\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+  return 0;
+}
+
+答案：----------------------
+int i;
+long f=1,s=0;
+for(i=1;i<=n;i++)
+ {f=f*i;
+  s=s+f;}
+ return s;
+----------------------
+
+第83题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求小于lim的所有素数并放在aa数组中，该函数返回
+      所求出素数的个数。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+#include<conio.h>
+#define MAX 100
+
+int fun(int lim,int aa[MAX])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+void main()
+{
+  int limit,i,sum;
+  int aa[MAX];
+  clrscr();
+  printf("Please Input aInteger:");
+  scanf("%d",&limit);
+  sum=fun(limit,aa);
+  for(i=0;i<sum;i++){
+    if(i%10==0&&i!=0) printf("\n");
+    printf("%5d",aa[i]);
+    
+  }
+  NONO();
+  getch();
+}
+NONO()     
+{     
+  int i,j,array[100],sum,lim;
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  for (j=0; j <= 5; j++)
+  {
+    fscanf(rf, "%d", &lim);
+    sum=fun(lim,array);
+    for(i=0;i<sum;i++)
+      fprintf(wf, "%7d", array[i]);
+    fprintf(wf, "\n");     
+  }     
+  fclose(rf);
+  fclose(wf);
+} 
+答案：----------------------
+ int n=0;
+ int i,j;
+ for(i=2;i<=lim;i++)
+    {for(j=2;j<i;j++)
+      if(i%j==0) break;
+      if(j==i) aa[n++]=i;
+     }
+     return n;
+----------------------
+
+第84题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：根据整型形参m，计算如下公式的值：
+      y=1/5+1/6＋1/7＋1/8＋1/9+1/10...＋1/(n+5)
+例如：若n=9，则应输出：1.168229
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+double fun(int m)   
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+void main(void)   
+{
+  int n;   
+  
+  printf("Enter n: ");   
+  scanf("%d", &n);   
+  printf("\nThe result is %1f\n", fun(n));
+  getch();
+  yzj();  
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s,i ;
+  int t;
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(i=0;i<5;i++)
+  {  
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%f\n",o);
+    
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+     double y=0;
+     int i;
+     for(i=0; i<=m; i++)
+     {y+=1.0/(i+5);  }
+     return(y);
+----------------------    
+
+第85题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：若x、y为奇数，求x到y之间的奇数和；若x、y为偶
+      数，则求x到y之间的偶数和。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+main()
+{ 
+  int s,i,j;
+  s=fun(1,1999)-fun(2,1998);
+  printf("s=%d\n",s);
+  getch();
+  yzj();
+}
+
+int fun(int x,int y)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[2];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<2;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o = fun(i[0],i[1]);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：---------------------- 
+  int i,s=0;
+  for(i=x;i<=y;i+=2)
+     s=s+i;
+  return s;
+----------------------
+
+第86题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun生成一个对角线元素为1，其他元素都
+      为0的3*3的二维数组。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+main()
+{ 
+  int a[3][3],i,j;
+  fun(a);
+  for(i=0;i<3;i++)
+  {
+    for(j=0;j<3;j++)
+      printf("%d ",a[i][j]);
+    printf("\n");
+  }
+  getch();
+  yzj();
+}
+
+fun(int arr[][3])
+{ int i,j;
+/**********Program**********/
+
+
+
+
+
+
+/**********  End  **********/
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[3][3];
+  int o;
+  
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+    
+    printf("Write File Error");
+}
+fun(i);
+for (m=0;m<3 ;m++ )
+{
+  for(n=0;n<3;n++)
+  {    
+    fprintf(OUT,"%d",i[m][n]);
+  }
+  fprintf(OUT,"\n");
+}
+
+
+fclose(IN);
+fclose(OUT);
+}
+
+答案：----------------------
+for(i=0;i<3;i++)
+     for(j=0;j<3;j++)
+     if(i==j)
+        arr[i][j]=1;
+     else
+        arr[i][j]=0;
+----------------------
+
+第87题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：找出一批正整数中的最大的偶数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(int a[],int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main(void)
+{
+  int a[]={1,2,9,24,35,18},k;
+  k=fun(a,6);
+  printf("max=%d\n",k);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN[10],iOUT,i,j;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(j=0;j<3;j++)
+  {     
+    for(i=0;i<5;i++)
+      fscanf(IN,"%d",&iIN[i]);
+    iOUT=fun(iIN,5); 
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,amax=-1;
+    for(i=0;i<n;i++)
+     if(a[i]%2==0)
+      if (a[i]>amax) amax=a[i];
+     return amax;
+----------------------
+
+第88题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：把20个随机数存入一个数组，然后输出该数组中的
+      最大值。   
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include <stdlib.h>
+#define VSIZE 20     
+
+int vector[VSIZE] ;     
+int fun(int list[],int size)     
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/     
+  
+}   
+
+int NONO();  
+void main()     
+{     
+  int i;        
+  for (i=0;i<VSIZE;i++)
+  {
+    vector[i]=rand();     
+    printf("Vector[%d]=%6d\n",i,vector[i]);     
+  }     
+  i=fun(vector,VSIZE);     
+  printf("\nMaxnum: Vector[%d]=%6d\n",i,vector[i]);
+  NONO();     
+} 
+    
+int NONO()   
+{     
+  int i,t;
+  FILE *fp ;     
+  fp = fopen("out.dat", "w") ;
+  for (i=0;i<VSIZE;i++)
+  {
+    fprintf(fp,"Vector[%d]=%6d\n",i,vector[i]);
+  }     
+  t=fun(vector,VSIZE);
+  fprintf(fp,"\nMaxnum: Vector[%d]=%6d\n",t,vector[t]);
+  fclose(fp);
+  return 0;     
+}
+
+
+答案：----------------------
+int i,max=0;     
+for(i=1; i <size; i++)
+if(list[max]<list[i])     
+max=i;     
+return max;
+----------------------
+
+第89题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求1到100之间的偶数之积。
+
+------------------------------------------------*/
+    
+#include "stdio.h"
+    
+double  fun(int m)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  printf("ji=%f\n",fun(100));
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,i;
+  double dOUT;
+  IN=fopen("23.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("23.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)
+  {
+    fscanf(IN,"%d",&iIN);
+    dOUT=fun(iIN);
+    fprintf(OUT,"%f\n",dOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+double   y=1;
+    int i;
+    for(i=1;i<=m;i++)
+     if(i%2==0)y*=i;
+     return y;
+----------------------
+
+第90题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数求表达式的和（n的值由主函数输入）。
+      1-1/2+1/3-1/4+......+1/n
+例如：当n=20时,表达式的值为0.668771。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+float sum(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+int yzj();
+void main(void)
+{
+  int n;
+  scanf("%d",&n);
+  printf("sum=%f\n",sum(n));
+  yzj();
+  getch();
+}
+
+int yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[10];
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+    fscanf(IN,"%d",&i[n]);
+  for(n=0;n<5;n++)
+  {
+    o = sum(i[n]);
+    fprintf(OUT,"%f\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+  return 0;
+}
+答案：----------------------
+float s=0;
+ int i,k=1;
+ for(i=1;i<=n;i++)
+   { s=s+k*1.0/i;
+     k=-k;
+     }
+ return(s);
+----------------------
+
+第91题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun将一个数组中的值按逆序存放，并在
+      main()函数中输出。
+例如：原来存顺序为8,6,5,4,1。要求改为：1,4,5,6,8。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#define N 5
+
+main()
+{
+  int a[N]={8,6,5,4,1},i;
+  for(i=0;i<N;i++)
+    printf("%4d",a[i]);
+  printf("\n");
+  fun(a,N);
+  for(i=0;i<N;i++)
+    printf("%4d",a[i]);
+  yzj();
+  getch();
+}
+
+int fun(int arr[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  fun(i,10);
+  for(n=0;n<10;n++)
+  {    
+    fprintf(OUT,"%d\n",i[n]);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,t;
+ for(i=0;i<n/2;i++)
+  { t=arr[i];
+    arr[i]=arr[n-1-i];
+    arr[n-1-i]=t;
+  }
+----------------------
+
+第92题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：用辗转相除法求两个整数的最大公约数。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+
+int gcd(int n,int m)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int n,m,result;
+  clrscr();
+  scanf("%d%d",&n,&m);
+  result=gcd(n,m);
+  printf("the gcd is %d\n",result);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[2];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<6;n++)
+  {    
+    for(m=0;m<2;m++)
+    {    
+      fscanf(IN,"%d",&i[m]);
+    }
+    o=gcd(i[0],i[1]);
+    fprintf(OUT,"%d\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int r,t;
+ if(n<m) { t=n;n=m;m=t;}
+ r=n%m;
+ while(r!=0)
+ { n=m;m=r;r=n%m;}
+ return(m);
+----------------------
+
+第93题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数求3!+6!+9!+12!+15!+18!+21!。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+float sum(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main(void)
+{
+  printf("this sum=%e\n",sum(21));
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i;
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  fscanf(IN,"%d",&i);
+  o=sum(i);
+  fprintf(OUT,"%f\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,j;
+    float t,s=0;
+    for(i=3;i<=n;i=i+3)
+     {t=1;
+      for(j=1;j<=i;j++)
+        t=t*j;
+      s=s+t;}      
+    return(s);
+----------------------
+
+第94题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一个给定字符串中的字母的个数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(char s[])
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  char str[]="Best wishes for you!";
+  int k;
+  k=fun(str);
+  printf("k=%d\n",k);
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  char sIN[80];
+  int iOUT,i;
+  IN=fopen("21.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("21.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<10;i++)
+  {        
+    fscanf(IN,"%s",sIN);
+    iOUT=fun(sIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+答案：----------------------
+int i,k=0;
+   for(i=0;s[i]!='\0';i++)
+    if(s[i]>='a'&&s[i]<='z'||s[i]>='A'&&s[i]<='Z')
+     k++;
+    return k;
+----------------------
+
+第95题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：找出一个大于给定整数且紧随这个整数的素数，并
+      作为函数值返回。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+int fun(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int  m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %d\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s ;
+  int t;
+  int o;
+  
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(s=1;s<=5;s++)
+  {
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%d\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,k;
+for(i=n+1;;i++){
+for(k=2;k<i;k++)
+if(i%k==0)
+break;
+if(k==i)
+return(i);
+    }
+----------------------
+
+第96题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求出菲波那契数列的前一项与后一项之比的极限的
+      近似值。
+例如：当误差为0.0001时，函数值为0.618056。
+
+-------------------------------------------------*/
+
+#include "stdio.h"
+#include "math.h"
+    
+float fun()
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  printf("y=%f\n",fun());
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  float fOUT;
+  IN=fopen("19.in","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("19.out","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  fOUT=fun();
+  fprintf(OUT,"%f\n",fOUT);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,j;
+   float f1=1,f2=1,f3;
+   float r1=2,r2;
+   do
+   {r2=r1;
+   r1=f1/f2;
+   f3=f1+f2;
+   f1=f2;
+   f2=f3;
+   }while(fabs(r1-r2)>1e-4);
+   return r1;
+----------------------
+
+第97题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：将字符串中的小写字母转换为对应的大写字母，
+      其它字符不变。
+
+------------------------------------------------*/
+
+#include "string.h"
+#include "stdio.h"
+
+void change(char str[])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main(void)
+{
+  void change();
+  char str[40];
+  gets(str);
+  change(str);
+  puts(str);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  char i[200];
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  fscanf(IN,"%s",i);
+  change(i);
+  fprintf(OUT,"%s\n",i);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i;
+    for(i=0;str[i]!='\0';i++)
+      if(str[i]>='a' && str[i]<='z') 
+         str[i]=str[i]-32;
+----------------------
+
+第98题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求4位数n的逆位数。
+n在主函数中输入，通过函数参数带入。
+如n=1234 结果为4321。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main(void)
+{
+  int n,k;
+  scanf("%d",&n);
+  k=fun(n);
+  printf("result:%d\n",k);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int iOUT,i,n;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<3;i++)
+  {     
+      fscanf(IN,"%d",&n);
+      iOUT=fun(n); 
+      fprintf(OUT,"%d\n",iOUT);
+  }
+  
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int s,a,b,c,d;
+   a=n/1000;
+   b=n%1000/100;
+   c=n%100/10;
+   d=n%10;
+   s=d*1000+c*100+b*10+a;
+
+     return s;
+----------------------
+
+第99题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一批数中小于平均值的数的个数。
+
+------------------------------------------------*/
+
+#include<stdio.h>
+
+int average_num(int a[],int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int n,a[100],i,num;
+  clrscr();
+  scanf("%d",&n);
+  for(i=0;i<n;i++)
+    scanf("%d",&a[i]);
+  num=average_num(a,n);
+  printf("the num is:%d\n",num);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o=average_num(i,5);
+  fprintf(OUT,"%d\n",o);
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,sum=0,k=0;
+    float average;
+    for(i=0;i<n;i++)
+      sum=sum+a[i];
+    average=sum*1.0/n;
+    for(i=0;i<n;i++)
+      if(average>a[i]) k++;
+return(k);
+----------------------
+
+第100题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一个四位数的各位数字的立方和。
+
+-----------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(int n)
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  int k;
+  k=fun(1234);
+  printf("k=%d\n",k);
+  yzj();
+  getch();
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int iIN,iOUT,i;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<5;i++)
+  {
+    fscanf(IN,"%d",&iIN);
+    iOUT=fun(iIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int d,k,s=0;
+   while (n>0)
+    {d=n%10;
+    s+=d*d*d;
+     n/=10;
+     }
+     return s;
+----------------------
+
+第101题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+功能：求n阶方阵主、副对角线上的元素之积。
+------------------------------------------------*/
+
+#define N 4
+#include "stdlib.h"
+#include "stdio.h"
+
+float mul(int arr[][N])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[N][N],i,j;
+  clrscr();
+  for(i=0;i<N;i++)
+    for(j=0;j<N;j++)
+      a[i][j]=random(10);
+    for(i=0;i<N;i++)
+    {
+      for(j=0;j<N;j++)
+        printf("%4d",a[i][j]);
+      printf("\n");
+    }
+    printf("The sum is %d\n",mul(a));
+    yzj();
+    getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int m,n;
+  int i[4][4];
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(m=0;m<100;m++)
+    for(n=0;n<100;n++)
+    {    
+      fscanf(IN,"%d",&i[m][n]);
+    }
+    o=mul(i);
+    fprintf(OUT,"%f\n",o);
+    fclose(IN);
+    fclose(OUT);
+}
+答案：----------------------
+int i,j;
+    float t=1;
+    for(i=0;i<N;i++)
+      for(j=0;j<N;j++)
+        if(i==j||i+j==N-1)
+          t=t*arr[i][j];
+    return(t);
+----------------------
+
+第102题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：判断整数x是否是同构数。若是同构数，函数返回1；
+      否则返回0。x的值由主函数从键盘读入，要求不大
+      于100。
+说明：所谓“同构数”是指这样的数，这个数出现在它的
+      平方数的右边。
+例如：输入整数5，5的平方数是25，5是25中右侧的数，所
+      以5是同构数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+int fun(int x)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+void main()
+{
+  int x,y;
+  clrscr();
+  printf("\nPlease enter a integer numbers:");
+  scanf("%d",&x);
+  if(x>100)
+  {
+    printf("data error!\n");
+    exit(0);
+  }
+  y=fun(x);
+  if(y) 
+    printf("%d YES\n",x);
+  else 
+    printf("%d NO\n",x);
+  getch();
+  yzj();
+  
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int n,t;
+  int i[5];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(t = 0 ; t < 5 ; t++)
+  {
+    fscanf(IN, "%d", &n) ;
+    o=fun(n);
+    fprintf(OUT, "%d\n",o ) ;
+  }     
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+  int k;
+  k=x*x;
+  if((k%10==x)||(k%100==x))
+   return 1;
+  else
+   return 0;
+----------------------
+
+第103题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求k！（k〈13），所求阶乘的值作为函数值返回。
+     （要求使用递归）
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+  
+long fun(int k)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %ld\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  
+  FILE *IN,*OUT;
+  int s ;
+  int t;
+  long o;
+  
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(s=1;s<=5;s++)
+  {
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%ld\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+if (k>0)
+return(k*fun(k-1));
+else if(k==0)
+return 1L;
+----------------------
+
+第104题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：请编一个函数void fun(int tt[M][N],int pp[N])，
+      tt指向一个M行N列的二维数组，求出二维数组每列
+      中最小元素，并依次放入pp所指一维数组中。二维
+      数组中的数已在主函数中赋予。
+
+------------------------------------------------*/
+
+#include<conio.h>
+#include<stdio.h>
+#define M 3
+#define N 4
+  
+void fun(int tt[M][N],int pp[N])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+void main()
+{
+  int t[M][N]={{22,45,56,30},
+  {19,33,45,38},
+  {20,22,66,40}};
+  int p[N],i,j,k;
+  clrscr();
+  printf("The original data is:\n");
+  for(i=0;i<M;i++)
+  {
+    for(j=0;j<N;j++)
+      printf("%6d",t[i][j]);
+    printf("\n");
+  }
+  fun(t,p);
+  printf("\nThe result is:\n");
+  for(k=0;k<N;k++) printf("%4d",p[k]);
+  printf("\n");
+  getch();
+  NONO();
+}
+NONO()     
+{     
+  
+  int i,j, array[3][4],p[4];
+  FILE *rf, *wf ;     
+  rf = fopen("in.dat", "r") ;
+  wf = fopen("out.dat", "w") ;
+  for (i=0; i < 3; i++)     
+    for (j=0; j < 4; j++)
+      fscanf(rf, "%d", &array[i][j]);     
+    fun(array,p);
+    for (j=0; j < 4; j++)
+      
+    {
+      fprintf(wf, "%7d", p[j]);
+      fprintf(wf, "\n");     
+    }     
+    fclose(rf) ;     
+    fclose(wf) ;     
+}
+答案：----------------------
+ int i,j;
+ for(j=0;j<N;j++)
+    {
+     pp[j]=tt[0][j];
+     for(i=1;i<M;i++)
+     if(tt[i][j]<pp[j])
+       pp[j]=tt[i][j];
+
+       }
+----------------------
+
+第105题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun其功能是：根据整型形参m，计算如下
+      公式的值：y=1＋1/3＋1/5＋1/7＋...＋1/(2m+1)
+例如：若m=9，则应输出：2.133256
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+double fun(int m)   
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()   
+{
+  int n;   
+  clrscr();   
+  printf("Enter n: ");   
+  scanf("%d", &n);   
+  printf("\nThe result is %1f\n", fun(n));
+  yzj();  
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s,i ;
+  int t;
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(i=0;i<5;i++)
+  {   
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%f\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+     double y=1;
+     int i;
+     for(i=1; i<=m; i++)
+     {y+=1.0/(2*i+1);  }
+     return(y);
+----------------------
+
+第106题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：根据整型形参m，计算如下公式的值：y=sin(m)*10。
+例如：若m=9，则应输出：4.121185
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"math.h"
+  
+double fun(int m)   
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+void main()   
+{
+  int n;   
+  clrscr();   
+  printf("Enter n: ");   
+  scanf("%d", &n);   
+  printf("\nThe result is %1f\n", fun(n));
+  yzj();  
+  getch();
+  
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s,i ;
+  int t;
+  float o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(i=0;i<5;i++)
+  {  
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%f\n",o);
+    
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+     double y=0;
+     y=sin(m)*10;
+     return(y);
+----------------------
+
+第107题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：能计算从1开始到n的自然数中偶数的平方的和，n由
+      键盘输入，并在main()函数中输出。（n是偶数）
+
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+int fun(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %d\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int t;
+  int o;
+  int c;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(c=1;c<=5;c++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%d\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int sum,i;
+sum =0;
+for(i=2;i<=n;i=i+2)
+{
+sum=sum+i*i;}
+return(sum);
+----------------------
+
+第108题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数判断一个整数能否同时被3和5整除，若能
+      则返回值为1，否则为0。调用该函数求出15~300之
+      间能同时被3和5整除的数的个数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include <conio.h>
+
+int sum(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+int yzj();
+void main()
+{
+  int i,s=0;
+  for(i=15;i<=300;i++)
+    if(sum(i)==1) s=s+1;
+  printf("s=%d\n",s);
+  yzj();
+  getch();
+}
+
+int yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[12];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  for(n=0;n<5;n++)
+  {    
+    o = sum(i[n]);
+    fprintf(OUT,"%d\n",o);    
+  }
+  fclose(IN);
+  fclose(OUT);
+  return 0;
+}
+
+答案：----------------------
+if(n%3==0&&n%5==0) return(1);
+ return(0);
+----------------------
+
+第109题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun(str,i,n)，从字符串str中删除第i个
+      字符开始的连续n个字符（注意:str[0]代表字符串
+      的第一个字符）。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+main()
+{
+  char  str[81];
+  int   i,n;
+  printf("请输入字符串str的值:\n");
+  scanf("%s",str);
+  printf("你输入的字符串str是:%s\n",str);
+  printf("请输入删除位置i和待删字符个数n的值:\n");
+  scanf("%d%d",&i,&n);
+  while (i+n-1>strlen(str))
+  {
+    printf("删除位置i和待删字符个数n的值错！请重新输入i和n的值\n");
+    scanf("%d%d",&i,&n);
+  }
+  fun(str,i,n);
+  printf("删除后的字符串str是:%s\n",str);
+  getch();
+  yzj();
+}
+
+fun(char str[],int i,int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  char i[200];
+  char o[200];
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  fscanf(IN,"%s",i);
+  fun(i,2,8);
+  fprintf(OUT,"%s\n",i);
+  
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+while(str[i+n-1])
+   {
+    str[i-1]=str[i+n-1];
+    i++;
+   }
+  str[i-1]='\0';
+----------------------
+
+第110题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun用比较法对主程序中用户输入的具有10
+      个数据的数组a按由大到小排序，并在主程序中输出
+      排序结果。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+int fun(int array[], int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+
+main()
+{
+  int a[10],i;
+  printf("请输入数组a中的十个数:\n");
+  for (i=0;i<10;i++)
+    scanf("%d",&a[i]);
+  fun(a,10);
+  printf("由大到小的排序结果是:\n");
+  for (i=0;i<10;i++)
+    printf("%4d",a[i]);
+  printf("\n");  
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[10];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  fun(i,10);
+  for(n=0;n<10;n++)
+  {    
+    fprintf(OUT,"%d\n",i[n]);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+答案：----------------------
+int  k,j,t;
+  for (k=0;k<n-1;k++)
+    for (j=k+1;j<n;j++)
+      if (array[k]<array[j])
+    {
+    t=array[k];
+    array[k]=array[j];
+    array[j]=t;
+    }
+----------------------
+
+第111题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：从低位开始取出长整型变量s中偶数位上的数，依次
+      构成一个新数放在t中。     
+例如：当s中的数为：7654321时，t中的数为：642。
+     
+------------------------------------------------*/
+
+#include "stdio.h"
+  
+long fun (long s,long t)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+return t;
+}  
+
+void main()     
+{
+  long s, t,m;
+  clrscr();     
+  printf("\nPlease enter s:"); scanf("%ld", &s);     
+  m=fun(s,t);
+  printf("The result is: %ld\n", m);
+  getch();
+  yzj();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  long i,t,m;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<5;n++)
+  {   
+    fscanf(IN,"%ld",&i);
+    m=fun(i,t);
+    fprintf(OUT,"%ld\n",m);
+    
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long sl=10;
+s /= 10;          
+t = s % 10;
+while(s > 0)     
+{ s = s/100;     
+t = s%10*sl + t;
+sl = sl * 10;
+----------------------
+
+第112题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：求一个给定字符串中的英文字母'x'和'X'的个数。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+    
+int fun(char s[])
+{
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main(void)
+{
+  char str[]="No x in NIXON";
+  int k;
+  k=fun(str);
+  printf("k=%d\n",k);
+  yzj();
+  getch();
+}
+
+yzj()
+{
+  FILE *IN,*OUT;
+  char sIN[80];
+  int iOUT,i;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  for(i=0;i<3;i++)
+  {    
+    fscanf(IN,"%s",sIN);
+    iOUT=fun(sIN);
+    fprintf(OUT,"%d\n",iOUT);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+int i,k=0;
+   for(i=0;s[i]!='\0';i++)
+    if(s[i]=='x'||s[i]=='X')
+     k++;
+    return k;
+----------------------
+
+第113题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：根据整型参数n，计算如图公式的值。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+#include"conio.h"
+    
+float fun(int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()   
+{
+  int  m;
+  printf("Enter m: ");
+  scanf("%d", &m);
+  printf("\nThe result is %f\n", fun(m));
+  yzj();
+  getch();
+}   
+
+yzj()
+{
+  FILE *IN,*OUT;
+  int s ;
+  int t;
+  float o;
+  
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  } 
+  for(s=1;s<=5;s++)
+  { 
+    fscanf(IN,"%d",&t);
+    o=fun(t);
+    fprintf(OUT,"%f\n",o);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+
+答案：----------------------
+float a=1;int i;
+for(i=1;i<n;i++)
+a=1.0/(1+a);
+return a;
+----------------------
+
+第114题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：将主函数中输入的字符串反序存放。
+例如：输入字符串“abcdefg”，则应输出“gfedcba”。
+
+------------------------------------------------*/
+  
+#include <stdio.h>
+#include <conio.h>
+#define N 81
+
+char fun(char *str,int n)
+{                
+  
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+  
+}
+
+void main()
+{
+  char s [N];
+  int l;
+  clrscr();
+  printf("input a string:");gets(s);
+  l=strlen(s);
+  fun(s,l);
+  printf("The new string is :");puts(s);
+  getch();
+  yzj();
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  char sIN[20],*sOUT;
+  int iLENGTH;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Please Verify The Currernt Dir..It May Be Changed");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Please Verify The Current Dir.. It May Be Changed");
+  }
+  fscanf(IN,"%s",sIN);
+  iLENGTH=strlen(sIN);
+  sOUT=sIN;
+  fun(sIN,iLENGTH);
+  fprintf(OUT,"%s\n",sOUT);
+  fclose(IN);
+  fclose(OUT);
+} 
+答案：----------------------
+ int i,j;
+ char c;
+for(i=0,j=n-1;i<j;i++,j--)                /*或者for(i=0,j=n-1;i<n/2;i++,j--)*/
+{c=*(str+i);
+*(str+i)=*(str+j);
+*(str+j)=c;}
+----------------------
+
+第115题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun将一个由四个数字组成的字符串转换
+      为每两个数字间有一个空格的形式输出。
+例如：输入“4567”，应输出“4□5□6□7”(□表示空格)。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+main()
+{ 
+  static char str[80];
+  printf("输入含有四个数字的字符串：\n");
+  scanf("%s",str);
+  fun(str);
+  printf("结果是：%s\n",str);
+  getch();
+  yzj();
+}
+
+fun(char s[])
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[200];
+  int o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<10;n++)
+  {    
+    fscanf(IN,"%s",i);
+    fun(i);
+    fprintf(OUT,"%s\n",i);
+  }
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+ int i,len;
+  len=strlen(s);
+  for(i=len-1;i>0;i--)
+   {  s[2*i]=s[i];
+      s[2*i-1]=' ';
+   }
+  len=strlen(s);
+  s[len]='\0';
+----------------------
+
+第116题 （10.0分）
+/*------------------------------------------------
+【程序设计】
+--------------------------------------------------
+
+功能：编写函数fun，求任一整数m的n次方。
+
+------------------------------------------------*/
+
+#include "stdio.h"
+
+main()
+{ 
+  int m,n;
+  long  s;
+  long fun(int,int);
+  printf("输入m和n的值:");
+  scanf("%d,%d",&m,&n);
+  s=fun(m,n);
+  printf("s=%ld\n",s);
+  getch();
+  yzj();
+}
+
+long fun(int m,int n)
+{
+  /**********Program**********/
+  
+  
+  
+  
+  
+  
+  /**********  End  **********/
+}
+yzj()
+{
+  FILE *IN,*OUT;
+  int n;
+  int i[2];
+  long o;
+  IN=fopen("in.dat","r");
+  if(IN==NULL)
+  {
+    printf("Read File Error");
+  }
+  OUT=fopen("out.dat","w");
+  if(OUT==NULL)
+  {
+    printf("Write File Error");
+  }
+  for(n=0;n<2;n++)
+  {    
+    fscanf(IN,"%d",&i[n]);
+  }
+  o = fun(i[0],i[1]);
+  fprintf(OUT,"%ld\n",o);
+  
+  fclose(IN);
+  fclose(OUT);
+}
+答案：----------------------
+long int x=1;
+  int i;
+  for(i=1;i<=n;i++)
+       x=x*m;
+  return x;
+----------------------
+

@@ -1,0 +1,5 @@
+1.需将图形文件复制到D盘根目录，或修改程序中的相关文件的路径。
+
+2.计算机运行可能会出现这样的警告：Warning: Function call WAVEDEC2 invokes inexact match F:\Matlab\toolbox\wavelet\wavelet\wavedec2.m.
+> In Wnn0802 at 18
+无妨，没关系的，不影响运算结果。

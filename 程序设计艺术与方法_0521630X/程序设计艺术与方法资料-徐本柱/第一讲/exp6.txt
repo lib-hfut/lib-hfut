@@ -1,0 +1,18 @@
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+int tt[20];
+
+int main(int argc, char *argv[])
+{    
+    int i;
+    for(i=0;i<20;i++)
+      tt[i]=20-i;
+    sort(tt,tt+10);
+    for(i=0;i<10;i++)
+       cout<<tt[i]<<" ";
+
+    system("PAUSE");  //press any key to continue......
+    return 0;
+}

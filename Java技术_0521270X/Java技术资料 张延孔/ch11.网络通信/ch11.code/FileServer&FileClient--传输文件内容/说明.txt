@@ -1,0 +1,10 @@
+从FileClient端读取指定文件的内容，传输到服务器端，并且服务器端保存到指定文件中。
+
+运行实例(注意本机的8888端口空闲可用)：
+1. FileServer端
+javac FileServer 回车
+java FileServer 8888 store.txt
+
+2. FileClient端
+javac FileClient 回车
+java FileClient 127.0.0.1 8888 send.txt

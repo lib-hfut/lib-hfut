@@ -1,0 +1,48 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include <iterator>
+using namespace std;
+
+
+int main(int argc, char *argv[])
+{    
+    //输出流迭代器，就是通过这个迭代器来写入"流"
+    //构造函数第一个参数为要输出目的地，第二个参数为间隔符
+    ostream_iterator<int> intwriter(cout," ");
+
+    *intwriter=11; 
+    *intwriter=22; 
+    *intwriter=33;
+
+    vector<int> col1;
+
+    for(int i=0;i<10;i++)
+       col1.push_back(i);
+    cout<<endl;
+    copy(col1.begin(),col1.end(),intwriter);
+    cout<<endl;
+    copy(col1.begin(),col1.end(),ostream_iterator<int> (cout,"|"));
+    cout<<endl;
+
+    //输入流迭代器，就是通过这个迭代器来读取"流"
+    //构造函数中的参数为读数据来源，默认为结束迭代器
+    istream_iterator<int> intreader(cin);
+    istream_iterator<int> eof;
+    //键盘输出流为数据来源，读到col1中
+    while(intreader!=eof)
+    {
+       //每隔两个读取
+       advance(intreader,2);
+       if(intreader!=eof)
+       {
+           col1.push_back(*intreader);
+           ++intreader;
+       }
+    }
+    cout<<endl;
+    copy(col1.begin(),col1.end(),ostream_iterator<int>(cout,"|"));
+    cout<<endl;
+    system("PAUSE");  //press any key to continue......
+    return 0;
+}

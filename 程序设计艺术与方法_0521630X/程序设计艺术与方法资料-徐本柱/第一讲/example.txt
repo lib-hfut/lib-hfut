@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <algorithm> 
+#include <functional>
+//#include <fstream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+  //ifstream in_file("data");
+  
+  istream_iterator<int> beg(cin); //cinin_file
+  istream_iterator<int> end;
+  
+  vector<int> container(beg, end);
+
+  sort( container.begin(), container.end(), greater<int>());// 
+
+  ostream_iterator<int> out(cout, " ");
+  copy(container.begin(), container.end(), out);
+  
+  cout << endl;
+  system("PAUSE");	
+  return 0;
+}

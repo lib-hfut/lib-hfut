@@ -1,0 +1,28 @@
+#include <iostream>
+
+
+using namespace std;
+
+
+template <class T>
+T min(T a[],int n)
+{
+	int i;
+	T minv=a[0];
+	for( i = 1;i < n ; i++){
+		if(minv>a[i])
+		minv=a[i];
+	}
+	return minv;
+}
+
+
+int main(int argc, char *argv[])
+{
+    int a[]={1,3,0,2,7,6,4,5,2};
+    double b[]={1.2,-3.4,6.8,9,8};
+    cout<<"a数组的最小值为："<<min(a,9)<<endl;
+    cout<<"b数组的最小值为："<<min(b,4)<<endl;   
+    system("PAUSE");	
+    return 0;
+}

@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+vector<int> gg;
+
+bool sortspecial(int v1,int v2)
+{
+   return v1>v2;
+}
+
+
+int main(int argc, char *argv[])
+{    
+    int i;
+    for(i=0;i<20;i++)
+       gg.push_back(i);
+    sort(gg.begin(),gg.end(),sortspecial);
+    for(i=0;i<20;i++)
+       cout<<gg[i]<<" ";
+       
+    system("PAUSE");  //press any key to continue......
+    return 0;
+}
