@@ -3,7 +3,7 @@ cd %~dp0
 
 md docs
 python gen-md.py
-copy README.md index.md .\docs\
+copy README.md .\docs\index.md
 mkdocs gh-deploy
 rmdir /s /q site docs
 
