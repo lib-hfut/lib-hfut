@@ -10,7 +10,6 @@ https://img.shields.io/badge/Contact-us-ff69b4.svg?style=flat-square)](mailto:li
 ## Catalogue
 
 __[引言](#Preface)__ | __[使用方法](#Usage)__ | __[参与贡献](#Contribution)__ | __[声明](#Disclaimer)__ | __[协议](#License)__ | __[相关项目](#RelatedWorks)__
-|-|-|-|-|-|-|-|
 
 ## Preface
 
