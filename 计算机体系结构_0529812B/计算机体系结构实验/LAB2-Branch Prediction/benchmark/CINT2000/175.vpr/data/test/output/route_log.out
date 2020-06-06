@@ -1,0 +1,129 @@
+
+
+VPR FPGA Placement and Routing Program Version 4.00-spec
+Source completed August 19, 1997.
+
+
+General Options:
+	Routing will be performed on an existing placement.
+
+Routing Options:
+	Combined GLOBAL + DETAILED routing will be performed.
+	The router will try at most 30 iterations.
+	Routings can go at most 3 channels outside their bounding box.
+	Cost of a bend (bend_cost) is 0.
+	First iteration sharing penalty factor (first_iter_pres_fac): 4
+	Initial (2nd iter.) sharing penalty factor (initial_pres_fac): 8
+	Sharing penalty growth factor (pres_fac_mult): 2
+	Accumulated sharing penalty factor (acc_fac): 1
+	Router will attempt routing only with a channel width factor of 15.
+
+Reading the FPGA architectural description from arch.in.
+Successfully read arch.in.
+Pins per clb: 6.  Pads per row/column: 2.
+Subblocks per clb: 1.  Subblock LUT size: 4.
+Fc value is fraction of tracks in a channel.
+Fc_output: 1.  Fc_input: 1.  Fc_pad: 1.
+Switch block type: Subset.
+Distinct types of segments: 3.
+Distinct types of user-specified switches: 3.
+
+Reading the circuit netlist from net.in.
+Successfully read net.in.
+404 blocks, 339 nets, 0 global nets.
+274 clbs, 65 inputs, 65 outputs.
+The circuit will be mapped into a 17 x 17 array of clbs.
+
+Reading the placement from file place.in.
+Successfully read place.in.
+Placement cost is 29.413677.
+
+Completed placement consistency check successfully.
+
+
+Attempting routing with a width factor (usually maximum channel width) of 15.
+Successfully routed after 3 routing iterations.
+
+Checking to ensure routing is legal ...
+Completed routing consistency check successfully.
+
+Serial number (magic cookie) for the routing is: -165589951
+Circuit successfully routed with a channel width factor of 15.
+
+
+Average number of bends per net: 3.191741  Maximum # of bends: 18
+
+Wirelength results (all in units of 1 clb segments):
+	Total wirelength: 3349   Average net length: 9.879056
+	Maximum net length: 52
+
+Wirelength results in terms of physical segments:
+	Total wiring segments used: 3011   Av. wire segments per net: 8.882006
+	Maximum segments used by a net: 52
+
+
+X - Directed channels:
+
+j	max occ	av_occ		capacity
+0	8	5.529412	15
+1	7	5.176471	15
+2	9	5.411765	15
+3	10	6.647059	15
+4	9	6.588235	15
+5	9	6.294117	15
+6	8	6.000000	15
+7	10	6.764706	15
+8	8	5.117647	15
+9	7	5.705883	15
+10	9	6.529412	15
+11	10	6.941176	15
+12	9	6.764706	15
+13	8	6.000000	15
+14	11	5.588235	15
+15	9	6.117647	15
+16	5	3.705882	15
+17	7	4.705883	15
+
+Y - Directed channels:
+
+i	max occ	av_occ		capacity
+0	8	4.294117	15
+1	7	4.470588	15
+2	7	5.294117	15
+3	9	5.352941	15
+4	6	4.176471	15
+5	9	6.294117	15
+6	10	6.823529	15
+7	9	5.764706	15
+8	8	6.117647	15
+9	8	4.470588	15
+10	8	6.058824	15
+11	7	4.411765	15
+12	7	5.294117	15
+13	9	5.588235	15
+14	9	5.176471	15
+15	6	4.000000	15
+16	7	3.117647	15
+17	8	4.705883	15
+
+Total Tracks in X-direction: 270  in Y-direction: 270
+
+
+Routing area (in minimum width transistor areas):
+Assuming no buffer sharing (pessimistic). Total: 662142.  Per clb: 2291.15
+Assuming buffer sharing (slightly optimistic). Total: 518348.  Per clb: 1793.59
+
+
+Segment usage by type (index):
+Segment type       Fractional utilization
+------------       ----------------------
+       0                  0.553
+       1                  0.214
+       2                  0.0519
+
+Segment usage by length:
+Segment length       Fractional utilization
+--------------       ----------------------
+        1                   0.553
+        2                   0.214
+        4                   0.0519

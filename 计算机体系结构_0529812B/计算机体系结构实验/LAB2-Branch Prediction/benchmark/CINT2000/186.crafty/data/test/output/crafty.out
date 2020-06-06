@@ -1,0 +1,151 @@
+
+Crafty v14.3
+
+White(1): White(1): pondering disabled.
+White(1): noise level set to 0.
+White(1): search time set to 99999.00.
+White(1): verbosity set to 5.
+White(1): search depth set to 8.
+White(1): White(1): 
+              clearing hash tables
+
+              depth   time  score   variation (1)
+                1   ###.##   0.45   Bd4
+                1-> ###.##   0.45   Bd4
+                2   ###.##   0.36   Bd4 Kg8
+                2   ###.##   0.38   Qe3 a5
+                2-> ###.##   0.38   Qe3 a5
+                3   ###.##   0.41   Qe3 g6 Nd4
+                3   ###.##   0.42   g4 Kg8 Bd4
+                3-> ###.##   0.42   g4 Kg8 Bd4
+                4   ###.##   0.35   g4 Kg8 Bd4 a5
+                4   ###.##   0.36   Qe3 a5 Bd4 Kg8
+                4   ###.##     ++   Nh6!!
+                4   ###.##   2.27   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7
+                4-> ###.##   2.27   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7
+                5   ###.##   2.27   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7
+                5-> ###.##   2.27   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7
+                6   ###.##   2.33   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7 Bd4
+                6-> ###.##   2.33   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7 Bd4
+                7   ###.##   2.19   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7 Bd4 g5
+                7-> ###.##   2.19   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7 Bd4 g5
+                8   ###.##   2.21   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7 Bd4 g5
+                                    a4
+                8-> ###.##   2.21   Nh6 Qxh3 Nxf7+ Kg8 gxh3 Kxf7 Bd4 g5
+                                    a4
+              time:###  cpu:###  mat:2  n:351574  nps: ####
+              ext-> checks:5636 recaps:952 pawns:9 1rep:3230
+              predicted:0  nodes:351574  evals:61843
+              endgame tablebase-> probes done: 0  successful: 0
+              hashing-> trans/ref:29%  pawn:96%  used:w73% b97%
+
+White(1): Nh6 
+              time used: ###.##
+Black(1): search depth set to 8.
+Black(1): Black(1): 
+              clearing hash tables
+
+              depth   time  score   variation (1)
+                1   ###.##  -1.31   d5 exd5
+                1   ###.##   0.51   e5
+                1-> ###.##   0.51   e5
+                2   ###.##     --   e5
+                2   ###.##  -0.44   e5 h4
+                2   ###.##   0.25   Nc5 Nxc5 Qxc5
+                2-> ###.##   0.25   Nc5 Nxc5 Qxc5
+                3   ###.##     --   Nc5
+                3   ###.##  -0.35   Nc5 Nxc5 Qxc5 a4
+                3   ###.##  -0.19   Rfd8 h4 Nc5
+                3-> ###.##  -0.19   Rfd8 h4 Nc5
+                4   ###.##  -0.19   Rfd8 h4 Nc5 Nxc5 Qxc5
+                4   ###.##  -0.13   Nh5 g3 Nc5 Nxc5 Qxc5
+                4-> ###.##  -0.13   Nh5 g3 Nc5 Nxc5 Qxc5
+                5   ###.##  -0.15   Nh5 g3 Rfd8 Bd4 Nhf6
+                5-> ###.##  -0.15   Nh5 g3 Rfd8 Bd4 Nhf6
+                6   ###.##  -0.27   Nh5 Qe3 Bf6 h4 Nc5 Bxf6 Nxf6 Nxc5 Qxc5
+                                    Qxc5 Rxc5
+                6   ###.##     ++   Bxe4!!
+                6   ###.##   1.23   Bxe4 Bxe4 Qxc4 Qxc4 Rxc4 Nxb6 Rxe4
+                6-> ###.##   1.23   Bxe4 Bxe4 Qxc4 Qxc4 Rxc4 Nxb6 Rxe4
+                7   ###.##   1.28   Bxe4 Bxe4 Qxc4 Qxc4 Rxc4 Nxb6 Rxe4
+                                    Bd4 Nxb6 Bxb6
+                7-> ###.##   1.28   Bxe4 Bxe4 Qxc4 Qxc4 Rxc4 Nxb6 Rxe4
+                                    Bd4 Nxb6 Bxb6
+                8   ###.##   1.12   Bxe4 Bxe4 Qxc4 Qxc4 Rxc4 Nxb6 Nxb6
+                                    Bd3 Rc5
+                8-> ###.##   1.12   Bxe4 Bxe4 Qxc4 Qxc4 Rxc4 Nxb6 Nxb6
+                                    Bd3 Rc5
+              time:###  cpu:###  mat:1  n:418833  nps: ####
+              ext-> checks:2221 recaps:2586 pawns:1 1rep:622
+              predicted:0  nodes:418833  evals:165004
+              endgame tablebase-> probes done: 0  successful: 0
+              hashing-> trans/ref:45%  pawn:98%  used:w77% b87%
+
+Black(1): Bxe4 
+              time used: ###.##
+White(2): search depth set to 8.
+White(2): Black(2): 
+              depth   time  score   variation (1)
+                1   ###.##   0.02   Bf5
+                1-> ###.##   0.02   Bf5
+                2   ###.##  -0.13   Bf5 e6
+                2-> ###.##  -0.13   Bf5 e6
+                3   ###.##  -0.07   Bf5 e6 O-O
+                3-> ###.##  -0.07   Bf5 e6 O-O
+                4   ###.##   0.02   Bf5 Rac1 O-O Rfd1
+                4-> ###.##   0.02   Bf5 Rac1 O-O Rfd1
+                5   ###.##   0.07   Bf5 Rf2 O-O Rd1 Qc7
+                5-> ###.##   0.07   Bf5 Rf2 O-O Rd1 Qc7
+                6   ###.##   0.06   Bf5 Rf2 O-O Rd1 Re8 Rfd2 <HT>
+                6-> ###.##   0.06   Bf5 Rf2 O-O Rd1 Re8 Rfd2 <HT>
+                7   ###.##   0.11   Bf5 Rf2 O-O Rd1 Re8 Rfd2 Kf8
+                7-> ###.##   0.11   Bf5 Rf2 O-O Rd1 Re8 Rfd2 Kf8
+                8   ###.##   0.08   Bf5 Rf2 b6 Qd2 O-O Rd1 Re8 Qd4
+                8-> ###.##   0.08   Bf5 Rf2 b6 Qd2 O-O Rd1 Re8 Qd4
+              time:###  cpu:###  mat:0  n:464547  nps: ####
+              ext-> checks:4283 recaps:1311 pawns:33 1rep:2895
+              predicted:0  nodes:464547  evals:181507
+              endgame tablebase-> probes done: 0  successful: 0
+              hashing-> trans/ref:30%  pawn:95%  used:w90% b97%
+
+Black(2): Bf5 
+              time used: ###.##
+White(3): search depth set to 7.
+White(3): White(3): 
+              clearing hash tables
+
+              depth   time  score   variation (1)
+                1   ###.##  -0.25   b5 fxe4 Bxe4
+                1   ###.##   0.07   h3 fxe4 Bxe4
+                1   ###.##   0.08   g3 fxe4 Bxe4
+                1   ###.##   0.17   Re1 fxe4 Bxe4
+                1   ###.##   0.31   bxc5 bxc5
+                1-> ###.##   0.31   bxc5 bxc5
+                2   ###.##   0.05   bxc5 f4
+                2-> ###.##   0.05   bxc5 f4
+                3   ###.##  -0.08   bxc5 f4 Bxf4 exf4 cxb6
+                3   ###.##  -0.06   g3 f4 gxf4
+                3   ###.##   0.02   exf5 cxb4 axb4 Bxf5 Bxf5 Rxf5
+                3-> ###.##   0.02   exf5 cxb4 axb4 Bxf5 Bxf5 Rxf5
+                4   ###.##   0.14   exf5 cxb4 axb4 Bxf5 Re1
+                4-> ###.##   0.14   exf5 cxb4 axb4 Bxf5 Re1
+                5   ###.##  -0.01   exf5 gxf5 g3 f4 gxf4 Bh3
+                5   ###.##   0.04   f4 cxb4 axb4 fxe4 Nxe4 Ba4 Rbb1
+                5-> ###.##   0.04   f4 cxb4 axb4 fxe4 Nxe4 Ba4 Rbb1
+                6   ###.##   0.09   f4 cxb4 axb4 fxe4 Bxe4 Qf6 c5 Rb8 cxd6
+                                    Nxd6
+                6-> ###.##   0.09   f4 cxb4 axb4 fxe4 Bxe4 Qf6 c5 Rb8 cxd6
+                                    Nxd6
+                7   ###.##   0.26   f4 cxb4 axb4 Qh4 fxe5 Bxe5 g3 Qh3 exf5
+                                    Bxf5 Bxf5 Rxf5 Rxf5 gxf5
+                7-> ###.##   0.26   f4 cxb4 axb4 Qh4 fxe5 Bxe5 g3 Qh3 exf5
+                                    Bxf5 Bxf5 Rxf5 Rxf5 gxf5
+              time:###  cpu:###  mat:0  n:761245  nps: ####
+              ext-> checks:3019 recaps:4116 pawns:19 1rep:1265
+              predicted:0  nodes:761245  evals:537402
+              endgame tablebase-> probes done: 0  successful: 0
+              hashing-> trans/ref:29%  pawn:92%  used:w92% b75%
+
+White(3): f4 
+              time used: ###.##
+Black(3): execution complete.

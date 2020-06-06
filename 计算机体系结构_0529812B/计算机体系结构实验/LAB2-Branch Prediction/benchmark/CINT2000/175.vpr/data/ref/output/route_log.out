@@ -1,0 +1,281 @@
+
+
+VPR FPGA Placement and Routing Program Version 4.00-spec
+Source completed August 19, 1997.
+
+
+General Options:
+	Routing will be performed on an existing placement.
+
+Routing Options:
+	Combined GLOBAL + DETAILED routing will be performed.
+	The router will try at most 30 iterations.
+	Routings can go at most 3 channels outside their bounding box.
+	Cost of a bend (bend_cost) is 0.
+	First iteration sharing penalty factor (first_iter_pres_fac): 4
+	Initial (2nd iter.) sharing penalty factor (initial_pres_fac): 8
+	Sharing penalty growth factor (pres_fac_mult): 2
+	Accumulated sharing penalty factor (acc_fac): 1
+	Router will attempt routing only with a channel width factor of 15.
+
+Reading the FPGA architectural description from arch.in.
+Successfully read arch.in.
+Pins per clb: 6.  Pads per row/column: 2.
+Subblocks per clb: 1.  Subblock LUT size: 4.
+Fc value is fraction of tracks in a channel.
+Fc_output: 1.  Fc_input: 1.  Fc_pad: 1.
+Switch block type: Subset.
+Distinct types of segments: 3.
+Distinct types of user-specified switches: 3.
+
+Reading the circuit netlist from net.in.
+Warning:  logic block #368 (n_n13961) has only 1 pin.
+	Pin is an output -- may be a constant generator.  Non-fatal, but check this.
+Successfully read net.in.
+8527 blocks, 8445 nets, 1 global nets.
+8383 clbs, 62 inputs, 82 outputs.
+The circuit will be mapped into a 92 x 92 array of clbs.
+
+Reading the placement from file place.in.
+Successfully read place.in.
+Placement cost is 1435.697998.
+
+Completed placement consistency check successfully.
+
+
+Attempting routing with a width factor (usually maximum channel width) of 15.
+Successfully routed after 8 routing iterations.
+
+Checking to ensure routing is legal ...
+Completed routing consistency check successfully.
+
+Serial number (magic cookie) for the routing is: 235689682
+Circuit successfully routed with a channel width factor of 15.
+
+
+Average number of bends per net: 4.502131  Maximum # of bends: 946
+
+Wirelength results (all in units of 1 clb segments):
+	Total wirelength: 140793   Average net length: 16.673733
+	Maximum net length: 3744
+
+Wirelength results in terms of physical segments:
+	Total wiring segments used: 110574   Av. wire segments per net: 13.094978
+	Maximum segments used by a net: 2096
+
+
+X - Directed channels:
+
+j	max occ	av_occ		capacity
+0	12	5.097826	15
+1	12	7.217391	15
+2	12	7.130435	15
+3	12	7.902174	15
+4	13	7.858696	15
+5	13	8.086957	15
+6	13	7.989130	15
+7	12	8.010870	15
+8	13	8.076087	15
+9	12	8.467391	15
+10	13	8.673913	15
+11	13	8.456522	15
+12	12	8.184783	15
+13	14	9.271739	15
+14	13	8.195652	15
+15	13	9.076087	15
+16	14	8.489130	15
+17	13	9.086957	15
+18	13	8.847826	15
+19	14	8.750000	15
+20	13	9.217391	15
+21	14	9.152174	15
+22	15	9.250000	15
+23	14	9.043478	15
+24	14	8.826087	15
+25	14	8.989130	15
+26	15	9.086957	15
+27	15	9.815217	15
+28	15	9.445652	15
+29	15	9.467391	15
+30	14	9.282609	15
+31	14	9.706522	15
+32	14	9.945652	15
+33	13	9.532609	15
+34	12	8.576087	15
+35	14	8.913043	15
+36	14	9.217391	15
+37	14	8.521739	15
+38	13	8.706522	15
+39	13	8.717391	15
+40	13	8.532609	15
+41	13	8.717391	15
+42	14	8.521739	15
+43	14	8.760870	15
+44	13	8.445652	15
+45	13	8.771739	15
+46	13	8.597826	15
+47	13	8.391304	15
+48	13	8.369565	15
+49	14	7.695652	15
+50	14	8.673913	15
+51	12	8.043478	15
+52	13	8.608696	15
+53	13	7.858696	15
+54	13	7.913043	15
+55	14	8.315217	15
+56	14	8.206522	15
+57	13	8.347826	15
+58	13	8.543478	15
+59	15	8.771739	15
+60	14	8.630435	15
+61	14	9.021739	15
+62	14	8.880435	15
+63	14	8.065217	15
+64	12	8.347826	15
+65	14	8.804348	15
+66	15	9.565217	15
+67	14	9.271739	15
+68	13	9.000000	15
+69	12	8.565217	15
+70	14	8.934783	15
+71	14	9.010870	15
+72	13	8.402174	15
+73	13	8.543478	15
+74	13	8.728261	15
+75	13	8.956522	15
+76	14	7.913043	15
+77	13	8.717391	15
+78	13	8.923913	15
+79	14	8.608696	15
+80	12	8.163043	15
+81	14	8.260870	15
+82	13	8.489130	15
+83	13	8.130435	15
+84	13	8.380435	15
+85	12	7.597826	15
+86	12	8.445652	15
+87	12	7.652174	15
+88	12	7.858696	15
+89	11	6.989130	15
+90	11	6.923913	15
+91	12	6.510870	15
+92	8	3.391304	15
+
+Y - Directed channels:
+
+i	max occ	av_occ		capacity
+0	13	5.956522	15
+1	12	7.500000	15
+2	13	6.739130	15
+3	12	7.358696	15
+4	11	7.880435	15
+5	12	7.250000	15
+6	12	7.565217	15
+7	13	7.326087	15
+8	12	7.315217	15
+9	12	7.163043	15
+10	12	7.880435	15
+11	13	8.565217	15
+12	14	7.836957	15
+13	13	7.771739	15
+14	15	8.956522	15
+15	12	7.695652	15
+16	14	8.978261	15
+17	14	8.945652	15
+18	13	8.391304	15
+19	13	9.119565	15
+20	14	9.000000	15
+21	13	8.489130	15
+22	14	9.119565	15
+23	14	8.445652	15
+24	15	8.793478	15
+25	14	9.228261	15
+26	14	8.934783	15
+27	13	8.793478	15
+28	14	8.782609	15
+29	14	8.836957	15
+30	13	8.826087	15
+31	14	8.554348	15
+32	14	8.521739	15
+33	14	8.586957	15
+34	12	8.032609	15
+35	12	8.500000	15
+36	13	8.804348	15
+37	12	7.434783	15
+38	14	7.684783	15
+39	13	8.000000	15
+40	12	8.108696	15
+41	13	7.804348	15
+42	12	7.663043	15
+43	12	8.000000	15
+44	12	7.684783	15
+45	12	7.184783	15
+46	13	8.413043	15
+47	14	8.086957	15
+48	11	7.239130	15
+49	13	7.565217	15
+50	14	7.489130	15
+51	13	8.315217	15
+52	13	8.173913	15
+53	13	8.206522	15
+54	12	7.967391	15
+55	12	7.717391	15
+56	13	8.836957	15
+57	13	8.500000	15
+58	13	8.250000	15
+59	13	7.978261	15
+60	14	8.641304	15
+61	14	8.021739	15
+62	13	7.760870	15
+63	13	8.195652	15
+64	12	8.391304	15
+65	12	7.271739	15
+66	12	7.478261	15
+67	12	7.086957	15
+68	13	7.391304	15
+69	12	7.413043	15
+70	13	8.097826	15
+71	12	7.663043	15
+72	13	8.271739	15
+73	14	8.619565	15
+74	13	7.945652	15
+75	13	8.271739	15
+76	14	8.293478	15
+77	12	8.032609	15
+78	12	8.184783	15
+79	13	8.880435	15
+80	13	8.076087	15
+81	13	8.836957	15
+82	13	8.891304	15
+83	14	7.902174	15
+84	13	8.010870	15
+85	14	7.750000	15
+86	13	8.467391	15
+87	13	7.586957	15
+88	13	7.293478	15
+89	12	6.750000	15
+90	13	6.652174	15
+91	11	7.152174	15
+92	11	4.271739	15
+
+Total Tracks in X-direction: 1395  in Y-direction: 1395
+
+
+Routing area (in minimum width transistor areas):
+Assuming no buffer sharing (pessimistic). Total: 1.67424e+07  Per clb: 1978.07
+Assuming buffer sharing (slightly optimistic). Total: 1.35633e+07  Per clb: 1602.47
+
+
+Segment usage by type (index):
+Segment type       Fractional utilization
+------------       ----------------------
+       0                  0.592
+       1                  0.535
+       2                  0.417
+
+Segment usage by length:
+Segment length       Fractional utilization
+--------------       ----------------------
+        1                   0.592
+        2                   0.535
+        4                   0.417

@@ -1,0 +1,16 @@
+
+MCF SPEC version 1.6.I
+by  Andreas Loebel
+Copyright (c) 1998,1999   ZIB Berlin
+All Rights Reserved.
+
+nodes                      : 646
+active arcs                : 4727
+simplex iterations         : 3487
+flow value                 : 420008515
+new implicit arcs          : 33663
+active arcs                : 38390
+simplex iterations         : 4865
+flow value                 : 380006269
+checksum                   : 113792
+optimal

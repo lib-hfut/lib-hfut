@@ -1,0 +1,132 @@
+net 1
+net 2
+segment channel 2
+pin1 42  pin2 41 0 0
+segment channel 2
+ pin1 41  pin2 2 0 0
+segment channel 3
+pin1 12  pin2 3 0 0
+net 3
+segment channel 3
+pin1 36  pin2 35 0 0
+segment channel 3
+pin1 35  pin2 19 0 0
+segment channel 2
+ pin1 4  pin2 18 0 0
+net 4
+segment channel 2
+ pin1 37  pin2 6 0 0
+net 5
+segment channel 2
+ pin1 9  pin2 15 0 0
+net 7
+segment channel 2
+ pin1 44  pin2 13 0 0
+net 8
+net 9
+segment channel 3
+pin1 47  pin2 48 0 0
+segment channel 2
+pin1 27  pin2 20 0 0
+net 10
+segment channel 2
+ pin1 49  pin2 22 0 0
+net 11
+segment channel 2
+ pin1 31  pin2 25 0 0
+net 12
+segment channel 2
+pin1 53  pin2 54 0 0
+segment channel 2
+ pin1 61  pin2 53 0 0
+segment channel 3
+pin1 62  pin2 28 0 0
+net 13
+segment channel 2
+ pin1 56  pin2 29 0 0
+net 14
+segment channel 2
+pin1 101  pin2 51 0 0
+segment channel 3
+pin1 33  pin2 45 0 0
+segment channel 2
+pin1 107  pin2 113 0 0
+segment channel 2
+pin1 51  pin2 39 0 0
+segment channel 3
+pin1 57  pin2 95 0 0
+segment channel 3
+pin1 95  pin2 33 0 0
+segment channel 3
+pin1 45  pin2 119 0 0
+segment channel 2
+pin1 39  pin2 107 0 0
+net 15
+segment channel 3
+pin1 58  pin2 96 0 0
+segment channel 2
+pin1 52  pin2 40 0 0
+segment channel 3
+pin1 46  pin2 120 0 0
+segment channel 2
+pin1 102  pin2 52 0 0
+segment channel 3
+pin1 96  pin2 34 0 0
+segment channel 2
+pin1 40  pin2 108 0 0
+segment channel 3
+pin1 34  pin2 46 0 0
+segment channel 2
+pin1 108  pin2 114 0 0
+net 16
+segment channel 3
+pin1 59  pin2 60 0 0
+net 17
+net 18
+segment channel 2
+pin1 104  pin2 103 0 0
+segment channel 2
+ pin1 103  pin2 64 0 0
+segment channel 3
+pin1 74  pin2 65 0 0
+net 19
+segment channel 3
+pin1 98  pin2 97 0 0
+segment channel 2
+pin1 66  pin2 81 0 0
+net 20
+segment channel 2
+ pin1 68  pin2 99 0 0
+net 21
+segment channel 2
+ pin1 77  pin2 71 0 0
+net 22
+segment channel 2
+ pin1 75  pin2 106 0 0
+net 23
+segment channel 2
+ pin1 79  pin2 85 0 0
+net 24
+segment channel 2
+pin1 110  pin2 109 0 0
+segment channel 2
+pin1 109  pin2 89 0 0
+net 25
+segment channel 2
+ pin1 112  pin2 83 0 0
+net 26
+segment channel 2
+ pin1 93  pin2 87 0 0
+net 27
+segment channel 2
+pin1 115  pin2 116 0 0
+segment channel 2
+ pin1 116  pin2 123 0 0
+segment channel 3
+pin1 90  pin2 124 0 0
+net 28
+segment channel 2
+ pin1 91  pin2 118 0 0
+net 29
+segment channel 3
+pin1 122  pin2 121 0 0

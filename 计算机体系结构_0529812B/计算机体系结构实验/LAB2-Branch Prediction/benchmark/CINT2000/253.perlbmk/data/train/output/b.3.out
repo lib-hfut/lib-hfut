@@ -1,0 +1,7 @@
+Args: b, 3
+Math::BigInt integers, first 3 perfect numbers:
+perfect +6
+perfect +28
++198, 270, 100; found 2: nope
++398, 202, 200; found 2: nope
+perfect +496

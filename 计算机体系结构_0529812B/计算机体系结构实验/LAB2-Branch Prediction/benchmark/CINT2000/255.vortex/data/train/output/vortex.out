@@ -1,0 +1,605 @@
+ CREATE  Db Header and Db Primal  ... 
+  NEW DB [ 3] Created.
+
+VORTEX INPUT PARAMETERS::
+ 	MESSAGE       FileName:	 vortex.msg           
+	OUTPUT        FileName:	 vortex.out           
+	DISK CACHE    FileName:	 NULL                 
+	PART DB       FileName:	 parts.db             
+	DRAW DB       FileName:	 draw.db              
+	PERSON DB     FileName:	 emp.db               
+	PERSONS Data  FileName:	 persons.250          
+	PARTS         Count   :	 10000   
+	OUTER         Loops   :	 1       
+	INNER         Loops   :	 4       
+	LOOKUP        Parts   :	 2500    
+	DELETE        Parts   :	 1000    
+	STUFF         Parts   :	 1000    
+	DEPTH         Traverse:	 5       
+	% DECREASE    Parts   :	 0       
+	% INCREASE    LookUps :	 0       
+	% INCREASE    Deletes :	 0       
+	% INCREASE    Stuffs  :	 0       
+	FREEZE_PACKETS        :	 1       
+	ALLOC_CHUNKS          :	 10000   
+	EXTEND_CHUNKS         :	 5000    
+	DELETE Draw objects   :	 True                 
+	DELETE Part objects   :	 False                
+	QUE_BUG               :	 1000
+	VOID_BOUNDARY         :	 67108864
+	VOID_RESERVE          :	 1048576
+
+	COMMIT_DBS            :	 False
+
+
+
+ BMT TEST :: files...
+      EdbName           := PartLib
+      EdbFileName       := parts.db
+      DrwName           := DrawLib
+      DrwFileName       := draw.db
+      EmpName           := PersonLib
+      EmpFileName       := emp.db
+
+      Swap to DiskCache := False
+      Freeze the cache  := True
+
+
+ BMT TEST :: parms...
+      DeBug modulo      := 1000    
+      Create Parts count:= 10000   
+      Outer Loops       := 1       
+      Inner Loops       := 4       
+      Look Ups          := 2500    
+      Delete Parts      := 1000    
+      Stuff Parts       := 1000    
+      Traverse Limit    := 5       
+      Delete Draws      := True
+      Delete Parts      := False
+      Delete ALL Parts  := after every <mod  0>Outer Loop
+
+ INITIALIZE LIBRARY ::
+
+ INITIALIZE SCHEMA ::
+  Primal_CreateDb Accessed !!!
+ CREATE  Db Header and Db Primal  ... 
+  NEW DB [ 4] Created.
+   PartLibCreate:: Db[  4]; VpartsDir=   1
+
+ Part Count=       1
+
+ Initialize the Class maps
+ LIST HEADS  loaded ... DbListHead_Class = 207
+                        DbListNode_Class = 206
+
+...NOTE... ShellLoadCode:: Class[ 228] will NOT be Activated.
+
+
+...NOTE... ShellLoadCode:: Class[ 229] will NOT be Activated.
+
+  Primal_CreateDb Accessed !!!
+ CREATE  Db Header and Db Primal  ... 
+  NEW DB [ 5] Created.
+   DrawLibCreate:: Db[  5]; VpartsDir=   1
+
+ Initialize the Class maps of this schema.
+  Primal_CreateDb Accessed !!!
+ CREATE  Db Header and Db Primal  ... 
+  NEW DB [ 6] Created.
+
+ ***NOTE***  Persons Library Extended!
+
+ Create <131072> Persons.
+ ItNum      0. Person[  6:       5]. Name= Riddell         , Robert V.       ;
+
+ LAST Person Read::
+ ItNum    250. Person[  6:     503]. Name= Gonzales        , Warren X.       ;
+
+ BUILD <Query0>   for <Part2>  class::
+
+  if (link[1].length >=    5) ::
+
+ Build Query2 for <Address>   class::
+
+  if (State == CA || State == T*)
+
+ Build Query1 for <Person>    class::
+
+  if (LastName  >= H* && LastName <= P* && Query0(Residence)) ::
+
+ BUILD <Query3> for <DrawObj>    class::
+
+  if (Id  >= 3000 
+  &&  (Id >= 3000 && Id <= 3001)
+  &&  Id >= 3002)
+
+ BUILD <Query4> for <NamedDrawObj>   class::
+
+  if (Nam ==       Pre*
+  || (Nam ==   ??Mid???  || == Pre??Mid??   || ==     ??Post
+       || ==  Pre??Post  || == ??Mid???Post   || == Pre??Mid???Post)
+  && Id <= 7)
+      SEED          :=    1008; Swap     = False; RgnEntries = 24000
+
+ OUTER LOOP [  1] :  NewParts = 10000 LookUps = 2500 StuffParts = 1000.
+
+ Create 10000 New Parts
+ Create Part      1. Token[  4:       2].
+ Create Part   1001. Token[  4:    1002].
+ Create Part   2001. Token[  4:    2002].
+ Create Part   3001. Token[  4:    3002].
+ Create Part   4001. Token[  4:    4002].
+ Create Part   5001. Token[  4:    5002].
+ Create Part   6001. Token[  4:    6002].
+ Create Part   7001. Token[  4:    7002].
+ Create Part   8001. Token[  4:    8002].
+ Create Part   9001. Token[  4:    9002].
+
+  < 10000> Parts Created. CurrentId= 10000
+
+ Connect each instantiated Part TO 3 unique Parts
+ Connect Part      1. Token[  4:       2]
+   Connect  Part   2021. Token[  4:    2022] FromList=  2022.
+   Connect  Part   9992. Token[  4:    9993] FromList=  9993.
+   Connect  Part   7743. Token[  4:    7744] FromList=  7744.
+ Connect Part   1001. Token[  4:    1002]
+ Connect Part   2001. Token[  4:    2002]
+ Connect Part   3001. Token[  4:    3002]
+ Connect Part   4001. Token[  4:    4002]
+ Connect Part   5001. Token[  4:    5002]
+ Connect Part   6001. Token[  4:    6002]
+ Connect Part   7001. Token[  4:    7002]
+ Connect Part   8001. Token[  4:    8002]
+ Connect Part   9001. Token[  4:    9002]
+
+ SET  <DrawObjs>    entries::
+      1. [  5:       5]  := <1       >; @[:     6]
+   1001. [  5:    2631]  := <1001    >; @[:  2632]
+   2001. [  5:    5256]  := <2001    >; @[:  5257]
+   3001. [  5:    7881]  := <3001    >; @[:  7882]
+   4001. [  5:   10506]  := <4001    >; @[: 10507]
+   5001. [  5:   13131]  := <5001    >; @[: 13132]
+   6001. [  5:   15756]  := <6001    >; @[: 15757]
+   7001. [  5:   18381]  := <7001    >; @[: 18382]
+   8001. [  5:   21006]  := <8001    >; @[: 21007]
+   9001. [  5:   23631]  := <9001    >; @[: 23632]
+   Iteration count = 10000
+
+ SET  <NamedDrawObjs>  entries::
+      1. [  5:    2643]  := <1006    >;
+   1001. [  5:   21543]  := <8206    >;
+   Iteration count =  1250
+
+ SET  <LibRectangles>  entries::
+      1. [  5:      23]  := <8       >; @[:    24]
+   1001. [  5:   21024]  := <8008    >; @[: 21025]
+   Iteration count =  1250
+
+ LIST <DbRectangles>   entries::
+       1. [   5:    23]
+    1001. [   5: 21024]
+   Iteration count =  1250
+
+ SET  <PersonNames  >  entries::
+   Iteration count =   250
+
+ COMMIT All Image copies:: Release=<True>; Max Parts=10000
+ < 10000> Part            images'  Committed.
+                 <     0> are Named.
+ <  5000> Point           images'  Committed.
+ <   250> Person          images'  Committed.
+
+ COMMIT Parts(*    10000)
+
+ Commit TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  0:       0]. TestObj        Committed.
+ <     0> TestObj         images'  Committed.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  0:       0]. CartesianPoint Committed.
+ <     0> CartesianPoint  images'  Committed.
+
+ BEGIN  Inner Loop Sequence::.
+
+ INNER LOOP [   1:   1] :
+
+ LOOK UP   2500 Random Parts and Export each Part.
+ Set    100. Part#     9460 Handle=     9461.
+ Set    200. Part#     3492 Handle=     3493.
+ Set    300. Part#     1108 Handle=     1109.
+ Set    400. Part#      308 Handle=      309.
+ Set    500. Part#      612 Handle=      613.
+ Set    600. Part#     4196 Handle=     4197.
+ Set    700. Part#     6404 Handle=     6405.
+ Set    800. Part#     5236 Handle=     5237.
+ Set    900. Part#     5780 Handle=     5781.
+ Set   1000. Part#     1860 Handle=     1861.
+ Set   1100. Part#     4388 Handle=     4389.
+ Set   1200. Part#     1364 Handle=     1365.
+ Set   1300. Part#     5092 Handle=     5093.
+ Set   1400. Part#     2180 Handle=     2181.
+ Set   1500. Part#     3540 Handle=     3541.
+ Set   1600. Part#     4388 Handle=     4389.
+ Set   1700. Part#     9812 Handle=     9813.
+ Set   1800. Part#     3636 Handle=     3637.
+ Set   1900. Part#     6772 Handle=     6773.
+ Set   2000. Part#        4 Handle=        5.
+ Set   2100. Part#       68 Handle=       69.
+ Set   2200. Part#     6356 Handle=     6357.
+ Set   2300. Part#     9780 Handle=     9781.
+ Set   2400. Part#     8340 Handle=     8341.
+ Set   2500. Part#     1556 Handle=     1557.
+
+ LookUp for   2501 parts; Asserts =  1060
+       <Part2    >  Asserts =   104; NULL Asserts =   396.
+       <DrawObj  >  Asserts =   207; NULL Asserts =   292.
+       <NamedObj >  Asserts =     0; NULL Asserts =     0.
+       <Person   >  Asserts =     0; NULL Asserts =   500.
+       <TestObj  >  Asserts =626001; NULL Asserts =     0.
+
+ DELETE    1000 Random Parts.
+
+   PartDelete    :: Token[  4:    5036].
+   PartDisconnect:: Token[  4:    5036] id:=   5035 for each link.
+   DisConnect  link    [   0]:=   6971; PartToken[  6972:  6972].
+   DisConnect  link    [   1]:=   6646; PartToken[  6647:  6647].
+   DisConnect  link    [   2]:=   4805; PartToken[  4806:  4806].
+   DeleteFromList:: Vchunk[ 4:    5036]. (*   3)
+   DisConnect  FromList[   0]:=  1579;  Token[  1580:  1580].
+   DisConnect  FromList[   1]:=  4752;  Token[  4753:  4753].
+   DisConnect  FromList[   2]:=  5744;  Token[  5745:  5745].
+   Vlists[5034] := 10000;
+ Delete   1000. Part#     3748 Handle=     3749.
+
+ Delete for   1001 parts;
+
+ Traverse Count=     0
+
+ TRAVERSE PartId[  9336] and all Connections to  5 Levels
+
+ Traverse Count=   159
+       Traverse    Asserts =     3. True Tests =     1
+ <     2> DrawObj         objects  DELETED.
+                 <    80> are Named.
+ <     2> Point           objects  DELETED.
+
+ CREATE 1000 Additional Parts
+
+ Create 1000 New Parts
+ Create Part  10001. Token[  4:   10002].
+
+  <  1000> Parts Created. CurrentId= 11000
+
+ Connect each instantiated Part TO 3 unique Parts
+ Connect Part  10001. Token[  4:   10002]
+
+ COMMIT All Image copies:: Release=<True>; Max Parts=11000
+ <  4791> Part            images'  Committed.
+                 <     0> are Named.
+ <  2674> Point           images'  Committed.
+ <   250> Person          images'  Committed.
+
+ COMMIT Parts(*    10000)
+
+ Commit TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  3:       4]. TestObj        Committed.
+ ItNum   1000. Token[  3:    2004]. TestObj        Committed.
+ <  1251> TestObj         images'  Committed.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  3:       3]. CartesianPoint Committed.
+ ItNum   1000. Token[  3:    2003]. CartesianPoint Committed.
+ <  1252> CartesianPoint  images'  Committed.
+
+ DELETE All TestObj objects;
+
+ Delete TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  3:       4]. TestObj        Deleted.
+ ItNum   1000. Token[  3:    2004]. TestObj        Deleted.
+ <  1251> TestObj         objects  Deleted.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  3:       3]. CartesianPoint Deleted.
+ ItNum   1000. Token[  3:    2003]. CartesianPoint Deleted.
+ <  1252> CartesianPoint  objects  Deleted.
+
+ DELETE TestObj and Point objects... 
+
+ END INNER LOOP [   1:   1].
+
+ INNER LOOP [   1:   2] :
+
+ LOOK UP   2500 Random Parts and Export each Part.
+ Set    100. Part#     3511 Handle=     3512.
+ Set    200. Part#     1399 Handle=     1400.
+ Set    300. Part#     5335 Handle=     5336.
+ Set    400. Part#     1127 Handle=     1128.
+ Set    500. Part#     3319 Handle=     3320.
+ Set    600. Part#     6327 Handle=     6328.
+ Set    700. Part#     6087 Handle=     6088.
+ Set    800. Part#     2839 Handle=     2840.
+ Set    900. Part#    10479 Handle=    10480.
+ Set   1000. Part#     7639 Handle=     7640.
+ Set   1100. Part#      471 Handle=      472.
+ Set   1200. Part#     3783 Handle=     3784.
+ Set   1300. Part#     7687 Handle=     7688.
+ Set   1400. Part#     8247 Handle=     8248.
+ Set   1500. Part#    10751 Handle=    10752.
+ Set   1600. Part#    10655 Handle=    10656.
+ Set   1700. Part#     8071 Handle=     8072.
+ Set   1800. Part#    10415 Handle=    10416.
+ Set   1900. Part#     6839 Handle=     6840.
+ Set   2000. Part#     3367 Handle=     3368.
+ Set   2100. Part#     1895 Handle=     1896.
+ Set   2200. Part#     8487 Handle=     8488.
+ Set   2300. Part#     4647 Handle=     4648.
+ Set   2400. Part#      615 Handle=      616.
+ Set   2500. Part#     9012 Handle=     9013.
+
+ LookUp for   2501 parts; Asserts =   841
+       <Part2    >  Asserts =   153; NULL Asserts =   597.
+       <DrawObj  >  Asserts =   188; NULL Asserts =   306.
+       <NamedObj >  Asserts =     0; NULL Asserts =     6.
+       <Person   >  Asserts =     0; NULL Asserts =   500.
+       <TestObj  >  Asserts =470125; NULL Asserts =     0.
+
+ DELETE    1000 Random Parts.
+ Delete   1000. Part#    10123 Handle=    10124.
+
+ Delete for   1001 parts;
+
+ Traverse Count=   159
+
+ TRAVERSE PartId[  9017] and all Connections to  5 Levels
+
+ Traverse Count=   111
+       Traverse    Asserts =     2. True Tests =     1
+ <     2> DrawObj         objects  DELETED.
+                 <   124> are Named.
+ <     0> Point           objects  DELETED.
+
+ CREATE 1000 Additional Parts
+
+ Create 1000 New Parts
+ Create Part  11001. Token[  4:   11002].
+
+  <  1000> Parts Created. CurrentId= 12000
+
+ Connect each instantiated Part TO 3 unique Parts
+ Connect Part  11001. Token[  4:   11002]
+
+ COMMIT All Image copies:: Release=<True>; Max Parts=12000
+ <  4727> Part            images'  Committed.
+                 <     0> are Named.
+ <  1874> Point           images'  Committed.
+ <   250> Person          images'  Committed.
+
+ COMMIT Parts(*    10000)
+
+ Commit TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  3:       5]. TestObj        Committed.
+ ItNum   1000. Token[  3:    2005]. TestObj        Committed.
+ <  1251> TestObj         images'  Committed.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  3:       3]. CartesianPoint Committed.
+ ItNum   1000. Token[  3:    2003]. CartesianPoint Committed.
+ <  1251> CartesianPoint  images'  Committed.
+
+ DELETE All TestObj objects;
+
+ Delete TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  3:       5]. TestObj        Deleted.
+ ItNum   1000. Token[  3:    2005]. TestObj        Deleted.
+ <  1251> TestObj         objects  Deleted.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  3:       3]. CartesianPoint Deleted.
+ ItNum   1000. Token[  3:    2003]. CartesianPoint Deleted.
+ <  1251> CartesianPoint  objects  Deleted.
+
+ DELETE TestObj and Point objects... 
+
+ END INNER LOOP [   1:   2].
+
+ INNER LOOP [   1:   3] :
+
+ LOOK UP   2500 Random Parts and Export each Part.
+ Set    100. Part#    10009 Handle=    10010.
+ Set    200. Part#    11214 Handle=    11215.
+ Set    300. Part#     8638 Handle=     8639.
+ Set    400. Part#     5038 Handle=     5039.
+ Set    500. Part#     6494 Handle=     6495.
+ Set    600. Part#     9283 Handle=     9284.
+ Set    700. Part#     6766 Handle=     6767.
+ Set    800. Part#     1614 Handle=     1615.
+ Set    900. Part#      798 Handle=      799.
+ Set   1000. Part#    11486 Handle=    11487.
+ Set   1100. Part#     4366 Handle=     4367.
+ Set   1200. Part#     4782 Handle=     4783.
+ Set   1300. Part#    10082 Handle=    10083.
+ Set   1400. Part#     9857 Handle=     9858.
+ Set   1500. Part#     2702 Handle=     2703.
+ Set   1600. Part#     3022 Handle=     3023.
+ Set   1700. Part#    11022 Handle=    11023.
+ Set   1800. Part#     9039 Handle=     9040.
+ Set   1900. Part#    11118 Handle=    11119.
+ Set   2000. Part#    11246 Handle=    11247.
+ Set   2100. Part#     1550 Handle=     1551.
+ Set   2200. Part#     8414 Handle=     8415.
+ Set   2300. Part#     2094 Handle=     2095.
+ Set   2400. Part#     6366 Handle=     6367.
+ Set   2500. Part#     2094 Handle=     2095.
+
+ LookUp for   2501 parts; Asserts =   805
+       <Part2    >  Asserts =   160; NULL Asserts =   590.
+       <DrawObj  >  Asserts =   145; NULL Asserts =   346.
+       <NamedObj >  Asserts =     0; NULL Asserts =     9.
+       <Person   >  Asserts =     0; NULL Asserts =   500.
+       <TestObj  >  Asserts =469375; NULL Asserts =     0.
+
+ DELETE    1000 Random Parts.
+ Delete   1000. Part#    11758 Handle=    11759.
+
+ Delete for   1001 parts;
+
+ Traverse Count=   111
+
+ TRAVERSE PartId[  3671] and all Connections to  5 Levels
+
+ Traverse Count=   192
+       Traverse    Asserts =     3. True Tests =     0
+ <     3> DrawObj         objects  DELETED.
+                 <    91> are Named.
+ <     0> Point           objects  DELETED.
+
+ CREATE 1000 Additional Parts
+
+ Create 1000 New Parts
+ Create Part  12001. Token[  4:   12002].
+
+  <  1000> Parts Created. CurrentId= 13000
+
+ Connect each instantiated Part TO 3 unique Parts
+ Connect Part  12001. Token[  4:   12002]
+
+ COMMIT All Image copies:: Release=<True>; Max Parts=13000
+ <  4486> Part            images'  Committed.
+                 <     0> are Named.
+ <  1822> Point           images'  Committed.
+ <   250> Person          images'  Committed.
+
+ COMMIT Parts(*    10000)
+
+ Commit TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  3:       3]. TestObj        Committed.
+ ItNum   1000. Token[  3:    2004]. TestObj        Committed.
+ <  1251> TestObj         images'  Committed.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  3:       5]. CartesianPoint Committed.
+ ItNum   1000. Token[  3:    2005]. CartesianPoint Committed.
+ <  1251> CartesianPoint  images'  Committed.
+
+ DELETE All TestObj objects;
+
+ Delete TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  3:       3]. TestObj        Deleted.
+ ItNum   1000. Token[  3:    2004]. TestObj        Deleted.
+ <  1251> TestObj         objects  Deleted.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  3:       5]. CartesianPoint Deleted.
+ ItNum   1000. Token[  3:    2005]. CartesianPoint Deleted.
+ <  1251> CartesianPoint  objects  Deleted.
+
+ DELETE TestObj and Point objects... 
+
+ END INNER LOOP [   1:   3].
+
+ INNER LOOP [   1:   4] :
+
+ LOOK UP   2500 Random Parts and Export each Part.
+ Set    100. Part#     8787 Handle=     8788.
+ Set    200. Part#     5235 Handle=     5236.
+ Set    300. Part#     5315 Handle=     5316.
+ Set    400. Part#     9095 Handle=     9096.
+ Set    500. Part#     5427 Handle=     5428.
+ Set    600. Part#     1571 Handle=     1572.
+ Set    700. Part#     1923 Handle=     1924.
+ Set    800. Part#     9638 Handle=     9639.
+ Set    900. Part#     2035 Handle=     2036.
+ Set   1000. Part#     3475 Handle=     3476.
+ Set   1100. Part#     1347 Handle=     1348.
+ Set   1200. Part#    11614 Handle=    11615.
+ Set   1300. Part#     4307 Handle=     4308.
+ Set   1400. Part#     1075 Handle=     1076.
+ Set   1500. Part#    10063 Handle=    10064.
+ Set   1600. Part#     7747 Handle=     7748.
+ Set   1700. Part#     7939 Handle=     7940.
+ Set   1800. Part#    11907 Handle=    11908.
+ Set   1900. Part#     8643 Handle=     8644.
+ Set   2000. Part#    11530 Handle=    11531.
+ Set   2100. Part#     5843 Handle=     5844.
+ Set   2200. Part#     6147 Handle=     6148.
+ Set   2300. Part#     5123 Handle=     5124.
+ Set   2400. Part#    12939 Handle=    12940.
+ Set   2500. Part#    10063 Handle=    10064.
+
+ LookUp for   2501 parts; Asserts =   846
+       <Part2    >  Asserts =   108; NULL Asserts =   392.
+       <DrawObj  >  Asserts =   238; NULL Asserts =   490.
+       <NamedObj >  Asserts =     0; NULL Asserts =    22.
+       <Person   >  Asserts =     0; NULL Asserts =   500.
+       <TestObj  >  Asserts =469375; NULL Asserts =     0.
+
+ DELETE    1000 Random Parts.
+ Delete   1000. Part#      871 Handle=      872.
+
+ Delete for   1001 parts;
+
+ Traverse Count=   192
+
+ TRAVERSE PartId[   301] and all Connections to  5 Levels
+
+ Traverse Count=   117
+       Traverse    Asserts =     1. True Tests =     0
+ <     2> DrawObj         objects  DELETED.
+                 <    91> are Named.
+ <     0> Point           objects  DELETED.
+
+ CREATE 1000 Additional Parts
+
+ Create 1000 New Parts
+ Create Part  13001. Token[  4:   13002].
+
+  <  1000> Parts Created. CurrentId= 14000
+
+ Connect each instantiated Part TO 3 unique Parts
+ Connect Part  13001. Token[  4:   13002]
+
+ COMMIT All Image copies:: Release=<True>; Max Parts=14000
+ <  4449> Part            images'  Committed.
+                 <     0> are Named.
+ <  2412> Point           images'  Committed.
+ <   250> Person          images'  Committed.
+
+ COMMIT Parts(*    10000)
+
+ Commit TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  3:       5]. TestObj        Committed.
+ ItNum   1000. Token[  3:    2005]. TestObj        Committed.
+ <  1251> TestObj         images'  Committed.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  3:       3]. CartesianPoint Committed.
+ ItNum   1000. Token[  3:    2004]. CartesianPoint Committed.
+ <  1251> CartesianPoint  images'  Committed.
+
+ DELETE All TestObj objects;
+
+ Delete TestObj_Class        in <Primal> DB.
+ ItNum      0. Token[  3:       5]. TestObj        Deleted.
+ ItNum   1000. Token[  3:    2005]. TestObj        Deleted.
+ <  1251> TestObj         objects  Deleted.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ ItNum      0. Token[  3:       3]. CartesianPoint Deleted.
+ ItNum   1000. Token[  3:    2004]. CartesianPoint Deleted.
+ <  1251> CartesianPoint  objects  Deleted.
+
+ DELETE TestObj and Point objects... 
+
+ END INNER LOOP [   1:   4].
+
+ DELETE All TestObj objects;
+
+ Delete TestObj_Class        in <Primal> DB.
+ <     0> TestObj         objects  Deleted.
+
+ Commit CartesianPoint_Class in <Primal> DB.
+ <     0> CartesianPoint  objects  Deleted.
+
+ DELETE TestObj and Point objects... 
+   STATUS= -201
+V O R T E x 0 1!V O R T E x 0 1!V O R T E x 0 1!V O R T E x 0 1!V O R T E x 0 1!

@@ -1,0 +1,63 @@
+# Architecture description of an unsegmented (all wires span only one logic 
+# block) architecture.
+
+# Uniform channels.  Each pin appears on only one side.
+io_rat 2
+chan_width_io 1
+chan_width_x uniform 1 
+chan_width_y uniform 1
+
+# 4-input LUT.  LUT inputs first, then output, then clock.
+inpin class: 0 bottom 
+inpin class: 0 left
+inpin class: 0 top
+inpin class: 0 right
+outpin class: 1 bottom
+inpin class: 2 top                  # Clock; shouldn't matter.
+
+# Class 0 is LUT inputs, class 1 is the output, class 2 is the clock.
+
+# Information about what's in a cluster.  Always required by the parser,
+# but the information isn't used yet.  It will be used when timing
+# analysis is added.
+
+subblocks_per_cluster 1
+subblock_lut_size 4
+
+#parameters needed only for detailed routing.
+#switch_block_type wilton
+#switch_block_type universal
+switch_block_type subset
+Fc_type fractional
+Fc_output 1
+Fc_input 1
+Fc_pad 1
+
+segment frequency: .6 length: 1 wire_switch: 0 opin_switch: 2 Frac_cb: 1. \
+         Frac_sb: 1. Rmetal: 5 Cmetal: 5e-15
+
+segment frequency: .2 length: 2 wire_switch: 1 opin_switch: 1 \
+         Frac_cb: 1. Frac_sb: 1 Rmetal: 5 Cmetal: 5e-15
+
+segment frequency: .2 length: 4 wire_switch: 1 opin_switch: 1 \
+         Frac_cb: 1. Frac_sb: 1 Rmetal: 5 Cmetal: 5e-15
+
+switch 0  buffered: no  R: 50 Cin: 4e-15  Cout: 4e-15 Tdel: 1e-11
+switch 1  buffered: yes  R: 40  Cin: .5e-15  Cout: 8e-15  Tdel: 5e-11
+switch 2  buffered: yes  R: 80  Cin: .5e-15  Cout: 8e-15  Tdel: 5e-11
+
+R_minW_pmos 100.
+R_minW_nmos 200.
+
+# Timing info below.
+
+ipin_cblock_C 1e-15
+ipin_cblock_Tdel 0.5e-9
+LUT_Tdel 2e-9
+local_mux_Tdel 0.4e-9
+BLE_mux_Tdel 0.2e-9
+Q_to_out_Tdel 0.1e-9
+Tsetup 0.3e-9
+BLE_out_to_local_mux_Tdel 0.1e-9
+ipad_Tdel 3e-9
+opad_Tdel 2e-9

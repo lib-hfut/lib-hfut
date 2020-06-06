@@ -1,0 +1,5 @@
+rowSep 1.0
+do.global.route
+feedThruWidth  4
+random.seed 1
+slow 10

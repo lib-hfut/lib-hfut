@@ -1,0 +1,43 @@
+
+
+VPR FPGA Placement and Routing Program Version 4.00-spec
+Source completed August 19, 1997.
+
+
+General Options:
+	The circuit will be placed but not routed.
+
+Placer Options:
+	User annealing schedule selected with:
+	Initial Temperature: 5
+	Exit (Final) Temperature: 0.005
+	Temperature Reduction factor (alpha_t): 0.9412
+	Number of moves in the inner loop is (num_blocks)^4/3 * 2
+	Placement cost type is linear congestion.
+	Placement will be performed once.
+	Placement channel width factor = 100.
+	Exponent used in placement cost: 1
+	Initial random seed: 1
+
+Reading the FPGA architectural description from arch.in.
+Successfully read arch.in.
+Pins per clb: 6.  Pads per row/column: 2.
+Subblocks per clb: 1.  Subblock LUT size: 4.
+Fc value is fraction of tracks in a channel.
+Fc_output: 1.  Fc_input: 1.  Fc_pad: 1.
+Switch block type: Subset.
+Distinct types of segments: 3.
+Distinct types of user-specified switches: 3.
+
+Reading the circuit netlist from net.in.
+Warning:  logic block #368 (n_n13961) has only 1 pin.
+	Pin is an output -- may be a constant generator.  Non-fatal, but check this.
+Successfully read net.in.
+8527 blocks, 8445 nets, 1 global nets.
+8383 clbs, 62 inputs, 82 outputs.
+The circuit will be mapped into a 92 x 92 array of clbs.
+
+
+Completed placement consistency check successfully.
+
+Total moves attempted: 40055075.0

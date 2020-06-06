@@ -1,0 +1,5 @@
+camera pinhole       /* there is a thinLens camera too */
+lookfrom -2.8 1.6 2  /* camera pinhole (eye) position */
+lookat 0.4 0.7 0     /* this point will appear in center of screen */
+vfov 40              /* top-to-bottom field of view is 50 degrees */
+vup  0 1 0           /* vector 0 1 0 would be vertical as seen by camera */

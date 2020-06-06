@@ -1,0 +1,448 @@
+#############################################################################
+##
+#A  matgrp.grp                  GAP group library             Werner Nickel &
+#A                                                           Alexander Hulpke
+##
+#A  @(#)$Id: matgrp.grp,v 3.5 1994/06/03 09:28:10 sam Rel $
+##
+#Y  Copyright 1990-1992,  Lehrstuhl D fuer Mathematik,  RWTH Aachen,  Germany
+##
+##  This file contains the definitions of of the basic matrix groups.
+##  The generators of the classical groups are taken from
+##
+##  D.E. Taylor, Pairs of Generators for Matrix Groups. I, in:
+##  The Cayley Bulletin no. 3, 1987
+##
+#H  $Log: matgrp.grp,v $
+#H  Revision 3.5  1994/06/03  09:28:10  sam
+#H  fixed SL(1,q), SU(1,q), GU(1,q)
+#H
+#H  Revision 3.4  1994/06/03  06:18:16  mschoene
+#H  fixed 'GL' to allow 'GL(1,2)'
+#H
+#H  Revision 3.3  1994/05/17  08:28:28  sam
+#H  added components 'g.1', 'g.2' (lost due to prior changes...)
+#H
+#H  Revision 3.2  1994/05/05  12:44:27  sam
+#H  avoid call of 'Group' (rank computation!), added sizes
+#H  (all suggested by Frank)
+#H
+#H  Revision 3.1  1994/02/18  12:17:26  sam
+#H  fixed 'GU(2,q)', 'SU(2,q)'
+#H
+#H  Revision 3.0  1993/01/20  18:15:26  sam
+#H  initial revision under RCS
+#H
+##
+
+
+#############################################################################
+##
+#F  MatGroupLib(<type>,<arg>)  . . . . . . . . . . . . .  make a matrix group
+##
+MatGroupLib := function ( arg )
+    if   arg[1] = "GeneralLinearGroup"      then
+      return GeneralLinearMatGroup( arg[2], arg[3] );
+    elif arg[1] = "SpecialLinearGroup"      then
+      return SpecialLinearMatGroup( arg[2], arg[3] );
+    elif arg[1] = "GeneralUnitaryGroup"      then
+      return GeneralUnitaryMatGroup( arg[2], arg[3] );
+    elif arg[1] = "SpecialUnitaryGroup"      then
+      return SpecialUnitaryMatGroup( arg[2], arg[3] );
+    elif arg[1] = "SymplecticGroup"      then
+      return SymplecticMatGroup( arg[2], arg[3] );
+    else
+      Error("<type> must be ",
+            "\"GeneralLinearGroup\", ",
+            "\"SpecialLinearGroup\", ",
+            "\"GeneralUnitaryGroup\", ",
+            "\"SpecialUnitaryGroup\", ",
+            "\"SymplecticGroup\"" );
+    fi;
+    end;
+
+
+#############################################################################
+##
+#F  SpecialLinearMatGroup( <n>, <q> )
+##
+SpecialLinearMatGroup := function( n, q )
+
+     local g, z, f, i, o, mat1, mat2, size, qi;
+
+     f:= GF( q );
+
+     # Handle the trivial case first.
+     if n = 1 then
+       g:= Group( [ [ f.one ] ] );
+       g.name:= ConcatenationString("SL(1,",String(q),")");
+       return g;
+     fi;
+
+     # Construct the generators.
+     o:= f.one;
+     z:= f.root;
+     mat1:= IdentityMat( n, o );
+     mat2:= 0 * mat1;
+     mat2[1][n]:= o;
+     for i in [ 2 .. n ] do mat2[i][i-1]:= -o; od;
+
+     if q = 2 or q = 3 then
+       mat1[1][2]:= o;
+     else
+       mat1[1][1]:= z;
+       mat1[2][2]:= z^-1;
+       mat2[1][1]:= -o;
+     fi;
+
+     # Avoid to call 'Group' because this would check invertibility ...
+     g:= GroupElementsOps.Group( Matrices, [ mat1, mat2 ], mat1^0 );
+     g.1:= mat1;
+     g.2:= mat2;
+     g.name:= ConcatenationString("SL(",String(n),",",String(q),")");
+     g.isMatGroup := true;
+     g.dimension  := Length( mat1 );
+     g.field      := f;
+     g.operations := MatGroupOps;
+
+     # Add the size.
+     size := 1;
+     qi   := q;
+     for i in [ 2 .. n ] do
+       qi   := qi * q;
+       size := size * (qi-1);
+     od;
+     g.size := q^(n*(n-1)/2) * size;
+
+     # Return the group.
+     return g;
+     end;
+
+##############################################################################
+##
+#F  GeneralLinearMatGroup( <n>, <q> )
+##
+GeneralLinearMatGroup := function( n, q )
+
+     local g, z, f, i, o, mat1, mat2, size, qi;
+
+     if q = 2 and 1 < n  then
+       return( MatricesOps.SpecialLinearGroup( Matrices, n, 2 ) );
+     fi;
+
+     # Construct the generators.
+     f:= GF( q );
+     z:= f.root;
+     o:= f.one;
+
+     mat1:= IdentityMat( n, o );
+     mat1[1][1]:= z;
+     mat2:= 0 * mat1;
+     mat2[1][1]:= -o;
+     mat2[1][n]:= o;
+     for i in [ 2 .. n ] do mat2[i][i-1]:= -o; od;
+
+     # Avoid to call 'Group' because this would check invertibility ...
+     g:= GroupElementsOps.Group( Matrices, [ mat1, mat2 ], mat1^0 );
+     g.1:= mat1;
+     g.2:= mat2;
+     g.name:= ConcatenationString("GL(",String(n),",",String(q),")");
+     g.isMatGroup := true;
+     g.dimension  := Length( mat1 );
+     g.field      := f;
+     g.operations := MatGroupOps;
+
+     # Add the size.
+     size := q-1;
+     qi   := q;
+     for i in [ 2 .. n ] do
+       qi   := qi * q;
+       size := size * (qi-1);
+     od;
+     g.size := q^(n*(n-1)/2) * size;
+
+     # Return the group.
+     return g;
+     end;
+
+
+##############################################################################
+##
+#F  SymplecticMatGroup( <n>, <q> )
+##
+SymplecticMatGroup := function( n, q )
+
+     local g, z, f, i, o, mat1, mat2, size, qi;
+
+     if n mod 2 = 1 then
+       Error( "A symplectic group has always even dimension" );
+     fi;
+     if n = 2 then
+       return MatricesOps.SpecialLinearGroup( Matrices, 2, q );
+     fi;
+
+     # Construct the generators.
+     f:= GF( q );
+     z:= f.root;
+     o:= f.one;
+
+     if n = 4 and q = 2 then
+
+       mat1:= [ [1,0,1,1], [1,0,0,1], [0,1,0,1], [1,1,1,1] ] * o;
+       mat2:= [ [0,0,1,0], [1,0,0,0], [0,0,0,1], [0,1,0,0] ] * o;
+
+     else
+
+       mat1:= IdentityMat( n, o );
+       mat2:= 0 * mat1;
+       for i in [ 2 .. n/2 ]     do mat2[i][ i-1 ]:= o; od;
+       for i in [ n/2+1 .. n-1 ] do mat2[i][ i+1 ]:= o; od;
+  
+       if q mod 2 = 1 then
+         mat1[ 1 ][ 1 ]:= z;
+         mat1[ n ][ n ]:= z^-1;
+         mat2[ 1 ][ 1 ]:= o;
+         mat2[ 1 ][ n/2+1 ]:= o;
+         mat2[ n-1 ][ n/2 ]:= o;
+         mat2[ n ][ n/2 ]:= -o;
+       elif q <> 2 then
+         mat1[  1  ][  1  ]:= z;
+         mat1[n/2][n/2]:= z;
+         mat1[n/2+1][n/2+1]:= z^-1;
+         mat1[ n ][ n ]:= z^-1;
+         mat2[ 1 ][n/2-1]:= o;
+         mat2[ 1 ][n/2]:= o;
+         mat2[ 1 ][n/2+1]:= o;
+         mat2[n/2+1][n/2]:= o;
+         mat2[ n ][ n/2 ]:= o;
+       else
+         mat1[  1  ][ n/2 ]:= o;
+         mat1[ 1 ][ n ]:= o;
+         mat1[n/2+1][  n  ]:= o;
+         mat2[ 1 ][ n/2+1 ]:= o;
+         mat2[ n ][n/2]:= o;
+       fi;
+
+     fi;
+
+     # Avoid to call 'Group' because this would check invertibility ...
+     g:= GroupElementsOps.Group( Matrices, [ mat1, mat2 ], mat1^0 );
+     g.1:= mat1;
+     g.2:= mat2;
+     g.name:= ConcatenationString("SP(",String(n),",",String(q),")");
+     g.isMatGroup := true;
+     g.dimension  := Length( mat1 );
+     g.field      := f;
+     g.operations := MatGroupOps;
+
+     # Add the size.
+     size := 1;
+     qi   := 1;
+     for i in [ 1 .. n/2 ] do
+       qi   := qi * q^2;
+       size := size * (qi-1);
+     od;
+     g.size := q^((n/2)^2) * size;
+
+     # Return the group.
+     return g;
+     end;
+
+
+##############################################################################
+##
+#F  GeneralUnitaryMatGroup( <n>, <q> )
+##
+GeneralUnitaryMatGroup := function( n, q )
+
+     local g, i, e, f, z, o, mat1, mat2, size, qi, eps;
+
+     f:= GF( q^2 );
+
+     # Handle the trivial case first.
+     if n = 1 then
+       g:= Group( [ [ f.root ^ (q-1) ] ] );
+       g.name:= ConcatenationString("GU(1,",String(q),")");
+       return g;
+     fi;
+
+     # Construct the generators.
+     z:= f.root;
+     o:= f.one;
+     mat1:= IdentityMat( n, o );
+     mat2:= 0 * mat1;
+
+     if   n = 2 then
+
+       # We use the isomorphism of 'SU(2,q)' and 'SL(2,q)':
+       # 'e' is mapped to '-e' under the Frobenius mapping.
+       e:= Z(q^2) - Z(q^2)^q;
+       if q = 2 then
+         mat1[1][1]:= z;
+         mat1[2][2]:= z;
+         mat1[1][2]:= z;
+         mat2[1][2]:= o;
+         mat2[2][1]:= o;
+       else
+         mat1[1][1]:= z;
+         mat1[2][2]:= z^-q;
+         mat2[1][1]:= -o;
+         mat2[1][2]:= e;
+         mat2[2][1]:= -e^-1;
+       fi;
+
+     elif n mod 2 = 0 then
+       if q mod 2 = 1 then e:= z^( (q+1)/2 ); else e:= o; fi;
+       mat1[1][1]:= z;
+       mat1[n][n]:= z^-q;
+       for i in [ 2 .. n/2 ]     do mat2[ i ][ i-1 ]:= o; od;
+       for i in [ n/2+1 .. n-1 ] do mat2[ i ][ i+1 ]:= o; od;
+       mat2[ 1 ][ 1 ]:= o;
+       mat2[1][n/2+1]:= e;
+       mat2[n-1][n/2]:= e^-1;
+       mat2[n][ n/2 ]:= -e^-1;
+     else
+       mat1[(n-1)/2][(n-1)/2]:= z;
+       mat1[(n-1)/2+2][(n-1)/2+2]:= z^-q;
+       for i in [ 1 .. (n-1)/2-1 ] do mat2[ i ][ i+1 ]:= o; od;
+       for i in [ (n-1)/2+3 .. n ] do mat2[ i ][ i-1 ]:= o; od;
+       mat2[(n-1)/2][  1  ]:=  -(1+z^q/z)^-1;
+       mat2[(n-1)/2][(n-1)/2+1]:= -o;
+       mat2[(n-1)/2][  n  ]:=  o;
+       mat2[(n-1)/2+1][  1  ]:= -o;
+       mat2[(n-1)/2+1][(n-1)/2+1]:= -o;
+       mat2[(n-1)/2+2][  1  ]:=  o;
+     fi;
+
+     # Avoid to call 'Group' because this would check invertibility ...
+     g:= GroupElementsOps.Group( Matrices, [ mat1, mat2 ], mat1^0 );
+     g.1:= mat1;
+     g.2:= mat2;
+     g.name:= ConcatenationString("GU(",String(n),",",String(q),")");
+     g.isMatGroup := true;
+     g.dimension  := Length( mat1 );
+     g.field      := f;
+     g.operations := MatGroupOps;
+
+     # Add the size.
+     size := q+1;
+     qi   := q;
+     eps  := 1;
+     for i in [ 2 .. n ] do
+       qi   := qi * q;
+       eps  := -eps;
+       size := size * (qi+eps);
+     od;
+     g.size := q^(n*(n-1)/2) * size;
+
+     # Return the group.
+     return g;
+     end;
+
+
+##############################################################################
+##
+#F  SpecialUnitaryMatGroup( <n>, <q> )
+##
+SpecialUnitaryMatGroup := function( n, q )
+
+     local g, i, e, f, z, o, mat1, mat2, size, qi, eps;
+
+     f:= GF( q^2 );
+
+     # Handle the trivial case first.
+     if n = 1 then
+       g:= Group( [ [ f.one ] ] );
+       g.name:= ConcatenationString("SL(1,",String(q),")");
+       return g;
+     fi;
+
+     # Construct the generators.
+     z:= f.root;
+     o:= f.one;
+     if n = 3 and q = 2 then
+
+       mat1:= [ [o,z,z], [0,o,z^2], [0,0,o] ] * o;
+       mat2:= [ [z,o,o], [o,o, 0 ], [o,0,0] ] * o;
+
+     else
+
+       mat1:= IdentityMat( n, o );
+       mat2:= 0 * mat1;
+
+       if   n = 2 then
+
+         # We use the isomorphism of 'SU(2,q)' and 'SL(2,q)':
+         # 'e' is mapped to '-e' under the Frobenius mapping.
+         e:= Z(q^2) - Z(q^2)^q;
+         if q <= 3 then
+           mat1[1][2]:= e;
+           mat2[1][2]:= e;
+           mat2[2][1]:= -e^-1;
+         else
+           mat1[1][1]:= z^(q+1);
+           mat1[2][2]:= z^(-q-1);
+           mat2[1][1]:= -o;
+           mat2[1][2]:= e;
+           mat2[2][1]:= -e^-1;
+         fi;
+
+       elif n mod 2 = 0 then
+
+         mat1[1][1]:= z;
+         mat1[n][n]:= z^-q;
+         mat1[2][2]:= z^-1;
+         mat1[ n-1 ][ n-1 ]:= z^q;
+
+         if q mod 2 = 1 then e:= z^( (q+1)/2 ); else e:= o; fi;
+         for i in [ 2 .. n/2 ]     do mat2[ i ][ i-1 ]:= o; od;
+         for i in [ n/2+1 .. n-1 ] do mat2[ i ][ i+1 ]:= o; od;
+         mat2[ 1 ][ 1 ]:= o;
+         mat2[1][n/2+1]:= e;
+         mat2[n-1][n/2]:= e^-1;
+         mat2[n][ n/2 ]:= -e^-1;
+
+       else
+
+         mat1[  (n-1)/2  ][  (n-1)/2  ]:= z;
+         mat1[ (n-1)/2+1 ][ (n-1)/2+1 ]:= z^q/z;
+         mat1[ (n-1)/2+2 ][ (n-1)/2+2 ]:= z^-q;
+  
+         for i in [ 1 .. (n-1)/2-1 ] do mat2[ i ][ i+1 ]:= o; od;
+         for i in [ (n-1)/2+3 .. n ] do mat2[ i ][ i-1 ]:= o; od;
+         mat2[(n-1)/2][    1    ]:=  -(1+z^q/z)^-1;
+         mat2[(n-1)/2][(n-1)/2+1]:= -o;
+         mat2[(n-1)/2][    n    ]:=  o;
+         mat2[(n-1)/2+1][   1   ]:= -o;
+         mat2[(n-1)/2+1][(n-1)/2+1]:= -o;
+         mat2[(n-1)/2+2][  1  ]:=  o;
+       fi;
+
+     fi;
+
+     # Avoid to call 'Group' because this would check invertibility ...
+     g:= GroupElementsOps.Group( Matrices, [ mat1, mat2 ], mat1^0 );
+     g.1:= mat1;
+     g.2:= mat2;
+     g.name:= ConcatenationString("SU(",String(n),",",String(q),")");
+     g.isMatGroup := true;
+     g.dimension  := Length( mat1 );
+     g.field      := f;
+     g.operations := MatGroupOps;
+
+     # Add the size.
+     size := 1;
+     qi   := q;
+     eps  := 1;
+     for i in [ 2 .. n ] do
+       qi   := qi * q;
+       eps  := -eps;
+       size := size * (qi+eps);
+     od;
+     g.size := q^(n*(n-1)/2) * size;
+
+     # Return the group.
+     return g;
+     end;
+
+

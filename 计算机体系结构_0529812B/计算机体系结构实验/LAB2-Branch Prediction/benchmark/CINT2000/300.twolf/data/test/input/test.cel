@@ -1,0 +1,201 @@
+cell 13 ACOUNT_1
+left  -2  right 2  bottom -13  top 13
+pin name 00#A  signal $COUNT_1/$AND2_1/$ND2_1$Z 1 13
+pin name 00#Z  signal B7 -1 -13
+   equiv name 01#Z -1 13
+
+cell 14 $COUNT_1/$AND2_1/$ND2_1
+left -3  right 3  bottom -13  top 13
+pin name 00#A  signal B6    -2 13
+pin name 00#B  signal $COUNT_1/$FJK3_1$Q    0 -13
+   equiv name 01#B    0 13
+pin name 00#Z  signal $COUNT_1/$AND2_1/$ND2_1$Z    2 -13
+   equiv name 01#Z    2 13
+
+cell 15 $COUNT_1/$AND2_2/$IV_1
+left -2  right 2  bottom -13  top 13
+pin name 00#A  signal $COUNT_1/$AND2_2/$ND2_1$Z    1 13
+pin name 00#Z  signal CONT1    -1 -13
+   equiv name 01#Z    -1 13
+
+cell 16 $COUNT_1/$AND2_2/$ND2_1
+left -3  right 3  bottom -13  top 13
+pin name 00#A  signal B7    -2 13
+pin name 00#B  signal $COUNT_1/$FJK3_2$Q    0 -13
+   equiv name 01#B    0 13
+pin name 00#Z  signal $COUNT_1/$AND2_2/$ND2_1$Z    2 -13
+   equiv name 01#Z    2 13
+
+cell 17 $COUNT_1/$AND2_3/$IV_1
+left -2  right 2  bottom -13  top 13
+pin name 00#A  signal $COUNT_1/$AND2_3/$ND2_1$Z    1 13
+pin name 00#Z  signal B6    -1 -13
+   equiv name 01#Z    -1 13
+
+cell 18 $COUNT_1/$AND2_3/$ND2_1
+left -3  right 3  bottom -13  top 13
+pin name 00#A  signal B5    -2 13
+pin name 00#B  signal $COUNT_1/$FJK3_3$Q    0 -13
+   equiv name 01#B    0 13
+pin name 00#Z  signal $COUNT_1/$AND2_3/$ND2_1$Z    2 -13
+   equiv name 01#Z    2 13
+
+cell 19 $COUNT_1/$AND2_4/$IV_1
+left -2  right 2  bottom -13  top 13
+pin name 00#A  signal $COUNT_1/$AND2_4/$ND2_1$Z    1 13
+pin name 00#Z  signal B5    -1 -13
+   equiv name 01#Z    -1 13
+
+cell 20 $COUNT_1/$AND2_4/$ND2_1
+left -3  right 3  bottom -13  top 13
+pin name 00#A  signal B4    -2 13
+pin name 00#B  signal $COUNT_1/$FJK3_4$Q    0 -13
+   equiv name 01#B    0 13
+pin name 00#Z  signal $COUNT_1/$AND2_4/$ND2_1$Z    2 -13
+   equiv name 01#Z    2 13
+
+cell 21 $COUNT_1/$FJK3_1
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal B6    -31 13
+pin name 00#K  signal B6    -29 13
+pin name 00#Q  signal $COUNT_1/$FJK3_1$Q    27 -13
+   equiv name 01#Q    27 13
+
+cell 22 $COUNT_1/$FJK3_2
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal B7    -31 13
+pin name 00#K  signal B7    -29 13
+pin name 00#Q  signal $COUNT_1/$FJK3_2$Q    27 -13
+   equiv name 01#Q    27 13
+
+cell 23 $COUNT_1/$FJK3_3
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal B5    -31 13
+pin name 00#K  signal B5    -29 13
+pin name 00#Q  signal $COUNT_1/$FJK3_3$Q    27 -13
+   equiv name 01#Q    27 13
+
+cell 24 $COUNT_1/$FJK3_4
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal B4    -31 13
+pin name 00#K  signal B4    -29 13
+pin name 00#Q  signal $COUNT_1/$FJK3_4$Q    27 -13
+   equiv name 01#Q    27 13
+
+cell 25 $COUNT_1/$FJK3_5
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal $COUNT_2$CY    -31 13
+pin name 00#K  signal $COUNT_2$CY    -29 13
+pin name 00#Q  signal B4    27 -13
+   equiv name 01#Q    27 13
+
+cell 26 $COUNT_2/$AND2_1/$IV_1
+left -2  right 2  bottom -13  top 13
+pin name 00#A  signal $COUNT_2/$AND2_1/$ND2_1$Z    1 13
+pin name 00#Z  signal B3    -1 -13
+   equiv name 01#Z    -1 13
+
+cell 27 $COUNT_2/$AND2_1/$ND2_1
+left -3  right 3  bottom -13  top 13
+pin name 00#A  signal B2    -2 13
+pin name 00#B  signal $COUNT_2/$FJK3_1$Q    0 -13
+   equiv name 01#B    0 13
+pin name 00#Z  signal $COUNT_2/$AND2_1/$ND2_1$Z    2 -13
+   equiv name 01#Z    2 13
+
+cell 28 $COUNT_2/$AND2_2/$IV_1
+left -2  right 2  bottom -13  top 13
+pin name 00#A  signal $COUNT_2/$AND2_2/$ND2_1$Z    1 13
+pin name 00#Z  signal $COUNT_2$CY    -1 -13
+   equiv name 01#Z    -1 13
+
+cell 29 $COUNT_2/$AND2_2/$ND2_1
+left -3  right 3  bottom -13  top 13
+pin name 00#A  signal B3    -2 13
+pin name 00#B  signal $COUNT_2/$FJK3_2$Q    0 -13
+   equiv name 01#B    0 13
+pin name 00#Z  signal $COUNT_2/$AND2_2/$ND2_1$Z    2 -13
+   equiv name 01#Z    2 13
+
+cell 30 $COUNT_2/$AND2_3/$IV_1
+left -2  right 2  bottom -13  top 13
+pin name 00#A  signal $COUNT_2/$AND2_3/$ND2_1$Z    1 13
+pin name 00#Z  signal B2    -1 -13
+   equiv name 01#Z    -1 13
+
+cell 31 $COUNT_2/$AND2_3/$ND2_1
+left -3  right 3  bottom -13  top 13
+pin name 00#A  signal B1    -2 13
+pin name 00#B  signal $COUNT_2/$FJK3_3$Q    0 -13
+   equiv name 01#B    0 13
+pin name 00#Z  signal $COUNT_2/$AND2_3/$ND2_1$Z    2 -13
+   equiv name 01#Z    2 13
+
+cell 32 $COUNT_2/$AND2_4/$IV_1
+left -2  right 2  bottom -13  top 13
+pin name 00#A  signal $COUNT_2/$AND2_4/$ND2_1$Z    1 13
+pin name 00#Z  signal B1    -1 -13
+   equiv name 01#Z    -1 13
+
+cell 33 $COUNT_2/$AND2_4/$ND2_1
+left -3  right 3  bottom -13  top 13
+pin name 00#A  signal B0    -2 13
+pin name 00#B  signal $COUNT_2/$FJK3_4$Q    0 -13
+   equiv name 01#B    0 13
+pin name 00#Z  signal $COUNT_2/$AND2_4/$ND2_1$Z    2 -13
+   equiv name 01#Z    2 13
+
+cell 34 $COUNT_2/$FJK3_1
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal B2    -31 13
+pin name 00#K  signal B2    -29 13
+pin name 00#Q  signal $COUNT_2/$FJK3_1$Q    27 -13
+   equiv name 01#Q    27 13
+
+cell 35 $COUNT_2/$FJK3_2
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal B3    -31 13
+pin name 00#K  signal B3    -29 13
+pin name 00#Q  signal $COUNT_2/$FJK3_2$Q    27 -13
+   equiv name 01#Q    27 13
+
+cell 36 $COUNT_2/$FJK3_3
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal B1    -31 13
+pin name 00#K  signal B1    -29 13
+pin name 00#Q  signal $COUNT_2/$FJK3_3$Q    27 -13
+   equiv name 01#Q    27 13
+
+cell 37 $COUNT_2/$FJK3_4
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal B0    -31 13
+pin name 00#K  signal B0    -29 13
+pin name 00#Q  signal $COUNT_2/$FJK3_4$Q    27 -13
+   equiv name 01#Q    27 13
+
+cell 38 $COUNT_2/$FJK3_5
+left -32  right 32  bottom -13  top 13
+pin name 00#CD  signal MCLEAR    -3 13
+pin name 00#CP  signal MCLOCK    1 13
+pin name 00#J  signal IN1    -31 13
+pin name 00#K  signal IN1    -29 13
+pin name 00#Q  signal B0    27 -13
+   equiv name 01#Q    27 13

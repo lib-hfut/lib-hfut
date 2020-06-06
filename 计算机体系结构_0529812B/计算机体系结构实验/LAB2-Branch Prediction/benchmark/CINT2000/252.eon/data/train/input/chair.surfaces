@@ -1,0 +1,70 @@
+surfaces
+
+materials materials  /* material definitions in this file */
+
+spectra spectra.dat  /* color definitions in this file,
+                        each entry is also a diffuse material */
+
+ambient black        /* ambient color = 0 */
+
+background black     /* background color = 0 */
+
+/* part then material always */
+XZRectangle floor grey50 -3 3 0 -3 3     /* axis aligned rectangle
+                                            [-3,3]x[0,0]x[-3,3] called
+                                           "floor" with 50 grey diffuse
+                                            reflectance (grey50 defined
+                                            in spectra.dat */
+
+XZRectangle ceiling grey50 
+   -3 3 3 -3 3 
+
+
+XYRectangle w1 grey50 
+-3 3 0 3 -3                  /* [-3,3]x[0,3]x[-3,-3] */
+
+XYRectangle w2 grey50
+-3 3 0 3 3 
+
+
+YZRectangle w3 grey50
+       -3 0 3 -3 3 
+YZRectangle w4 grey50
+        3 0 3 -3 3 
+
+
+
+/* black means reflects no light */
+diffuseXZRectangleLuminaire light black -0.5 0.5 0.0 -0.5 0.5    100 30 -1
+/* the 100 10 -1 means  100nm, amplitute = 10 units, -1 teminates */
+
+rotateX light 180           /* rotate light by 180 degrees about X axis--
+                               this is because XZ lights "shoot" in the +Y
+                               direction and we want it pointed down */
+move light 0 2.99 0        /* get the light up to the ceiling */
+
+
+/* the first part called chair defines material for all that follow */
+box chair grey50 -0.25 0 -0.23   -0.23 0.8 -0.18
+
+box chair grey50 0.23 0 -0.23  0.25 0.8 -0.18
+box chair grey50 -0.25 0 0.18  -0.23 0.45 0.23
+box chair grey50 0.23 0 0.18  0.25 0.45 0.23
+
+box chair grey50 -0.23 0.42 -0.21  0.23 0.44 0.21
+
+box chair grey50 -0.25 0.03 -0.18  -0.23 0.08 0.18
+box chair grey50 0.23 0.03 -0.18  0.25 0.08 0.18
+box chair grey50 -0.23 0.05 -0.025  0.23 0.07 0.025
+
+box chair grey50 -0.23 0.4 0.21  0.23 0.45 0.23
+box chair grey50 -0.23 0.4 -0.23  0.23 0.45 -0.21
+box chair grey50 -0.25 0.4 -0.18  -0.23 0.45 0.18
+box chair grey50 0.23 0.4 -0.18  0.25 0.45 0.18
+
+
+box chair grey50 -0.23 0.6 -0.22  0.23 0.65 -0.20
+box chair grey50 -0.23 0.73 -0.22  0.23 0.78 -0.20
+
+/* rotate whole chair */ 
+rotateY chair -25

@@ -1,0 +1,21 @@
+ansi=off
+ponder=off
+noise=0
+st=99999
+ver 5
+setboard 5r1k/6p/1n2Q2p/4p//7P/PP4PK/R1B1q/ w
+sd=12
+move
+setboard rnbq1b1r/p1pp1p1p/4k3/1p1NP1p1/2QP1p2/5N2/PP1B1KPP/n6R w
+sd=12
+move
+sd=12
+setboard 2r2rk1/1bqnbpp1/1p1ppn1p/pP6/N1P1P3/P2B1N1P/1B2QPP1/R2R2K1 b
+move
+sd=11
+setboard r4rk1/1p2ppbp/p2pbnp1/q7/3BPPP1/2N2B2/PPP4P/R2Q1RK1 b
+move
+sd=11
+setboard 1nbq1r1k/3rbp1p/p1p1pp1Q/1p6/P1pPN3/5NP1/1P2PPBP/R4RK1 w
+move
+end

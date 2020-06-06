@@ -1,0 +1,52 @@
+Args: b, 3, m, 4
+Math::BigInt integers, first 3 perfect numbers:
+perfect +6
+perfect +28
++198, 270, 100; found 2: nope
++398, 202, 200; found 2: nope
+perfect +496
+Machine integers, first 4 perfect numbers:
+perfect 6
+perfect 28
+198, 270, 100; found 2: nope
+398, 202, 200; found 2: nope
+perfect 496
+598, 410, 300; found 3: nope
+798, 1122, 400; found 3: nope
+998, 502, 500; found 3: nope
+1198, 602, 600; found 3: nope
+1398, 1410, 700; found 3: nope
+1598, 994, 800; found 3: nope
+1798, 1082, 900; found 3: nope
+1998, 2562, 1000; found 3: nope
+2198, 1594, 1100; found 3: nope
+2398, 1562, 1200; found 3: nope
+2598, 2610, 1300; found 3: nope
+2798, 1402, 1400; found 3: nope
+2998, 1502, 1500; found 3: nope
+3198, 3858, 1600; found 3: nope
+3398, 1702, 1700; found 3: nope
+3598, 2594, 1800; found 3: nope
+3798, 4470, 1900; found 3: nope
+3998, 2002, 2000; found 3: nope
+4198, 2102, 2100; found 3: nope
+4398, 4410, 2200; found 3: nope
+4598, 3382, 2300; found 3: nope
+4798, 2402, 2400; found 3: nope
+4998, 7314, 2500; found 3: nope
+5198, 3010, 2600; found 3: nope
+5398, 2702, 2700; found 3: nope
+5598, 6570, 2800; found 3: nope
+5798, 3610, 2900; found 3: nope
+5998, 3002, 3000; found 3: nope
+6198, 6210, 3100; found 3: nope
+6398, 4594, 3200; found 3: nope
+6598, 3302, 3300; found 3: nope
+6798, 8178, 3400; found 3: nope
+6998, 3502, 3500; found 3: nope
+7198, 3962, 3600; found 3: nope
+7398, 9162, 3700; found 3: nope
+7598, 4282, 3800; found 3: nope
+7798, 5594, 3900; found 3: nope
+7998, 8898, 4000; found 3: nope
+perfect 8128

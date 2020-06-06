@@ -1,0 +1,388 @@
+#############################################################################
+##
+#A  basic.grp                   GAP group library            Martin Schoenert
+##
+#A  @(#)$Id: basic.grp,v 3.6.1.1 1995/10/12 13:28:12 sam Rel $
+##
+#Y  Copyright 1990-1992,  Lehrstuhl D fuer Mathematik,  RWTH Aachen,  Germany
+##
+##  This file contains the dispatchers for the various basic groups.
+##
+#H  $Log: basic.grp,v $
+#H  Revision 3.6.1.1  1995/10/12  13:28:12  sam
+#H  fixed bug/mistype in 'SymplecticGroup'
+#H
+#H  Revision 3.6  1994/01/12  09:31:14  sam
+#H  allowed 'GL(1,q)' etc.
+#H
+#H  Revision 3.5  1993/06/22  15:42:23  sam
+#H  allowed 'GL' etc. as name for 'GeneralLinearGroup' etc.
+#H
+#H  Revision 3.4  1993/05/18  15:49:36  sam
+#H  added 'ExtraspecialGroup'
+#H
+#H  Revision 3.3  1993/05/04  11:32:42  fceller
+#H  added 'SymmetricGroup(0)' and 'SymmetricGroup(1)'
+#H
+#H  Revision 3.2  1993/01/18  16:35:40  sam
+#H  added dispatchers for GL, SL, SP, GU, SU
+#H
+#H  Revision 3.1  1992/03/19  15:42:49  martin
+#H  initial revision under RCS
+#H
+##
+
+
+#############################################################################
+##
+#F  CyclicGroup( <D>, <n> ) . . . . . . . . . . . . . . . . . .  cyclic group
+##
+CyclicGroup := function ( arg )
+    if   Length( arg ) = 1  then
+        if not IsInt( arg[1] ) or arg[1] <= 0  then
+            Error("<n> must be a positive integer");
+        fi;
+        return Permutations.operations.CyclicGroup(Permutations,arg[1]);
+    elif Length( arg ) = 2  then
+        if not IsInt( arg[2] ) or arg[2] <= 0  then
+            Error("<n> must be a positive integer");
+        fi;
+        return arg[1].operations.CyclicGroup(arg[1],arg[2]);
+    else
+        Error("usage: CyclicGroup( [<D>,] <n> )");
+    fi;
+end;
+
+
+#############################################################################
+##
+#F  AbelianGroup( <D>, <ords> ) . . . . . .  direct product of abelian groups
+##
+AbelianGroup := function ( arg )
+    if   Length( arg ) = 1  then
+        if not IsList( arg[1] )  or not ForAll( arg[1], IsInt )  then
+            Error("<ords> must be a list of positive integers");
+        fi;
+        return Permutations.operations.AbelianGroup(Permutations,arg[1]);
+    elif Length( arg ) = 2  then
+        if not IsList( arg[2] )  or not ForAll( arg[2], IsInt )  then
+            Error("<ords> must be a list of positive integers");
+        fi;
+        return arg[1].operations.AbelianGroup(arg[1],arg[2]);
+    else
+        Error("usage: AbelianGroup( [<D>,] <ords> )");
+    fi;
+end;
+
+
+#############################################################################
+##
+#F  ElementaryAbelianGroup( <D>, <n> )  . . . . . .  elementary abelian group
+##
+ElementaryAbelianGroup := function ( arg )
+    if   Length( arg ) = 1  then
+        if not IsInt( arg[1] )  or not IsPrimePowerInt( arg[1] )  then
+            Error("<n> must be a power of a prime");
+        fi;
+        return Permutations.operations.ElementaryAbelianGroup(
+                        Permutations,arg[1]);
+    elif Length( arg ) = 2  then
+        if not IsInt( arg[2] )  or not IsPrimePowerInt( arg[2] )  then
+            Error("<n> must be a power of a prime");
+        fi;
+        return arg[1].operations.ElementaryAbelianGroup(arg[1],arg[2]);
+    else
+        Error("usage: ElementaryAbelianGroup( [<D>,] <n> )");
+    fi;
+end;
+
+
+#############################################################################
+##
+#F  DihedralGroup( <D>, <n> ) . . . . . . . . . . . . . . . .  dihedral group
+##
+DihedralGroup := function ( arg )
+    if   Length( arg ) = 1  then
+        if not IsInt( arg[1] )  or arg[1] <= 0  then
+            Error("<n> must be a positive integer");
+        fi;
+        return Permutations.operations.DihedralGroup(Permutations,arg[1]);
+    elif Length( arg ) = 2  then
+        if not IsInt( arg[2] )  or arg[2] <= 0  then
+            Error("<n> must be a positive integer");
+        fi;
+        return arg[1].operations.DihedralGroup(arg[1],arg[2]);
+    else
+        Error("usage: DihedralGroup( [<D>,] <n> )");
+    fi;
+end;
+
+
+#############################################################################
+##
+#F  PolyhedralGroup( <D>, <p>, <q> )  . . . . . . . . . . .  polyhedral group
+##
+PolyhedralGroup := function ( arg )
+    if   Length( arg ) = 2  then
+        if not IsInt( arg[1] )  or arg[1] <= 0  then
+            Error("<p> must be a positive integer");
+        fi;
+        if not IsInt( arg[2] )  or arg[2] <= 0  then
+            Error("<q> must be a positive integer");
+        fi;
+        return Permutations.operations.PolyhedralGroup(
+                                Permutations,arg[1],arg[2]);
+    elif Length( arg ) = 3  then
+        if not IsInt( arg[2] )  or arg[2] <= 0  then
+            Error("<p> must be a positive integer");
+        fi;
+        if not IsInt( arg[3] )  or arg[3] <= 0  then
+            Error("<q> must be a positive integer");
+        fi;
+        return arg[1].operations.PolyhedralGroup(arg[1],arg[2],arg[3]);
+    else
+        Error("usage: PolyhedralGroup( [<D>,] <p>, <q> )");
+    fi;
+end;
+
+
+#############################################################################
+##
+#F  AlternatingGroup( <D>, <n> )  . . . . . . . . . . . . . alternating group
+##
+AlternatingGroup := function ( arg )
+    if   Length( arg ) = 1  then
+        if not IsInt( arg[1] ) or arg[1] <= 2  then
+            Error("<n> must be a integer larger than one");
+        fi;
+        return Permutations.operations.AlternatingGroup(Permutations,arg[1]);
+    elif Length( arg ) = 2  then
+        if not IsInt( arg[2] ) or arg[2] <= 2  then
+            Error("<n> must be a integer larger than one");
+        fi;
+        return arg[1].operations.AlternatingGroup(arg[1],arg[2]);
+    else
+        Error("usage: AlternatingGroup( [<D>,] <n> )");
+    fi;
+end;
+
+
+#############################################################################
+##
+#F  SymmetricGroup( <D>, <n> )  . . . . . . . . . . . .  full symmetric group
+##
+SymmetricGroup := function ( arg )
+    if   Length( arg ) = 1  then
+        if not IsInt( arg[1] ) or arg[1] < 0  then
+            Error("<n> must be a non-negative integer");
+        fi;
+        return Permutations.operations.SymmetricGroup(Permutations,arg[1]);
+    elif Length( arg ) = 2  then
+        if not IsInt( arg[2] ) or arg[2] < 0  then
+            Error("<n> must be a non-negative integer");
+        fi;
+        return arg[1].operations.SymmetricGroup(arg[1],arg[2]);
+    else
+        Error("usage: SymmetricGroup( [<D>,] <n> )");
+    fi;
+end;
+
+
+#############################################################################
+##
+#F  GeneralLinearGroup( <D>, <n>, <q> )  . . . . . . . . general linear group
+##
+GeneralLinearGroup := function ( arg )
+    if   Length( arg ) = 2  then
+      if not IsInt( arg[1] ) or arg[1] <  1  or
+         not IsInt( arg[2] ) or arg[2] <= 1  then
+        Error( "<n> and <q> must be integers larger than one" );
+      fi;
+      return MatricesOps.GeneralLinearGroup(Matrices,arg[1],arg[2]);
+    elif Length( arg ) = 3  then
+      if not IsInt( arg[2] ) or arg[2] <  1  or
+         not IsInt( arg[3] ) or arg[3] <= 1  then
+        Error( "<n> and <q> must be integers larger than one" );
+      fi;
+      return arg[1].operations.GeneralLinearGroup(arg[1],arg[2],arg[3]);
+    else
+      Error( "usage: GeneralLinearGroup( [<D>,] <n>, <q> )" );
+    fi;
+    end;
+
+
+#############################################################################
+##
+#F  SpecialLinearGroup( <D>, <n>, <q> )  . . . . . . . . special linear group
+##
+SpecialLinearGroup := function ( arg )
+    if   Length( arg ) = 2  then
+      if not IsInt( arg[1] ) or arg[1] <  1  or
+         not IsInt( arg[2] ) or arg[2] <= 1  then
+        Error( "<n> and <q> must be integers larger than one" );
+      fi;
+      return MatricesOps.SpecialLinearGroup(Matrices,arg[1],arg[2]);
+    elif Length( arg ) = 3  then
+      if not IsInt( arg[2] ) or arg[2] <  1  or
+         not IsInt( arg[3] ) or arg[3] <= 1  then
+        Error( "<n> and <q> must be integers larger than one" );
+      fi;
+      return arg[1].operations.SpecialLinearGroup(arg[1],arg[2],arg[3]);
+    else
+      Error( "usage: SpecialLinearGroup( [<D>,] <n>, <q> )" );
+    fi;
+    end;
+
+
+#############################################################################
+##
+#F  SymplecticGroup( <D>, <n>, <q> )  . . . . . . . . . . .  symplectic group
+##
+SymplecticGroup := function ( arg )
+    if   Length( arg ) = 2  then
+      if not IsInt( arg[1] ) or arg[1] <= 1  or arg[1] mod 2 <> 0 or
+         not IsInt( arg[2] ) or arg[2] <= 1  then
+        Error( "<n> and <q> must be integers larger than one, n even" );
+      fi;
+      return MatricesOps.SymplecticGroup(Matrices,arg[1],arg[2]);
+    elif Length( arg ) = 3  then
+      if not IsInt( arg[2] ) or arg[2] <= 1  or arg[2] mod 2 <> 0 or
+         not IsInt( arg[3] ) or arg[3] <= 1  then
+        Error( "<n> and <q> must be integers larger than one, n even" );
+      fi;
+      return arg[1].operations.SymplecticGroup(arg[1],arg[2],arg[3]);
+    else
+      Error( "usage: SymplecticGroup( [<D>,] <n>, <q> )" );
+    fi;
+    end;
+
+
+#############################################################################
+##
+#F  GeneralUnitaryGroup( <D>, <n>, <q> )  . . . . . . . general unitary group
+##
+GeneralUnitaryGroup := function ( arg )
+    if   Length( arg ) = 2  then
+      if not IsInt( arg[1] ) or arg[1] <  1  or
+         not IsInt( arg[2] ) or arg[2] <= 1  then
+        Error( "<n> and <q> must be integers larger than one" );
+      fi;
+      return MatricesOps.GeneralUnitaryGroup(Matrices,arg[1],arg[2]);
+    elif Length( arg ) = 3  then
+      if not IsInt( arg[2] ) or arg[2] <  1  or
+         not IsInt( arg[3] ) or arg[3] <= 1  then
+        Error( "<n> and <q> must be integers larger than one" );
+      fi;
+      return arg[1].operations.GeneralUnitaryGroup(arg[1],arg[2],arg[3]);
+    else
+      Error( "usage: GeneralUnitaryGroup( [<D>,] <n>, <q> )" );
+    fi;
+    end;
+
+
+#############################################################################
+##
+#F  SpecialUnitaryGroup( <D>, <n>, <q> )  . . . . . . . special unitary group
+##
+SpecialUnitaryGroup := function ( arg )
+    if   Length( arg ) = 2  then
+      if not IsInt( arg[1] ) or arg[1] <  1  or
+         not IsInt( arg[2] ) or arg[2] <= 1  then
+        Error( "<n> and <q> must be integers larger than one" );
+      fi;
+      return MatricesOps.SpecialUnitaryGroup(Matrices,arg[1],arg[2]);
+    elif Length( arg ) = 3  then
+      if not IsInt( arg[2] ) or arg[2] <  1  or
+         not IsInt( arg[3] ) or arg[3] <= 1  then
+        Error( "<n> and <q> must be integers larger than one" );
+      fi;
+      return arg[1].operations.SpecialUnitaryGroup(arg[1],arg[2],arg[3]);
+    else
+      Error( "usage: SpecialUnitaryGroup( [<D>,] <n>, <q> )" );
+    fi;
+    end;
+
+
+GL := function( arg )
+    if Length( arg ) = 2 then
+      return GeneralLinearGroup( arg[1], arg[2] );
+    else
+      return GeneralLinearGroup( arg[1], arg[2], arg[3] );
+    fi;
+    end;
+ 
+ 
+SL := function( arg )
+    if Length( arg ) = 2 then
+      return SpecialLinearGroup( arg[1], arg[2] );
+    else
+      return SpecialLinearGroup( arg[1], arg[2], arg[3] );
+    fi;
+    end;
+
+
+GU := function( arg )
+    if Length( arg ) = 2 then
+      return GeneralUnitaryGroup( arg[1], arg[2] );
+    else
+      return GeneralUnitaryGroup( arg[1], arg[2], arg[3] );
+    fi;
+    end;
+ 
+ 
+SU := function( arg )
+    if Length( arg ) = 2 then
+      return SpecialUnitaryGroup( arg[1], arg[2] );
+    else
+      return SpecialUnitaryGroup( arg[1], arg[2], arg[3] );
+    fi;
+    end;
+
+
+SP := function( arg )
+    if Length( arg ) = 2 then
+      return SymplecticGroup( arg[1], arg[2] );
+    else
+      return SymplecticGroup( arg[1], arg[2], arg[3] );
+    fi;
+    end;
+
+
+#############################################################################
+##
+#F  ExtraspecialGroup( <D>, <order>, <exp> ) . . . . . . . extraspecial group
+##
+ExtraspecialGroup := function ( arg )
+    if   Length( arg ) = 2  then
+
+      # default domain: return an Ag group
+      return AgWordsOps.ExtraspecialGroup( AgWords, arg[1], arg[2] );
+
+    elif Length( arg ) = 3  then
+
+      # other domain is specified
+      return arg[1].operations.ExtraspecialGroup( arg[1], arg[2], arg[3] );
+
+    else
+
+      Error( "usage: ExtraspecialGroup( [<D>,] <order>, <exp> )" );
+
+    fi;
+    end;
+
+
+#############################################################################
+##
+#E  Emacs . . . . . . . . . . . . . . . . . . . . . . . local emacs variables
+##
+##  Local Variables:
+##  mode:               outline
+##  outline-regexp:     "#F\\|#V\\|#E"
+##  fill-column:        73
+##  fill-prefix:        "##  "
+##  eval:               (hide-body)
+##  End:
+##
+
+
+

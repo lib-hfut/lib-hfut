@@ -1,0 +1,152 @@
+SPEC INT 2000 Command Line
+--------------------------------
+下面是参考输入reference的命令行
+相应的输入文件位于.../CINT2000/<benchname>/data/ref/input
+注意：parser, perlbmk, 和 gap依赖 "all" 目录下的文件，对于 test/train/ref输入均如此。
+---------
+gzip
+---------
+gzip input.source 60 > input.source.out 2> input.source.err
+gzip input.log 60 > input.log.out 2> input.log.err
+gzip input.graphic 60 > input.graphic.out 2> input.graphic.err
+gzip input.random 60 > input.random.out 2> input.random.err
+gzip input.program 60 > input.program.out 2> input.program.err
+
+---------
+vpr
+---------
+vpr net.in arch.in place.out dum.out -nodisp -place_only -init_t 5 -exit_t 0.005 -alpha_t 0.9412 -inner_num 2 > place_log.out 2> place_log.err
+vpr net.in arch.in place.in route.out -nodisp -route_only -route_chan_width 15 -pres_fac_mult 2 -acc_fac 1 -first_iter_pres_fac 4 -initial_pres_fac 8 > route_log.out 2> route_log.err
+
+---------
+gcc
+---------
+cc1 166.i -o 166.s > 166.out 2> 166.err
+cc1 200.i -o 200.s > 200.out 2> 200.err
+cc1 expr.i -o expr.s > expr.out 2> expr.err
+cc1 integrate.i -o integrate.s > integrate.out 2> integrate.err
+cc1 scilab.i -o scilab.s > scilab.out 2> scilab.err
+
+---------
+mcf
+---------
+mcf inp.in > inp.out 2> inp.err
+
+---------
+crafty 
+---------
+crafty < crafty.in > crafty.out 2> crafty.err
+
+---------
+parser
+---------
+parser 2.1.dict -batch < ref.in > ref.out 2> ref.err
+
+---------
+eon
+---------
+eon chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > cook_log.out 2> cook_log.err
+eon chair.control.rushmeier chair.camera chair.surfaces chair.rushmeier.ppm ppm pixels_out.rushmeier > rushmeier_log.out 2> rushmeier_log.err
+eon chair.control.kajiya chair.camera chair.surfaces chair.kajiya.ppm ppm pixels_out.kajiya > kajiya_log.out 2> kajiya_log.err
+
+---------
+perlbmk
+---------
+perlbmk -I./lib diffmail.pl 2 550 15 24 23 100 > 2.550.15.24.23.100.out 2> 2.550.15.24.23.100.err
+perlbmk -I. -I./lib makerand.pl > makerand.out 2> makerand.err
+perlbmk -I./lib perfect.pl b 3 m 4 > b.3.m.4.out 2> b.3.m.4.err
+perlbmk -I./lib splitmail.pl 850 5 19 18 1500 > 850.5.19.18.1500.out 2> 850.5.19.18.1500.err
+perlbmk -I./lib splitmail.pl 704 12 26 16 836 > 704.12.26.16.836.out 2> 704.12.26.16.836.err
+perlbmk -I./lib splitmail.pl 535 13 25 24 1091 > 535.13.25.24.1091.out 2> 535.13.25.24.1091.err
+perlbmk -I./lib splitmail.pl 957 12 23 26 1014 > 957.12.23.26.1014.out 2> 957.12.23.26.1014.err
+
+---------
+gap
+---------
+gap -l ./ -q -m 192M < ref.in > ref.out 2> ref.err
+
+---------
+vortex
+---------
+vortex lendian1.raw > vortex1.out2 2> vortex1.err
+vortex lendian2.raw > vortex2.out2 2> vortex2.err
+vortex lendian3.raw > vortex3.out2 2> vortex3.err
+
+---------
+bzip2
+---------
+bzip2 input.source 58 > input.source.out 2> input.source.err
+bzip2 input.graphic 58 > input.graphic.out 2> input.graphic.err
+bzip2 input.program 58 > input.program.out 2> input.program.err
+
+---------
+twolf
+---------
+twolf ref > ref.stdout 2> ref.err
+
+----------------------
+下面是测试输入test对应的命令行
+----------------------
+
+---------
+gzip
+---------
+gzip input.compressed 2 > input.compressed.out 2> input.compressed.err
+
+---------
+vpr
+---------
+vpr net.in arch.in place.out dum.out -nodisp -place_only -init_t 5 -exit_t 0.005 -alpha_t 0.9412 -inner_num 2 > place_log.out 2> place_log.err
+vpr net.in arch.in place.in route.out -nodisp -route_only -route_chan_width 15 -pres_fac_mult 2 -acc_fac 1 -first_iter_pres_fac 4 -initial_pres_fac 8 > route_log.out 2> route_log.err
+
+---------
+gcc
+---------
+cc1 cccp.i -o cccp.s > cccp.out 2> cccp.err
+
+---------
+mcf
+---------
+mcf inp.in > inp.out 2> inp.err
+
+---------
+crafty 
+---------
+crafty < crafty.in > crafty.out 2> crafty.err
+
+---------
+parser
+---------
+parser 2.1.dict -batch < test.in > test.out 2> test.err
+
+---------
+eon
+---------
+eon chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > cook_log.out 2> cook_log.err
+eon chair.control.rushmeier chair.camera chair.surfaces chair.rushmeier.ppm ppm pixels_out.rushmeier > rushmeier_log.out 2> rushmeier_log.err
+eon chair.control.kajiya chair.camera chair.surfaces chair.kajiya.ppm ppm pixels_out.kajiya > kajiya_log.out 2> kajiya_log.err
+
+---------
+perlbmk
+---------
+perlbmk -I. -I./lib test.pl < test.in > test.out 2> test.err
+
+---------
+gap
+---------
+gap -l ./ -q -m 64M < test.in > test.out 2> test.err
+
+---------
+vortex
+---------
+vortex lendian.raw > vortex.out2 2> vortex.err
+
+---------
+bzip2
+---------
+bzip2 input.random 2 > input.random.out 2> input.random.err
+
+---------
+twolf
+---------
+twolf test > test.stdout 2> test.err

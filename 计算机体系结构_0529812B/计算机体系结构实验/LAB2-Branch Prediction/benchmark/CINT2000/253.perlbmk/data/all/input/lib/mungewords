@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl -i.bak
+
+srand(time);
+
+sub rannum {
+  my $limit = 50000;
+  my $ge = (rand > 0.5) ? '%g' : '%e';
+  $ge = (rand > 0.5) ? lc($ge) : uc($ge);
+  my $zeroes = join('', ( '0' x rand(20) ));
+  my $num = (rand > 0.3) ? ((rand > 0.6) ? int(rand($limit)).'.'.int(rand($limit)) : int(rand($limit)).'.0') : "0.$zeroes".int(rand($limit));
+  return sprintf($ge, $num);
+}
+
+while(<>) {
+  tr [\200-\377] [ ];
+  if (/(\s+)'(.*?)',/o) {
+    my ($ws, $foo) = ($1, $2);
+    if (rand > 0.3 && !/^\s+'([^: ]+: |From )/o) {
+      my @words = split(/\s+/, $foo);
+      my @newwords = ();
+      foreach my $word (@words) {
+        push @newwords, (rand > 0.4) ? $word : rannum();
+      }
+      $_ = "$ws'".join(' ', @newwords)."',\n";
+    }
+  }
+  print;
+}
