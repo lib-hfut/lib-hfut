@@ -1,0 +1,58 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Illumination - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\LUOYUE~1\LOCALS~1\Temp\RSPA1.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/Illumination.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\LUOYUE~1\LOCALS~1\Temp\RSPA1.tmp" 
+Creating temporary file "C:\DOCUME~1\LUOYUE~1\LOCALS~1\Temp\RSPA2.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/Illumination.pdb" /machine:I386 /out:"Release/Illumination.exe" 
+".\Release\ColorWnd.obj"
+".\Release\Global_Funcs.obj"
+".\Release\Illumination.obj"
+".\Release\IlluminationDoc.obj"
+".\Release\IlluminationView.obj"
+".\Release\MainFrm.obj"
+".\Release\SettingDialog.obj"
+".\Release\StdAfx.obj"
+".\Release\Illumination.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\LUOYUE~1\LOCALS~1\Temp\RSPA2.tmp"
+<h3>Output Window</h3>
+Compiling...
+IlluminationView.cpp
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(235) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(239) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(252) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(254) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(255) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(266) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(268) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(270) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(438) : warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(440) : warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(442) : warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(492) : warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(548) : warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(549) : warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(550) : warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(557) : warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(558) : warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+D:\Computer Graphic\光照模型\Illumination\IlluminationView.cpp(559) : warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+Linking...
+
+
+
+<h3>Results</h3>
+Illumination.exe - 0 error(s), 18 warning(s)
+</pre>
+</body>
+</html>

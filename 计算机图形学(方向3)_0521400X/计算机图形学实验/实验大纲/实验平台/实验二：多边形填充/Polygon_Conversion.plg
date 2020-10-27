@@ -1,0 +1,63 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Polygon_Conversion - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Polygon_Conversion.res" /d "_DEBUG" /d "_AFXDLL" "D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\多边形填充\实验平台-多边形填充\Polygon_Conversion\Polygon_Conversion.rc"" 
+Creating temporary file "C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSPB7.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/Polygon_Conversion.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\多边形填充\实验平台-多边形填充\Polygon_Conversion\ColorWnd.cpp"
+"D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\多边形填充\实验平台-多边形填充\Polygon_Conversion\MainFrm.cpp"
+"D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\多边形填充\实验平台-多边形填充\Polygon_Conversion\Polygon_Conversion.cpp"
+"D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\多边形填充\实验平台-多边形填充\Polygon_Conversion\Polygon_ConversionDoc.cpp"
+"D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\多边形填充\实验平台-多边形填充\Polygon_Conversion\Polygon_ConversionView.cpp"
+"D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\多边形填充\实验平台-多边形填充\Polygon_Conversion\SettingDialog.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSPB7.tmp"" 
+Creating temporary file "C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSPB8.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/Polygon_Conversion.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\多边形填充\实验平台-多边形填充\Polygon_Conversion\StdAfx.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSPB8.tmp"" 
+Creating temporary file "C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSPB9.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Polygon_Conversion.pdb" /debug /machine:I386 /out:"Debug/Polygon_Conversion.exe" /pdbtype:sept 
+".\Debug\ColorWnd.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Polygon_Conversion.obj"
+".\Debug\Polygon_ConversionDoc.obj"
+".\Debug\Polygon_ConversionView.obj"
+".\Debug\SettingDialog.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Polygon_Conversion.res"
+]
+Creating command line "link.exe @"C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSPB9.tmp""
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ColorWnd.cpp
+MainFrm.cpp
+Polygon_Conversion.cpp
+Polygon_ConversionDoc.cpp
+Polygon_ConversionView.cpp
+SettingDialog.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/Polygon_Conversion.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\ColorWnd.sbr" ".\Debug\MainFrm.sbr" ".\Debug\Polygon_Conversion.sbr" ".\Debug\Polygon_ConversionDoc.sbr" ".\Debug\Polygon_ConversionView.sbr" ".\Debug\SettingDialog.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+Polygon_Conversion.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Experiment_Frame_One - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSP1AC.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Experiment_Frame_One.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\Experiment_Frame_One\Experiment_Frame_OneView.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSP1AC.tmp"" 
+Creating temporary file "C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSP1AD.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Experiment_Frame_One.pdb" /debug /machine:I386 /out:"Debug/Experiment_Frame_One.exe" /pdbtype:sept 
+".\Debug\Experiment_Frame_One.obj"
+".\Debug\Experiment_Frame_OneDoc.obj"
+".\Debug\Experiment_Frame_OneView.obj"
+".\Debug\InputDialog.obj"
+".\Debug\MainFrm.obj"
+".\Debug\SettingDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Experiment_Frame_One.res"
+]
+Creating command line "link.exe @"C:\DOCUME~1\萝卜丝\LOCALS~1\Temp\RSP1AD.tmp""
+<h3>Output Window</h3>
+Compiling...
+Experiment_Frame_OneView.cpp
+D:\Luo Yuetong\教学工作\计算机图形学\实验大纲\Experiment_Frame_One\Experiment_Frame_OneView.cpp(210) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+Linking...
+
+
+
+<h3>Results</h3>
+Experiment_Frame_One.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>
