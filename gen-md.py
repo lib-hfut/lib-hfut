@@ -31,7 +31,7 @@ def list_files(course: str):
 def generate_md(course: str, filelist_texts: str, readme_path: str):
     final_texts = ['\n\n', filelist_texts]
     if readme_path:
-        with open(readme_path, 'r') as file:
+        with open(readme_path, 'r', encoding='ISO-8859-1') as file:
             final_texts = file.readlines() + final_texts
     with open('docs/{}.md'.format(course), 'w', encoding='utf-8') as file:
         file.writelines(final_texts)
