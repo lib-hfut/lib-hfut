@@ -34,7 +34,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Update gh-pages
         run: |
-          git pull -f origin gh-pages
           mkdir docs
           python gen-md.py
           cp README.md .\docs\index.md
