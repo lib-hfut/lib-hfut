@@ -38,6 +38,6 @@ jobs:
         run: |
           mkdir docs
           python gen-md.py
-          copy README.md .\docs\index.md
+          cp README.md .\docs\index.md
           mkdocs gh-deploy
           rm -rf site docs
