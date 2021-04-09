@@ -40,5 +40,5 @@ jobs:
           mkdir docs
           python gen-md.py
           cp README.md .\docs\index.md
-          mkdocs gh-deploy
+          mkdocs gh-deploy --force
           rm -rf site docs
