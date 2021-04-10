@@ -31,11 +31,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs
       # Runs a set of commands using the runners shell
-      - name: Update gh-pages
+      - name: Prepare gh-pages
         run: |
           mkdir docs
           python gen-md.py
           cp README.md ./docs/index.md
-          cd ../lib-hfut.github.io/
-          mkdocs gh-deploy --config-file ../lib-hfut/mkdocs.yml --remote-branch master
-          rm -rf ../lib-hfut/site ../lib-hfut/docs
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG_FILE: mkdocs.yml
+      - name: Del build (site & docs)
+         rm -rf site docs
