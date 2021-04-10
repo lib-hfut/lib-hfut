@@ -1,46 +1,36 @@
 # This is a basic workflow to help you get started with Actions
-
 name: Update gh-pages
-
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   pull_request:
     branches: [ master ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Set up Python 3.9
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install mkdocs
       # Runs a set of commands using the runners shell
-      - name: Prepare gh-pages
+      - name: Update gh-pages
         run: |
+          git fetch origin gh-pages:gh-pages
           mkdir docs
           python gen-md.py
           cp README.md ./docs/index.md
-      - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@nomaterial
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CONFIG_FILE: mkdocs.yml
-      - name: Del build (site & docs)
-        run: 
+          mkdocs gh-deploy --config-file mkdocs.yml
           rm -rf site docs
