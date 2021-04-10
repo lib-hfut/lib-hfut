@@ -32,9 +32,8 @@ jobs:
           pip install mkdocs
       # Runs a set of commands using the runners shell
       - name: Update gh-pages
-        env:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git branch -D gh-pages
           git fetch origin gh-pages:gh-pages
           mkdir docs
           python gen-md.py
