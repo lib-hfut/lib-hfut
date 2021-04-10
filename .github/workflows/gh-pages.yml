@@ -37,5 +37,5 @@ jobs:
           mkdir docs
           python gen-md.py
           cp README.md .\docs\index.md
-          mkdocs gh-deploy --config-file mkdocs.yml
+          mkdocs gh-deploy --config-file mkdocs.yml --clean
           rm -rf site docs
