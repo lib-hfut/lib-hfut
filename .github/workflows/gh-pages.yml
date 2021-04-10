@@ -35,6 +35,7 @@ jobs:
         run: |
           mkdir docs
           python gen-md.py
-          cp README.md .\docs\index.md
-          mkdocs gh-deploy
-          rm -rf site docs
+          cp README.md ./docs/index.md
+          cd ../lib-hfut.github.io/
+          mkdocs gh-deploy --config-file ../lib-hfut/mkdocs.yml --remote-branch master
+          rm -rf ../lib-hfut/site ../lib-hfut/docs
