@@ -103,7 +103,10 @@ Issue、PR、纠错、资料、选课/考试攻略，完全欢迎！
 
     1. 首先 Fork 本项目(复制到我的仓库)。
 
-    2. 前往 https://github.dev/你的用户名/lib-hfut 或打开 https://github.com/你的用户名/lib-hfut 页面，并按下键盘上的 `.` 键，以进入 Github 网页编辑器。
+    2. 方法一: 直接前往 https://github.dev/你的用户名/lib-hfut
+       方法二:
+            1) 打开 https://github.com/你的用户名/lib-hfut
+            2) 按下键盘上的 `.` 键，以进入 Github 网页编辑器
 
     3. 上传文件 / 文件夹
         1) 上传文件到已有文件夹：
