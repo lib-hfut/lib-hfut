@@ -165,12 +165,15 @@ Issue、PR、纠错、资料、选课/考试攻略，完全欢迎！
 
 ---
 
-<p align="center">Your Contribution Matters. </p>
+<p align="center">
+  <a href="https://github.com/lib-hfut/lib-hfut"><img src="https://api.star-history.com/svg?repos=lib-hfut/lib-hfut&type=Date" alt="Star History Chart"></a><br/>
+  Your Contribution Matters. 
+</p>
 
 ---
 
 <p align="center">
-<a href="https://github.com/lib-hfut/lib-hfut"><img src="https://img.shields.io/github/watchers/lib-hfut/lib-hfut.svg?style=social" alt="Watchers"></a>
-<a href="https://github.com/lib-hfut/lib-hfut"><img src="https://img.shields.io/github/stars/lib-hfut/lib-hfut.svg?style=social" alt="Stars"></a>
-<a href="https://github.com/lib-hfut/lib-hfut"><img src="https://img.shields.io/github/forks/lib-hfut/lib-hfut.svg?style=social" alt="Fork"></a>
+  <a href="https://github.com/lib-hfut/lib-hfut"><img src="https://img.shields.io/github/watchers/lib-hfut/lib-hfut.svg?style=social" alt="Watchers"></a>
+  <a href="https://github.com/lib-hfut/lib-hfut"><img src="https://img.shields.io/github/stars/lib-hfut/lib-hfut.svg?style=social" alt="Stars"></a>
+  <a href="https://github.com/lib-hfut/lib-hfut"><img src="https://img.shields.io/github/forks/lib-hfut/lib-hfut.svg?style=social" alt="Fork"></a>
 </p>
