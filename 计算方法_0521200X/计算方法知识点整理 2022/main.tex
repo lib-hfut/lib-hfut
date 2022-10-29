@@ -1,0 +1,1170 @@
+\documentclass[fontset=ubuntu]{ctexart}
+
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{indentfirst}
+\usepackage{authblk}
+\usepackage{draftwatermark}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+\fancyhead[L]{计算方法复习\ 第三版}
+\fancyhead[R]{\leftmark}
+\fancyhead[C]{eslzzyl@163.com}
+\fancyfoot[C]{\thepage}
+
+\SetWatermarkText{Eslzzyl整理}            % 设置水印内容
+\SetWatermarkLightness{0.9}             % 设置水印透明度 0-1
+\SetWatermarkScale{0.8}                   % 设置水印大小 0-1
+
+\setlist[itemize,2]{label=$\diamond$}
+\geometry{a4paper,scale=0.8}
+
+\newtheorem{theorem}{定理}
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+
+\ctexset{
+    section={   
+        name={,},
+        number={\Roman{section}}
+    }
+}
+
+\setlength\columnsep{0.6cm}
+\columnseprule=0.5pt
+
+\title{计算方法复习\ 第三版}
+\author{Eslzzyl}
+\affil{eslzzyl@163.com}
+
+\begin{document}
+    \maketitle
+    \newpage
+    \tableofcontents
+    \vspace{20pt}
+    \textcolor{red}{\textbf{请勿以任何形式出售本文档，或将本文档作为出售资料的赠品。因笔者水平有限，错漏在所难免，因参考本文档的错漏部分而导致考试丢分的，笔者概不负责。}}
+    \newpage
+
+\section{引论}
+\begin{multicols}{2}
+
+    \subsection{数值计算注意事项}
+    \begin{itemize}
+        \item 选择数值稳定的计算公式
+        \item 避免两个相近的数相减
+        \item 绝对值太小（接近零）的数不能作除数
+        \item 避免大数吃掉小数
+        \begin{itemize}
+            \item 求和时，从小数加到大数，而不是反过来。
+        \end{itemize}
+        \item 简化计算步骤，减少运算次数，避免误差积累
+        \item 控制舍入误差的累积和传播
+    \end{itemize}
+
+    有效的算法：运算量少，应用范围广，需用存储单元少，逻辑结构简单，便于编写计算机程序，而且计算结果可靠。
+    
+    \subsection{二分法}
+
+    想要二分法达到误差不超过$10^{-m}$，则应该二分$k$次，且有
+    \begin{equation*}
+        2^{-k}<10^{-m},\quad k\text{取可能的最大值}
+    \end{equation*}
+    
+    \subsection{误差}
+    \subsubsection{来源（P9）}
+    \begin{itemize}
+        \item 计算误差
+        \begin{itemize}
+            \item 截断误差：求解方法本身的限制，如果是近似的数值解法，则不可能完全精确。
+            \item 舍入误差：计算机字长有限，数据存储时不可能无穷精确。
+        \end{itemize}
+        \item 固有误差
+        \begin{itemize}
+            \item 模型误差（本课程不考虑）
+            \item 测量误差（同上）
+        \end{itemize}
+    \end{itemize}
+    \subsubsection{绝对误差限（P10）}
+
+    绝对误差限/误差限/精度 $\epsilon$：满足$\lvert x-x^*\rvert\leq\epsilon$\par
+    
+    四舍五入得到的结果，其误差限为最末一位的半个单位。
+
+    \subsubsection{有效数字（P10）}
+
+    对$x^*$的规格化表示
+    \begin{equation}
+        x=\pm 0.a_1a_2\cdots a_n\times 10^m
+    \end{equation}
+
+    若
+    \begin{equation}
+        \lvert x-x^*\rvert\leq \frac{1}{2}\times10^{m-l},1\leq l\leq n
+    \end{equation}
+    则称近似值$x$有$l$位有效数字。
+
+    准确值可认为有无穷位有效数字。
+
+    有效数字相同，误差限不一定相同。如12345和0.12345都有5位有效数字，但前者误差限为0.5，后者为0.000005。
+    
+    \subsubsection{相对误差限（P11）}
+
+    若
+    \begin{equation}
+        \frac{\lvert x-x^*\rvert}{x}\leq \epsilon
+    \end{equation}
+    则$\epsilon$是$x$的相对误差限。
+
+\end{multicols}
+
+%\newpage
+
+\section{第一章\ 插值方法}
+\begin{multicols}{2}
+
+    内插：插值点在插值区间内的插值。
+
+    外推：插值点在插值区间外的插值。不可靠。
+
+    \subsection{拉格朗日插值}
+
+    \subsubsection{线性插值（P16）}
+
+    点斜式：
+    \begin{equation}
+        p_1(x) = y_0+\frac{y_1-y_0}{x_1-x_0}(x-x_0)
+    \end{equation}
+
+    \subsubsection{一般情形（P18）}
+
+    插值基函数
+    \begin{equation}
+        l_k(x)=\prod_{j=0\atop j\neq k}^{n}\frac{x-x_j}{x_k-x_j}
+    \end{equation}
+
+    拉格朗日插值公式
+    \begin{equation}
+        p_n(x)=\sum_{k=0}^{n}l_k(x)y_k=\sum_{k=0}^{n}\left(\prod_{j=0\atop j\neq k}^{n}\frac{x-x_j}{x_k-x_j} \right )y_k
+    \end{equation}
+    $p_n(x)$也可表为$L_n(x)$，注意$L_n(x)$和$l_k(x)$不是同一回事。
+
+    拉格朗日插值余项（即截断误差）
+    \begin{equation}
+        f(x)-p_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\prod_{k=0}^{n}(x-x_k)
+    \end{equation}
+    其中$\xi\in[a,b]$
+
+    \subsubsection{误差的事后估计（P21）}
+
+    直接用计算结果估计误差的方法称为\textbf{事后估计法}。
+
+    公式：
+    \begin{equation}
+        y-y_1\approx \frac{x-x_1}{x_2-x_1}(y_2-y_1)
+    \end{equation}
+
+    通过公式计算出估计误差后，可以将结果加上误差得到更精确的修正值。
+
+    \subsection*{埃特金插值}
+
+    本节为选讲，故略。
+
+    \subsection{牛顿插值（P23）}
+
+    \subsubsection{差商（P24）}
+
+    一阶差商
+    \begin{equation}
+        f(x_0,x_1)=\frac{f(x_1)-f(x_0)}{x_1-x_0}
+    \end{equation}
+
+    二阶差商：即一阶差商的差商
+    \begin{equation}
+        f(x_0,x_1,x_2)=\frac{f(x_1,x_2)-f(x_0,x_1)}{x_2-x_0}
+    \end{equation}
+
+    推广到n阶差商：
+    \begin{equation}
+        \begin{split}
+        &f(x_0,x_1,\cdots,x_n)=\\
+        &\frac{f(x_1,x_2,\cdots,x_n)-f(x_0,x_1,\cdots,x_{n-1})}{x_n-x_0}
+        \end{split}
+    \end{equation}
+
+    差商的值与节点的排列顺序无关，即差商的\textbf{对称性}。
+
+    \begin{theorem}
+        在$x_0,x_1,\cdots,x_n$所界定的范围$\Delta:\left[\underset{0\leq i\leq n}{\text{min}}x_i, \underset{0\leq i\leq n}{\text{max}}x_i \right]$内存在一点$\xi$，使成立
+        \begin{equation*}
+            f(x_0,x_1,\cdots,x_n)=\frac{f^{(n)}(\xi)}{n!}
+        \end{equation*}
+    \end{theorem}
+
+    \subsubsection{差商形式的牛顿插值公式（P26）}
+
+    公式
+    \begin{equation}
+        \begin{split}
+        p_n(x)=\ &f(x_0)+f(x_0,x_1)(x-x_0)+\\
+        &f(x_0,x_1,x_2)(x-x_0)(x-x_1)+\cdots+\\
+        &f(x_0,x_1,\cdots,x_n)(x-x_0)(x-x_1)\cdots (x-x_{n-1})
+        \end{split}
+    \end{equation}
+
+    余项（截断误差）
+    \begin{equation}
+        R(x)=f(x_0,x_1,\cdots,x_n,x)(x-x_0)(x-x_1)\cdots(x-x_n)
+    \end{equation}
+
+    \subsubsection{差分（P26）}
+
+    关于函数值$f(x_i)=y_i$的\textbf{一阶差分}定义为
+    \begin{equation*}
+        \Delta y_i = y_{i+1}-y_i
+    \end{equation*}
+    \textbf{二阶差分}定义为一阶差分的差分
+    \begin{equation*}
+        \Delta^2 y_i = \Delta y_{i+1}-\Delta y_i
+    \end{equation*}
+    \textbf{n阶差分}定义为
+    \begin{equation*}
+        \Delta^w y_i = \Delta^{n-1}y_{i+1}-\Delta^{n-1}y_i
+    \end{equation*}
+
+    节点等距的情况下，差商可用差分来表示。设步长$h=x_{i+1}-x_i$，有
+    \begin{equation*}
+        f(x_i,x_{i+1},\cdots,x_{i+k}) = \frac{1}{k!h^k}\Delta^k y_i
+    \end{equation*}
+
+    \subsubsection{差分形式的牛顿插值公式}
+
+    令$x=x_0+th$，则有
+    \begin{align*}
+        p_n(x_0+th)=&y_0+t\Delta y_0+\frac{t(t-1)}{2}\Delta^2 y_0+\cdots+ \\
+        &\frac{t(t-1)(t-2)\cdots(t-n+1)}{n!}\Delta^n y_0
+    \end{align*}
+    这一公式称为函数插值的\textbf{有限差公式}。
+
+    \subsection{埃尔米特插值（P28）}
+
+    略
+
+    \subsection{分段插值（P30）}
+
+    当拉格朗日插值的插值次数n增大时，插值函数$p_n(x)$会在插值区间的两端发生激烈的震荡，称为\textbf{龙格现象}。
+    龙格现象说明，在大范围内使用高次插值，逼近的效果往往是不理想的。
+
+    分段插值的优缺点：
+
+    \begin{itemize}
+        \item 优点：显式算法，方法简单，收敛性好，有局部性，不易受到其他区间的影响。
+        \item 缺点：需要各个节点的导数值，要求高；光滑性差。
+    \end{itemize}
+
+    \subsubsection{分段三次插值（P32）}
+
+    公式：
+    \begin{align}
+        S_3(x)=&\varphi_0\left(\frac{x-x_i}{h_i} \right ) y_i+\varphi_1\left(\frac{x-x_i}{h_i} \right )y_{i+1}\nonumber \\
+        &+h_i\psi _0\left(\frac{x-x_i}{h_i} \right )y_i'+h_i\psi_1\left(\frac{x-x_i}{h_i} \right )y_{i+1}'
+    \end{align}
+    其中$h_i=x_{i+1}-x_i$，而$\varphi_0,\varphi_1,\psi_0,\psi_1$由式(\ref{phi_and_psi})给出（看右边）。
+
+    误差
+    \begin{equation}
+        \lvert f(x)-S_3(x)\rvert \leq \frac{h^4}{384}\underset{a\leq x\leq b}{\text{max}}\lvert f^{(4)}(x)\rvert
+    \end{equation}
+
+    \subsection{样条函数（P33）}
+
+    称具有分划
+    \begin{equation*}
+        \varDelta:a=x_0<x_1<\cdots<x_n=b
+    \end{equation*}
+    的分段$k$次式$S_k(x)$为\textbf{$k$次样条函数}：如果它在每个内节点$x_i(1\leq i\leq n-1)$上具有直到$k-1$阶连续导数。
+    点$x_i$称作样条函数的\textbf{节点}。
+
+    样条函数简称样条，其特点是，既是充分光滑的，又保留有一定的间断性。
+
+    样条插值其实是一种改进的分段插值。一次样条插值和一次分段插值是同一回事。（P33底部）
+
+    \subsubsection{三次样条插值}
+
+    原理比较复杂，只给出求解过程：
+
+    首先计算$\alpha_i$和$\beta_i$
+    \begin{gather}
+        \alpha_i = \frac{h_{i-1}}{h_{i-1}+h_i} \\
+        \beta_i = 3\left[(1-\alpha_i)\frac{y_i-y_{i-1}}{h_{i-1}}+\alpha_i\frac{y_{i+1}-y_i}{h_i}\right]
+    \end{gather}
+    其中$h_i=x_{i+1}-x_i$（所以$\alpha_i$的$i$是从1开始取的）。
+
+    然后列出如下关于$m_i$的方程组
+    \begin{equation}
+        \left\{\begin{array}{l}
+            2m_1+\alpha_1 m_2 = \beta_1-(1-\alpha_1)y_0' \\
+            (1-\alpha_2)m_1+2m_2+\alpha_2 m_3 = \beta_2 \\
+            \cdots\cdots \\
+            (1-\alpha_{n-1})m_{n-3}+2m_{n-2}+\alpha_{n-2}m_{n-1} = \beta_{n-2} \\
+            (1-\alpha_{n-1})m_{n-2}+2m_{n-1}=\beta_{n-1}-\alpha_{n-1}y_n'
+        \end{array}\right.
+    \end{equation}
+    用追赶法（\ref{zhuiganfa}）解方程组，得到$m_1,m_2,\cdots,m_{n-1}$
+
+    然后判断$x$所在区间$[x_i,x_{i+1}]$，最后用下式
+    \begin{align}
+        S_3(x)=&\varphi_0\left(\frac{x-x_i}{h_i} \right ) y_i+\varphi_1\left(\frac{x-x_i}{h_i} \right )y_{i+1}\nonumber \\
+        &+h_i\psi _0\left(\frac{x-x_i}{h_i} \right )m_i+h_i\psi_1\left(\frac{x-x_i}{h_i} \right )m_{i+1}
+    \end{align}
+    插出$y=S_3(x)$，得到结果。其中
+    \begin{equation}
+        \label{phi_and_psi}
+        \left\{\begin{array}{l}
+            \varphi_0(x) = (x-1)^2(2x+1) \\
+        \varphi_1(x) = x^2(-2x+3) \\
+        \psi_0(x) = x(x-1)^2 \\
+        \psi_1(x) = x^2(x-1)
+        \end{array}\right.
+    \end{equation}
+
+    \subsection{曲线拟合的最小二乘法（P36）}
+
+    预测值$\widehat{y_i}$和实测值$y_i$的差称为\textbf{残差}：
+    \begin{equation}
+        e_i=y_i-\widehat{y_i}
+    \end{equation}
+
+    构造拟合曲线可选用如下三种准则之一：
+
+    (1).使残差的最大绝对值最小：$\underset{i}{\text{max}}\lvert e_i\rvert=min$
+
+    (2).使残差的绝对值之和最小：$\sum_{i}\lvert e_i\rvert=min$
+
+    (3).使残差的平方和最小：$\sum_{i}e_i^2=min$
+
+    其中使用(3)的方法称为最小二乘法。
+
+    \subsubsection{直线拟合}
+
+    \begin{equation}
+        \left\{\begin{array}{l}
+        aN+b\sum x_i=\sum y_i \\
+        a\sum x_i +b\sum x_i^2=\sum x_i y_i
+        \end{array}\right.
+    \end{equation}
+
+    \subsubsection{多项式拟合}
+
+    拟合对象是$m$次多项式
+    \begin{equation}
+        y=\sum_{j=0}^{m}a_j x^j
+    \end{equation}
+
+    待定系数$a_0,a_1,\cdots,a_m$
+
+    拟合的正则方程组如下：
+    \begin{equation}
+        \left\{\begin{array}{l}
+            a_0N+a_1\sum x_i+\cdots+a_m\sum x_i^m=\sum y_i \\
+            a_0\sum x_i+a_1\sum x_i^2+\cdots+a_m\sum x_i^{m+1}=\sum x_i y_i \\
+            \cdots \\
+            a_0\sum x_i^m +a_1\sum x_i^{m+1}+\cdots+a_m\sum x_i^{2m}=\sum x_i^m y_i
+        \end{array}\right.
+    \end{equation}
+
+    % \subsubsection*{观察数据的修匀}
+
+    % 选讲，故略。
+
+\end{multicols}
+
+% \newpage
+
+\section{第二章\ 数值积分}
+
+\begin{multicols}{2}
+    \subsection{机械求积}
+
+    \subsubsection{数值求积的基本思想}
+
+    根据积分中值定理，存在一点$\xi\in[a,b]$，使得
+    \begin{equation}
+        \int_{a}^{b}f(x)dx=(b-a)f(\xi)
+    \end{equation}
+    其中$f(\xi)$称为区间$[a,b]$上的平均高度，根据这个平均高度的估计方法的不同，可以得到一些公式。
+
+    梯形公式
+    \begin{equation}
+        \int_{a}^{b}f(x)dx\approx \frac{b-a}{2}\left[f(a)+f(b) \right ]
+    \end{equation}
+
+    中矩形公式
+    \begin{equation}
+        \int_{a}^{b}f(x)dx\approx (b-a)f\left(\frac{a+b}{2} \right )
+    \end{equation}
+
+    辛甫生公式
+    \begin{equation}
+        \int_{a}^{b}f(x)dx\approx \frac{b-a}{6}\left[f(a)+4f\left(\frac{a+b}{2} \right )+f(b) \right ]
+    \end{equation}
+
+    更一般地，取$[a,b]$内若干个点$x_k$处的高度$f(x_k)$，加权平均得到平均高度$f(\xi)$，这类公式的一般形式是
+    \begin{equation}
+        \label{qiuji_tongshi}
+        \int_{a}^{b}f(x)dx\approx \sum_{k=0}^{n}A_kf(x_k)
+    \end{equation}
+    其中$x_k$称为\textbf{求积节点}，$A_k$称为\textbf{求积系数}。
+
+    \subsubsection{代数精度（P59）}
+
+    若公式(\ref{qiuji_tongshi})对于一切次数$\leq m$的多项式是准确的，但对于$m+1$次多项式（指$x$的次数）不准确，就称它具有\textbf{$m$次代数精度}。
+
+    梯形公式和中矩形公式有一次代数精度，辛甫生公式有三次代数精度。
+
+    求给定插值公式的代数精度：令其对$f(x)=1,f(x)=x,f(x)=x^2,\cdots,f(x)=x^n$准确成立，找到使得对$f(x)=x^i$准确成立而对$f(x)=x^{i+1}$不准确成立的$i$值，即为所求值。
+
+    \subsubsection{插值型的求积公式（P60）}
+
+    对于式(\ref{qiuji_tongshi})，如果其所有$A_k$均满足
+    \begin{equation}
+        A_k = \int_{a}^{b}l_k(x)dx
+    \end{equation}
+    其中$l_k(x)$有如下形式
+    \begin{equation*}
+        l_k(x) = \prod_{j=0\atop j\neq k}^{n}\frac{x-x_j}{x_k-x_j}
+    \end{equation*}
+    则这样的求积公式是\textbf{插值型}的。
+
+    \begin{theorem}
+        \label{chazhi}
+        形如（\ref{qiuji_tongshi}）的求积公式至少具有$n$次代数精度的充要条件是：它是插值型的。
+    \end{theorem}
+
+    \subsection{牛顿-柯特斯公式（P61）}
+
+    设分$[a,b]$为$n$等分，步长$h=\frac{b-a}{n}$，取等分点$x_k=a+kh\ (k=0,1,\cdots,n)$构造出的插值型求积公式
+    \begin{equation}
+        I_n = (b-a)\sum_{k=0}^{n}C_kf(x_k)
+    \end{equation}
+    称作\textbf{牛顿-柯特斯公式}，其中$C_k$称为\textbf{柯特斯系数}。
+
+    一阶牛顿-柯特斯公式就是梯形公式。
+
+    二阶牛顿-柯特斯公式就是辛甫生公式。
+
+    四阶牛顿-柯特斯公式
+    \begin{align}
+        C=&\frac{b-a}{90}\Bigl[ 7f(x_0)+32f(x_1) \nonumber \\
+        &+12f(x_2)+32f(x_3)+7f(x_4)\Bigr]
+    \end{align}
+    称为\textbf{柯特斯公式}。
+
+    更高阶的牛顿-柯特斯公式不稳定，一般不用。一般令$n\leq 7$。
+
+    由定理\ref{chazhi}知，$n$阶牛顿-柯特斯公式\textbf{至少}具有$n$次代数精度。实际上辛甫生公式（二阶）和柯特斯公式（四阶）分别具有3次和5次代数精度。
+
+    \subsubsection{复化求积（P63）}
+
+    复化求积法是指，先用低阶的求积公式求得每个子段$[x_k,x_{k+1}]$上的积分值$I_k$，然后将它们累加求和，用$\sum_{k=0}^{n-1}I_k$作为积分$I$的近似值。
+
+    在下面的一系列式子中，都有$h=x_{k+1}-x_k$。
+
+    复化梯形公式
+    \begin{equation}
+        T_n=\frac{h}{2}\left[f(a)+2\sum_{k=1}^{n-1}f(x_k)+f(b)\right]
+    \end{equation}
+    误差
+    \begin{equation}
+        I-T_n\approx -\frac{h^2}{12}\left[f'(b)-f'(a)\right]
+    \end{equation}
+
+    复化辛甫生公式
+    \begin{equation}
+        S_n=\frac{h}{6}\left[f(a)+4\sum_{k=0}^{n-1}f(x_{k+\frac{1}{2}})+2\sum_{k=1}^{n-1}f(x_k)+f(b)\right]
+    \end{equation}
+    误差
+    \begin{equation}
+        I-S_n\approx -\frac{1}{180}\left(\frac{h}{2}\right)^4\left[f'''(b)-f'''(a)\right]
+    \end{equation}
+
+    复化柯特斯公式
+    \begin{align}
+        C_n=& \frac{h}{90} \biggl[ 7f(a)+32\sum_{k=0}^{n-1} f(x_{k+\frac{1}{4}}) \nonumber \\
+        &+12 \sum_{k=0}^{n-1} f(x_{k+\frac{1}{2}}) + 32\sum_{k=0}^{n-1} f(x_{k+\frac{3}{4}}) \nonumber \\
+        &+14 \sum_{k=1}^{n-1} f(x_k)+7f(b) \biggr]
+    \end{align}
+    误差
+    \begin{equation}
+        I-C_n\approx -\frac{2}{945}\left(\frac{h}{4}\right)^6\left[f^{(5)}(b)-f^{(5)}(a)\right]
+    \end{equation}
+
+    \subsection{龙贝格算法（P66）}
+
+    根据事后误差估计法修正上节的公式（过程见P68），可以得到如下迭代加速公式：
+    \begin{gather}
+        S_n = \frac{4}{3}T_{2n}-\frac{1}{3}T_n \\
+        C_n = \frac{16}{15}S_{2n}-\frac{1}{15}S_n \\
+        R_n = \frac{64}{63}C_{2n}-\frac{1}{63}C_n
+    \end{gather}
+
+    于是，根据$T_1,T_2,T_4,T_8,T_{16},\cdots$，可以得到$S_1,S_2,S_4,S_8,\cdots$，可以得到$C_1,C_2,C_4,\cdots$，可以得到$R_1,R_2,\cdots$。
+    这种加速方法称为\textbf{龙贝格算法}。注意它已经不属于牛顿-柯特斯公式。
+
+    \subsection{高斯公式（P71）}
+
+    牛顿-柯特斯公式的求积节点是等分的，如果能够适当地选取这些节点，可以使求积公式具有$2n-1$次代数精度。这种公式称为\textbf{高斯公式}，相应的求积节点$x_k$称为\textbf{高斯点}。通式如下：
+    \begin{equation}
+        \int_{-1}^{1}f(x)dx\approx \sum_{k=1}^{n}A_k f(x_k)
+    \end{equation}
+
+    高斯公式也是插值型求积公式。（课本P71指出“本章所考察的求积公式都是插值型的”）
+
+    一点高斯公式就是中矩形公式（$2\times 1-1=1$次代数精度）：
+    \begin{equation}
+        \int_{-1}^{1}f(x)dx\approx 2f(0)
+    \end{equation}
+    其高斯点$x_1=0$。
+
+    两点高斯公式（$2\times 2-1=3$次代数精度）：
+    \begin{equation}
+        \label{liangdian_gaosi}
+        \int_{-1}^{1}f(x)dx\approx f\left(-\frac{1}{\sqrt{3}}\right)+f\left(\frac{1}{\sqrt{3}}\right)
+    \end{equation}
+    其高斯点$x_1=-\frac{1}{\sqrt{3}},x_2=\frac{1}{\sqrt{3}}$。
+
+    对上式(\ref{liangdian_gaosi})做变换，可以得到$[a,b]$上的高斯公式：
+    \begin{align}
+        \int_{-1}^{1}f(x)dx\approx &\frac{b-a}{2}\biggl[ f\left(-\frac{b-a}{2\sqrt{3}}+\frac{a+b}{2}\right) \nonumber \\
+        &+f\left(\frac{b-a}{2\sqrt{3}}+\frac{a+b}{2}\right)\biggr]
+    \end{align}
+
+    三点高斯公式（$2\times 3-1=5$次代数精度）：
+    \begin{equation}
+        \int_{-1}^{1}f(x)dx\approx \frac{5}{9}f\left(-\sqrt{\frac{3}{5}}\right)+\frac{8}{9}f(0)+\frac{5}{9}f\left(\sqrt{\frac{3}{5}}\right)
+    \end{equation}
+
+    \subsubsection{高斯点的基本特性（P72）}
+
+    \begin{theorem}
+        节点$x_k\ (k=1,2,\cdots,n)$是高斯点的充要条件是，多项式
+        \begin{equation*}
+            \omega(x)=(x-x_1)(x-x_2)\cdots(x-x_n)
+        \end{equation*}
+        满足
+        \begin{equation*}
+            \int_{-1}^{1}x^k\omega(x)dx = 0,\quad k=0,1,\cdots,n-1
+        \end{equation*}
+    \end{theorem}
+
+\end{multicols}
+
+% \newpage
+
+\section{第三章\ 常微分方程的差分方法}
+
+\begin{multicols}{2}
+    \subsection{欧拉方法}
+
+    \subsubsection{欧拉格式（P98）}
+
+    微分方程的数值解法首先就是要消除导数项，这一步称为\textbf{离散化}。
+
+    微分方程可以写成
+    \begin{equation}
+        y'=f(x,y)
+    \end{equation}
+    的形式。用差商代替导数，整理可得\textbf{欧拉(Euler)格式}：
+    \begin{equation}
+        \label{xianshi_euler}
+        y_{n+1}=y_n+hf(x_n,y_n),\quad n=0,1,2,\cdots
+    \end{equation}
+
+    在$y_n$为准确（即$y_n=y(x_n)$）的前提下估计误差$y(x_{n+1})-y_{n+1}$。这种误差称为\textbf{局部截断误差}。
+
+    称一种数值方法的精度是$p$阶的，如果其局部截断误差为$O(h^{p+1})$。
+
+    欧拉格式为一阶方法。
+
+    \subsubsection{隐式欧拉格式（P99）}
+
+    若将微分方程$y'(x_{n+1})=f(x_{n+1},y(x_{n+1}))$中的导数项用向后差商替代，则可得到
+    \begin{equation}
+        \label{yinshi_euler}
+        y_{n+1}=y_n+hf(x_{n+1},y_{n+1})
+    \end{equation}
+    称为隐式欧拉格式。也是一阶方法。
+
+    \subsubsection{两步欧拉格式（P99）}
+
+    用中心差商替代导数项，可以得到两步欧拉格式
+    \begin{equation}
+        y_{n+1}=y_{n-1}+2hf(x_n,y_n)
+    \end{equation}
+    这是一种二阶方法。
+
+    \subsection{改进的欧拉方法}
+
+    思路是通过两端积分，将微分方程的导数项转换为积分项，然后采用数值求积方法解决。
+
+    \subsubsection{梯形格式（P100）}
+
+    公式如下：
+    \begin{equation}
+        \label{tixinggeshi}
+        y_{n+1}=y_n+\frac{h}{2}\left[f(x_n,y_n)+f(x_{n+1},y_{n+1})\right]
+    \end{equation}
+
+    梯形格式是显式欧拉格式(\ref{xianshi_euler})和隐式欧拉格式(\ref{yinshi_euler})的算术平均。这是一种隐式格式。
+
+    梯形格式具有二阶精度（存疑）。
+
+    \subsubsection{改进的欧拉格式}
+
+    先用欧拉方法求一个$y_{n+1}$的近似值，然后代替式\ref{tixinggeshi}右端的$y_{n+1}$，得到校正值，合起来写是
+    \begin{equation}
+        y_{n+1}=y_n+\frac{h}{2}\left[f(x_n,y_n)+f(x_{n+1},y_n+hf(x_n,y_n))\right]
+    \end{equation}
+    称为改进的欧拉格式。这是一种一步显式格式。
+
+    \subsection{龙格-库塔方法}
+
+    \subsubsection{设计思想}
+
+    如果设法在$[x_n,x_{n+1}]$内多预报几个点的斜率值，然后将它们加权平均作为区间上的平均斜率$K^*$，则可能得到更高精度的方法。
+
+    \subsubsection{二阶龙格-库塔方法（P103）}
+
+    二阶龙格-库塔方法有两种常见形式（解释见课本）。第一种形式就是改进的欧拉格式。第二种格式又称\textbf{中点格式}：
+    \begin{equation}
+        \left\{\begin{array}{l}
+            y_{n+1} = y_n+hK_2 \\
+            K_1 = f(x_n,y_n) \\
+            K_2 = f\left(x_{n+\frac{1}{2}},y_n+\frac{h}{2}K_1 \right )
+        \end{array}\right.
+    \end{equation}
+
+    \subsubsection{三阶龙格-库塔方法（P104）}
+
+    其中的一种：
+    \begin{equation}
+        \left\{\begin{array}{l}
+            y_{n+1} = y_n+\frac{h}{6}(K_1+4K_2+K_3) \\
+            K_1 = f(x_n,y_n) \\
+            K_2 = f\left(x_{n+\frac{1}{2}},y_n+\frac{h}{2}K_1 \right ) \\
+            K_3 = f\left(x_{n+1},y_n+h(-K_1+2K_2) \right )
+        \end{array}\right.
+    \end{equation}
+
+    \subsubsection{四阶龙格-库塔方法（P105）}
+
+    其中的一种：
+    \begin{equation}
+        \left\{\begin{array}{l}
+            y_{n+1} = y_n=\frac{h}{6}(K_1+2K_2+2K_3+K_4) \\
+            K_1 = f(x_n,y_n) \\
+            K_2 = f\left(x_{n+\frac{1}{2}},y_n+\frac{h}{2}K_1 \right ) \\
+            K_3 = f\left(x_{n+\frac{1}{2}},y_n+\frac{h}{2}K_2 \right ) \\
+            K_4=f\left(x_{n+1},y_n+hK_3\right)
+        \end{array}\right.
+    \end{equation}
+    
+    龙格-库塔方法要求解具有良好的光滑性。如果光滑性差，那么龙格-库塔方法可能不如改进的欧拉方法。
+
+    \subsection{亚当姆斯方法（P108）}
+
+    （本节疑似不考）
+
+    记$y_{n-k}'=f(x_{n-k},y_{n-k})$（差商），则有如下显式格式：\\
+    二阶显式亚当姆斯格式
+    \begin{equation}
+        y_{n+1}=y_n+\frac{h}{2}(3y_n'-y_{n-1}')
+    \end{equation}
+    三阶显式亚当姆斯格式
+    \begin{equation}
+        y_{n+1}=y_n+\frac{h}{12}(23y_n'-16y_{n-1}'+5y_{n-2}')
+    \end{equation}
+    四阶显式亚当姆斯格式
+    \begin{equation}
+        y_{n+1}=y_n+\frac{h}{24}(55y_n'-59y_{n-1}'+37y_{n-2}'-9y_{n-3}')
+    \end{equation}
+
+    此外还有如下隐式格式：\\
+    二阶隐式亚当姆斯格式
+    \begin{equation}
+        y_{n+1}=y_n+\frac{h}{2}(y_{n+1}'+y_n')
+    \end{equation}
+    三阶隐式亚当姆斯格式
+    \begin{equation}
+        y_{n+1}=y_n+\frac{h}{12}(5y_{n+1}'+8y_n'-y_{n-1}')
+    \end{equation}
+    四阶隐式亚当姆斯格式
+    \begin{equation}
+        y_{n+1}=y_n+\frac{h}{24}(9y_{n+1}'+19y_n'-5y_{n-1}'+y_{n-2}')
+    \end{equation}
+
+    \subsubsection{亚当姆斯预报-校正系统（P109）}
+
+    类似改进的欧拉方法，通过显式、隐式亚当姆斯格式可以得到\textbf{亚当姆斯预报-校正系统}，下面是四阶的情况：\\
+    预报
+    \begin{align*}
+        & \overline{y}_{n+1}=y_n+\frac{h}{24}(55y_n'-59y_{n-1}'+37y_{n-2}'-9y_{n-3}') \\
+        & \overline{y}_{n+1}'=f(x_{n+1},y_{n+1})
+    \end{align*}
+    校正
+    \begin{align*}
+        & y_{n+1}=y_n+\frac{h}{24}(9\overline{y}_{n+1}'+19y_n'-5y_{n-1}'+y_{n-2}') \\
+        & y_{n+1}'=f(x_{n+1},y_{n+1})
+    \end{align*}
+
+    使用时，$y_{n+1}$是输出的结果，$y_{n+1}'$用于为后续插值点提供数据。
+
+    此预报-校正系统的事后误差估计与补偿公式请见课本P111。
+
+    \subsection{收敛性与稳定性（P112）}
+
+    主要内容略。
+
+    \subsubsection{收敛性问题}
+
+    对于任意固定的$x_n=x_0+nh$，如果数值解$y_n$当$h\to 0$（同时$n\to\infty$）时趋向于准确解$y(x_n)$，则称该方法是\textbf{收敛}的。
+
+    \subsubsection{稳定性问题}
+
+    欧拉方法是条件稳定的。
+
+    隐式欧拉格式是恒稳定（无条件稳定）的。
+
+\end{multicols}
+
+% \newpage
+
+\section{第四章\ 方程求根的迭代法}
+
+\begin{multicols}{2}
+    \subsection{迭代过程的收敛性}
+
+    对一般方程$f(x)=0$，为了使用迭代法，需要将其改写成$x=\varphi(x)$的格式，其中$\varphi(x)$成为迭代函数。
+
+    迭代公式：$x_{k+1}=\varphi(x_k),\quad k=0,1,2,\cdots$
+
+    如果$x_k$有极限，则称\textbf{迭代收敛}。
+
+    几何意义：求根问题在几何上就是确定曲线$y=\varphi(x)$与直线$y=x$的交点。
+
+    \subsubsection{压缩映像原理（P129）}
+
+    \begin{theorem}
+        设$\varphi(x)$在$[a,b]$上具有连续的一阶导数，且满足下列两项条件：\\
+        (1).对于任意$x\in[a,b]$，总有$\varphi\in[a,b]$；\\
+        (2).存在$0\leq L\leq 1$，使对于任意$x\in[a,b]$成立\\
+        \begin{equation}
+            \lvert\varphi'(x)\rvert \leq L
+        \end{equation}
+        则迭代过程$x_{k+1}=\varphi(x_k)$对任意初值$x_0\in[a,b]$均收敛于方程$x=\varphi(x)$的根$x^*$，且有下列误差估计式\\
+        \begin{gather}
+            \lvert x^*-x_k\rvert\leq \frac{1}{1-L}\lvert x_{k+1}-x_k\rvert \\
+            \lvert x^*-x_k\rvert\leq\frac{L^k}{1-L}\lvert x_1-x_0\rvert
+        \end{gather}
+    \end{theorem}
+
+    \subsubsection{局部收敛性}
+
+    称一种迭代过程在根$x^*$\textbf{邻近收敛}，如果存在邻域$\varDelta$：$\lvert x-x^*\rvert\leq\delta$，使迭代过程
+    对于任意初值$x_0\in\varDelta$均收敛。这种在根的邻近所具有的收敛性称为\textbf{局部收敛性}。
+
+    \begin{theorem}
+        设$\varphi(x)$在$x\varphi(x)$的根$x^*$邻近有连续一阶导数，且成立 \\
+        \begin{equation*}
+            \lvert\varphi'(x^*)\rvert \leq 1
+        \end{equation*}
+        则迭代过程$x_{k+1}=\varphi(x_k)$在$x^*$邻近具有局部收敛性。
+    \end{theorem}
+
+    \subsubsection{收敛速度}
+
+    如果迭代误差$e_k=x^*-x_k$当$k\rightarrow\infty$时成立
+    \begin{equation*}
+        \frac{e_{k+1}}{e_k^p}\rightarrow c\quad (c\neq 0\ \text{常数})
+    \end{equation*}
+    则称迭代过程是\textbf{$p$阶收敛的}。$p=1$时称\textbf{线性收敛}，$p=2$时称平方收敛。
+
+    \begin{theorem}
+        设$\varphi(x)$在$x=\varphi(x)$的根$x^*$邻近有连续二阶导数，且 \\
+        \begin{equation*}
+            \lvert\varphi'(x^*)\rvert \leq 1
+        \end{equation*}
+        则$\varphi'(x^*)\neq0$时迭代过程为线性收敛；而当$\varphi'(x^*)=0$，$\varphi''(x^*)\neq0$时为平方收敛。
+    \end{theorem}
+
+    \subsection{迭代过程的加速}
+
+    \subsubsection{经典加速方法（P133）}
+
+    加速迭代公式（P133）
+    \begin{equation}
+        x_{k+1}=\frac{1}{1-L}\left[\varphi(x_k)-Lx_k\right]
+    \end{equation}
+    其中$L=\varphi'(x_0)$。
+
+    \subsubsection{埃特金加速方法（P133）}
+
+    经典方法的$L$需要求导得到，此法的好处是不需要求导。
+
+    迭代\ $\overline{x}_{k+1}=\varphi(x_k)$
+
+    迭代\ $\widetilde{x}_{k+1}=\varphi\left(\overline{x}_{k+1} \right )$
+
+    改进\ $x_{k=1}=\widetilde{x}_{k+1}-\frac{(\widetilde{x}_{k+1}-\overline{x}_{k+1})^2}{\widetilde{x}_{k+1}-2\overline{x}_{k+1}+x_k}$
+
+    \subsection{牛顿法（P135）}
+
+    牛顿公式：
+    \begin{equation}
+        x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}
+    \end{equation}
+
+    几何解释：P136
+
+    \begin{theorem}
+        牛顿法在$f(x)=0$的单根$x^*$附近平方收敛。
+    \end{theorem}
+
+    \subsubsection{开方公式（P137）}
+
+    使用牛顿法解二次方程$x^2-c=0$即得开方公式：
+    \begin{equation}
+        x_{k+1}=\frac{1}{2}\left(x_k+\frac{c}{x_k}\right)
+    \end{equation}
+
+    \begin{theorem}
+        开方公式对于任意初值$x_0>0$均平方收敛。
+    \end{theorem}
+
+    \subsubsection{牛顿下山法（P138）}
+
+    若初值$x_0$偏离$x^*$较远，则牛顿法可能发散。为了防止发散，需要额外保证函数值单调下降：
+    \begin{equation}
+        \lvert f(x_{k=1})\rvert<\lvert f(x_k)\rvert
+    \end{equation}
+
+    因此采用下列迭代公式
+    \begin{equation}
+        x_{k+1}=x_k-\lambda\frac{f(x_k)}{f'(x_k)}
+    \end{equation}
+    其中$0<\lambda\leq1$称为\textbf{下山因子}。
+
+    操作方法：从$\lambda=1$开始反复将$\lambda$的值减半试算，一旦上面的单调性条件成立，则认为“下山成功”。反之若找不到合适的下山因子，则认为“下山失败”，此时需重选$x_0$再下山。
+
+    \subsection{弦截法（P139）}
+
+    弦截法的思想是，用差商$\frac{f(x_k)-f(x_0)}{x_k-x_0}$代替牛顿法中的导数项。
+
+    公式：
+    \begin{equation}
+        x_{k+1}=x_k-\frac{f(x_k)}{f(x_k)-f(x_0)}(x_k-x_0)
+    \end{equation}
+    
+    弦截法为线性收敛。
+
+    如果使用差商$\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}$替代牛顿公式中的导数项，则得到\textbf{快速弦截法}：
+    \begin{equation}
+        x_{k+1}=x_k-\frac{f(x_k)}{f(x_k)-f(x_{k-1})}(x_k-x_{k-1})
+    \end{equation}
+    这是一种两步方法，使用时需要先提供两个开始值$x_0,x_1$。
+
+\end{multicols}
+
+% \newpage
+
+\section{第五章\ 线性方程组的迭代法}
+
+\begin{multicols}{2}
+    \subsection{雅可比迭代、高斯-塞德尔迭代、超松弛法}
+
+    这部分参考课本P156-161，结合例子容易理解。
+
+    松弛法：
+    \begin{equation}
+        x_i^{(k+1)}=(1-\omega)x_i^{(k)}+\omega\times \text{G-S迭代值}
+    \end{equation}
+    其中$1<\omega<2$的松弛法称为\textbf{超松弛法（SOR方法）}。
+
+    \subsection{向量和矩阵的范数}
+
+    \subsubsection{向量的范数（P162）}
+
+    任给向量$\mathbf{x}=(x_1,x_2,\cdots,x_n)^T$，其\textbf{范数}记$\lVert x\rVert$，它是一个实数，且满足下列三项条件：
+
+    \begin{enumerate}[label=(\arabic*)]
+        \item 对于任意向量$\mathbf{x}$，$\lVert \mathbf{x}\rVert\geq 0$，当且仅当$\mathbf{x}=\mathbf{0}$时$\lVert \mathbf{x}\rVert =0$。
+        \item 对于任意实数$\lambda$及任意向量$\mathbf{x}$
+            \begin{equation*}
+                \lVert\lambda \mathbf{x}\rVert=\lvert\lambda\rvert\cdot \lVert \mathbf{x}\rVert
+            \end{equation*}
+        \item\label{sanjiao_budengshi} 对于任意向量$\mathbf{x}$和$\mathbf{y}$，有
+            \begin{equation*}
+                \lVert \mathbf{x}+\mathbf{y}\rVert\leq \lVert \mathbf{x}\rVert+\lVert \mathbf{y}\rVert
+            \end{equation*}
+    \end{enumerate}
+    其中，性质\ref{sanjiao_budengshi}称作向量范数的\textbf{三角不等式}。
+
+    $p$\ -\ 范数通式：
+    \begin{equation}
+        \lVert\mathbf{x}\rVert_p=\left(\sum_{i=1}^{n}\lvert x_i\rvert^p\right)^{\frac{1}{p}}
+    \end{equation}
+
+    常用范数：
+    \begin{enumerate}[label=(\arabic*)]
+        \item 2\ -\ 范数（长度）
+            \begin{equation*}
+                \lVert\mathbf{x}\rVert_2=\left(\sum_{i=1}^{n} x_i^2\right)^{\frac{1}{2}}
+            \end{equation*}
+        \item 1\ -\ 范数
+            \begin{equation*}
+                \lVert\mathbf{x}\rVert_1=\sum_{i=1}^{n}\lvert x_i\rvert
+            \end{equation*}
+        \item $\infty$\ -\ 范数
+            \begin{equation*}
+                \lVert\mathbf{x}\rVert_\infty=\underset{1\leq i\leq n}{\text{max}}\lvert x_i\rvert
+            \end{equation*}
+    \end{enumerate}
+
+    \begin{theorem}
+        对于任意向量$\mathbf{x}$，有
+        \begin{equation}
+            \lim_{p\to\infty}\lVert\mathbf{x}\rVert_p=\lVert\mathbf{x}\rVert_\infty
+        \end{equation}
+    \end{theorem}
+
+    如果存在正数$c_1,c_2$，使对于任意向量$\mathbf{x}$均有
+    \begin{equation*}
+        \lVert\mathbf{x}\rVert_p\leq c_1\lVert\mathbf{x}\rVert_p,\quad \lVert\mathbf{x}\rVert_q\leq c_2\lVert\mathbf{x}\rVert_p
+    \end{equation*}
+    则称范数$\lVert\mathbf{\cdot}\rVert_p$与$\lVert\mathbf{\cdot}\rVert_q$等价。范数的等价关系有\textbf{传递性}。
+    
+    \begin{theorem}
+        任何范数$\lVert\mathbf{x}\rVert_p\ (p<\infty)$均与$\lVert\mathbf{x}\rVert_\infty$等价，因而任何两种$p$\ -\ 范数彼此都是等价的。
+    \end{theorem}
+
+    \begin{theorem}
+        在空间$\mathbb{R}^n$中，向量序列$\{\mathbf{x}^{(k)}\}$收敛于向量$\mathbf{x}$的充要条件是对$\mathbf{x}$的任意范数$\lVert\mathbf{\cdot}\rVert$，有：
+        \begin{equation*}
+            \lim_{k\to\infty}\lVert\mathbf{x}^{(k)}-\mathbf{x}^*\rVert_p=0
+        \end{equation*}
+    \end{theorem}
+
+    \subsubsection{矩阵的范数（P164）}
+
+    设$\mathbf{A}$是$n$阶方阵，$\lVert\mathbf{x}\rVert$为某范数，称
+    \begin{equation*}
+        \lVert\mathbf{A}\rVert=\underset{x\neq 0}{\text{max}}\frac{\lVert\mathbf{Ax}\rVert}{\lVert\mathbf{x}\rVert}
+    \end{equation*}
+    为矩阵$\mathbf{A}$的从属于该向量范数的范数，或称矩阵$\mathbf{A}$的范数，记为$\lVert\mathbf{A}\rVert$。
+
+    矩阵范数的性质：
+    \begin{enumerate}[label=(\arabic*)]
+        \item （正定性）对任意方阵$\mathbf{A}$，$\lVert\mathbf{A}\rVert\geq 0$，当且仅当$\mathbf{A}=\mathbf{0}$时$\lVert\mathbf{A}\rVert=0$。
+        \item （齐次性）对任意实数$\lambda$和任意方阵$\mathbf{A}$，有
+            \begin{equation*}
+                \lVert\lambda\mathbf{A}\rVert=\lvert\lambda\rvert\lVert\mathbf{A}\rVert
+            \end{equation*}
+        \item 对任意两个同阶方阵$\mathbf{A}$和$\mathbf{B}$，有
+            \begin{gather*}
+                \lVert\mathbf{A}+\mathbf{B}\rVert \leq \lVert\mathbf{A}\rVert + \lVert\mathbf{B}\rVert\quad \text{（三角不等式）}\\
+                \lVert\mathbf{AB}\rVert \leq \lVert\mathbf{A}\rVert \lVert\mathbf{B}\rVert\quad \text{（相容性）}
+            \end{gather*}
+    \end{enumerate}
+
+    有什么样的向量范数，就有什么样的矩阵范数。因此有矩阵$\mathbf{A}$的$p$\ -\ 范数：（略）
+
+    矩阵$\mathbf{A}$的\textbf{行范数}：
+    \begin{equation}
+        \lVert\mathbf{A}\rVert_\infty=\underset{1\leq i\leq n}{\text{max}}\sum_{j=1}^{n}\lvert a_{ij}\rvert
+    \end{equation}
+
+    矩阵$\mathbf{A}$的\textbf{列范数}：
+    \begin{equation}
+        \lVert\mathbf{A}\rVert_1=\underset{1\leq j\leq n}{\text{max}}\sum_{i=1}^{n}\lvert a_{ij}\rvert
+    \end{equation}
+
+    矩阵$\mathbf{A}$的\textbf{F-范数}：
+    \begin{equation}
+        \lVert\mathbf{A}\rVert_F=\left(\sum_{j=1}^{n}\sum_{i=1}^{n}a_{ij}^2\right)^{\frac{1}{2}}
+    \end{equation}
+
+    矩阵$\mathbf{A}$的\textbf{2-范数（谱范数）}：
+    \begin{equation}
+        \lVert\mathbf{A}\rVert_2=\left[\lambda_\text{max}(A^T A)\right]^\frac{1}{2}
+    \end{equation}
+    其中，$\lambda_\text{max}$是矩阵$\mathbf{A}$的最大特征值。矩阵$\mathbf{A}$为对称矩阵时，它的2-范数和谱半径相等。
+
+    易错：不要忽略了绝对值符号！
+
+    \subsection{迭代过程的收敛性}
+
+    雅可比迭代和高斯-塞德尔迭代公式都可以写成如下形式
+    \begin{equation}
+        \label{diedai_in_matrix}
+        \mathbf{x}^{(k+1)}=\mathbf{GX}^{(k)}+\mathbf{b}
+    \end{equation}
+    其中$\mathbf{G}$称为公式()\ref{diedai_in_matrix})的\textbf{迭代矩阵}。
+
+    \begin{theorem}
+        若迭代矩阵$\mathbf{G}$满足
+        \begin{equation}
+            \lVert\mathbf{G}\rVert<1
+        \end{equation}
+        则迭代公式()\ref{diedai_in_matrix})对于任意初值$\mathbf{x}^{(0)}$均收敛。
+    \end{theorem}
+
+    \subsubsection{对角占优方程组}
+
+    如果$n$阶方阵$\mathbf{A}=(a_{ij})_{n\times n}$的主对角线元素的绝对值大于同行其他元素的绝对值之和，则称其为\textbf{对角占优矩阵}。
+    系数矩阵为对角占优矩阵的线性方程组称为\textbf{对角占优方程组}。
+
+    \begin{theorem}
+        若$A$为对角占优矩阵，则它是非奇异的，且它对应的线性方程组的雅可比迭代公式和高斯-塞德尔迭代公式都收敛。
+    \end{theorem}
+
+\end{multicols}
+
+% \newpage
+
+\section{第六章\ 线性方程组的直接法}
+
+\begin{multicols}{2}
+    \subsection{消去法}
+
+    \subsubsection{约当消去法（P172）}
+
+    约当消去法：每一步在一个方程中保留某个变元，而从其他方程中消去这个变元，反复消元后，方程组的每个方程都只剩下一个变元。
+    约当消去法的总计算量约为$\frac{n^3}{3}$，$n$为方程个数。
+
+    \subsubsection{高斯消去法（P176）}
+
+    这是约当消去法的改进版本。计算量约为约当消去的50\%左右。
+
+    \subsubsection{选主元素（P179）}
+
+    略
+    
+    \subsection{追赶法}\label{zhuiganfa}
+
+    有如下\textbf{三对角阵}：
+    \begin{equation}
+        \label{sanduijiaozhen}
+        \mathbf{A}=
+        \begin{bmatrix}
+            &b_1  &c_1 &\cdots &\cdots &0 \\ 
+            &a_2  &b_2 &c_2 &\cdots &\vdots \\
+            &\vdots &\ddots &\ddots &\ddots &\vdots \\
+            &\vdots &\cdots &a_{n-1} &b_{n-1} &c_{n-1} \\
+            &0 &\cdots &\cdots &a_n &b_n 
+        \end{bmatrix}
+    \end{equation}
+
+    \begin{theorem}
+        假设上面的三对角阵(\ref{sanduijiaozhen})为对角占优，则它是非奇异的，且以(\ref{sanduijiaozhen})为系数矩阵的方程组有唯一解。
+    \end{theorem}
+
+    \subsubsection{追赶法的计算公式（P182）}
+
+    \textbf{追的过程}（消元过程）：按照如下顺序计算系数$u_1\to u_2\to\cdots\to u_{n-1}$和$y_1\to y_2\to\cdots\to y_n$。
+    \begin{align}
+        & u_1 = \frac{c_1}{b_1},\quad y_1=\frac{f_1}{b_1} \nonumber \\
+        & u_i = \frac{c_i}{b_i-u_{i-1}a_i},\quad i = 2,3,\cdots,n-1 \\
+        & y_i = \frac{f_i-y_{i-1}a_i}{b_i-u_{i-1}a_i},\quad i = 2,3,\cdots,n \nonumber
+    \end{align}
+    $a_i,b_i,c_i$都是矩阵(\ref{sanduijiaozhen})中的值，$f_i$是对应方程组等号右边的数排成的向量。
+
+    \textbf{赶的过程}（回代过程）：按照下面的式子逆序求出解$x_n\to x_{n-1}\to\cdots\to x_1$。
+    \begin{align}
+        & x_n = y_n \nonumber \\
+        & x_i = y_i - u_i x_{i+1},\quad i = n-1, n-2, \cdots, 1
+    \end{align}
+
+    追赶法的计算量仅为$5n$次乘除法。
+
+    \subsubsection{追赶法的代数基础（P183）}
+
+    有如下\textbf{单位上二对角阵}
+    \begin{equation}
+        \mathbf{U}=
+        \begin{bmatrix}
+            &1  &u_1 &\cdots &\cdots &0 \\ 
+            &\vdots &1 &u_2 &\cdots &\vdots \\
+            &\vdots &\vdots &\ddots &\ddots &\vdots \\
+            &\vdots &\cdots &\cdots &1 &u_{n-1} \\
+            &0 &\cdots &\cdots &\cdots & 1
+        \end{bmatrix}
+    \end{equation}
+
+    和如下\textbf{下二对角阵}
+    \begin{equation}
+        \mathbf{L}=
+        \begin{bmatrix}
+            &d_1  &\cdots &\cdots &\cdots &0 \\ 
+            &a_2 &d_2 &\cdots &\cdots &\vdots \\
+            &\vdots &\ddots &\ddots &\cdots &\vdots \\
+            &\vdots &\cdots &a_{n-1} &d_{n-1} &\cdots \\
+            &0 &\cdots &\cdots &a_n &d_n
+        \end{bmatrix}
+    \end{equation}
+    （类似地，可以得到\textbf{单位下二对角阵}和\textbf{上二对角阵}的形式）
+
+    \begin{theorem}
+        如果矩阵(\ref{sanduijiaozhen})为对角占优，则它可以：
+        \begin{itemize}
+            \item 分解为$\mathbf{A}=\mathbf{LU}$的形式，其中$\mathbf{L}$为单位下二对角阵，$\mathbf{U}$为上二对角阵。此分解称为\textbf{杜里特尔(Doolittle)分解}。
+            \item 分解为$\mathbf{A}=\mathbf{LU}$的形式，其中$\mathbf{L}$为下二对角阵，$\mathbf{U}$为单位上二对角阵。此分解称为\textbf{克劳特(Crout)分解}。
+        \end{itemize}
+        且上述两种分解都是唯一的。
+    \end{theorem}
+
+    \subsection*{平方根法}
+
+    此为选讲内容，故略。
+
+    \subsection{误差分析}
+
+    \subsubsection{方程组的病态}
+
+    系数只有微小差别，解却大不相同的方程组称作是\textbf{病态的}。
+
+    记
+    \begin{equation*}
+        \text{cond}(\mathbf{A})\equiv \lVert\mathbf{A}^{-1}\rVert \lVert\mathbf{A}\rVert
+    \end{equation*}
+    为矩阵$\mathbf{A}$的\textbf{条件数}。则系数矩阵$\mathbf{A}$和右端项$\mathbf{b}$导致的误差估计式可以分别表示为
+    \begin{equation*}
+        \frac{\lVert\delta\mathbf{x}\rVert}{\lVert\mathbf{x}\rVert} \leq \text{cond}(\mathbf{A})\frac{\lVert\delta\mathbf{b}\rVert}{\lVert\mathbf{b}\rVert}
+    \end{equation*}
+    与
+    \begin{equation*}
+        \frac{\lVert\delta\mathbf{x}\rVert}{\lVert\mathbf{x}\rVert} \leq \frac{\text{cond}(\mathbf{A})\frac{\lVert\delta\mathbf{A}\rVert}{\lVert\mathbf{A}\rVert}}{1-\text{cond}(\mathbf{A})\frac{\lVert\delta\mathbf{A}\rVert}{\lVert\mathbf{A}\rVert}}
+    \end{equation*}
+
+    条件数$\text{cond}(A)$刻画了方程组“病态”的程度。
+
+    不能用行列式值$\text{det}(A)$是否很小来衡量方程组$\mathbf{Ax}=\mathbf{b}$的病态程度。
+    
+    \subsubsection{精度分析}
+
+    将近似解$\widetilde{\mathbf{x}}$代回到原方程组中得到\textbf{余量$\mathbf{r}$}：
+    \begin{equation*}
+        \mathbf{r}=\mathbf{b}-\mathbf{A}\widetilde{\mathbf{x}}
+    \end{equation*}
+    如果$\mathbf{r}$很小，就认为$\widetilde{\mathbf{x}}$是相当准确的。
+
+\end{multicols}
+
+\end{document}
