@@ -1,0 +1,131 @@
+% 2022秋《计算机体系结构》作业模板
+% 请使用XeLaTeX编译
+
+\documentclass[12pt, a4paper, oneside]{ctexart}
+
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, mathrsfs}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+\fancyhead[L] {
+    % 工大计算机系的logo
+    \includegraphics[height=7.5mm]{./images/logo1.jpg}
+}
+% 在这里设置你的学号和姓名
+\fancyhead[R]{123456 张三}
+
+% 页脚中间放置页码
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{1pt}  %页眉线宽，设为0可以去页眉线
+\renewcommand{\footrulewidth}{1pt}  %脚注线的宽度
+
+\lstset{
+  language=bash,
+  basicstyle=\ttfamily,
+  frame=single
+  % 如果你需要给代码加行号，取消下面这行的注释
+  % numbers=left
+}
+
+% \geometry{left=2.54cm,right=2.54cm,top=3.18cm,bottom=3.18cm}
+
+% 题目背景色。你可以按喜好修改。
+\definecolor{shadecolor}{RGB}{241, 241, 255}
+
+% 第几次作业要改一下
+\title{
+    \includegraphics[width=0.3\textwidth]{images/hfut-badge.pdf}
+    
+    \vspace{20pt}
+    《计算机体系结构》\\ 第x次作业
+}
+% 班级学号姓名
+\author{计科23-1班\\ 123456\\ 张三}
+\date{\today}
+
+% 下面是行距。这不是标准的行距，1.25实际上对应1.5。我感觉没什么变化所以注释了
+% \linespread{1.25}
+
+\newcounter{problemname}
+\newenvironment{problem}{\begin{shaded}\stepcounter{problemname}\par\noindent\textbf{题目\arabic{problemname}. }}{\end{shaded}\par}
+\newenvironment{solution}{\par\noindent\textbf{解. }}{\par}
+% 我没用这个注记，可以用来写感想之类，用法可以仿照上面两个
+\newenvironment{note}{\par\noindent\textbf{题目\arabic{problemname}的注记. }}{\\\par}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+% 题目1从这里开始
+\begin{problem}
+    （题号）这是题目这是题目这是题目这是题目这是题目这是题目这是题目这是题目这是题目
+    \begin{enumerate}
+        \item [a. ] 这是第一问
+        \item [b. ] 这是第二问
+        \item [c. ] 这是第三问
+    \end{enumerate}
+\end{problem}
+
+% 题目1的解
+\begin{solution}
+    这是解答这是解答这是解答这是解答这是解答这是解答这是解答这是解答这是解答
+    \begin{table}[!ht]
+        \centering
+        % 如果你需要修改列数和对齐规则，修改下面的cccc
+        \begin{tabular}{cccc}
+        % 经典三线表，如果你想改线宽，可以该下面toprule的参数
+        \toprule[1.5pt]
+            \textbf{表头} & \textbf{\thead{多行\\ 表头}} & \textbf{\thead{多行\\ 表头}} & \textbf{\thead{多行\\ 表头}} \\ \midrule
+            1 & 1 & 1 & 1 \\ 
+            2 & 2 & 2 & 2 \\ 
+            3 & 3 & 3 & 3 \\
+            $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ \\
+            \textbf{123} & & & 123 \\ \bottomrule[1.5pt]
+        \end{tabular}
+    \end{table}
+    下面是公式：
+    % 如果你想让公式带编号，移除星号。
+    \begin{equation*}
+        a^2+b^2=c^2
+    \end{equation*}
+    下面是一行代码：
+    \begin{lstlisting}
+        git check master
+    \end{lstlisting}
+
+    这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本\\
+    这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本\\
+    这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本这是文本\\
+
+    % 因为使用了ref，所以请将本文件编译至少两遍来使引用生效。
+    插入图片，见图\ref{aaa}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/logo1.jpg}
+        \caption{这是题注这是题注}
+        \label{aaa}
+    \end{figure}
+\end{solution}
+
+\begin{problem}
+    这是题目这是题目这是题目这是题目这是题目这是题目这是题目这是题目这是题目
+\end{problem}
+
+\begin{solution}
+    这是解答这是解答这是解答这是解答这是解答这是解答这是解答这是解答这是解答
+\end{solution}
+
+\end{document}
